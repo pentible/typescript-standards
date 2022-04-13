@@ -1,0 +1,17 @@
+{
+    "name": "@pentible/prettier",
+    "author": "pentible",
+    "license": "MIT",
+    "description": "Pentible's standard prettier config",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        ".prettierrc.json"
+    ],
+    "main": ".prettierrc.json"
+}

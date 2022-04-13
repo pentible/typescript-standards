@@ -1,0 +1,16 @@
+{
+    "name": "@pentible/tsconfig",
+    "author": "pentible",
+    "license": "MIT",
+    "description": "Pentible's standard tsconfig",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "tsconfig.json"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "@pentible/typescript-standards",
+    "author": "pentible",
+    "license": "MIT",
+    "private": true,
+    "workspaces": [
+        "./packages/*"
+    ],
+    "devDependencies": {
+        "prettier": "2.6.2"
+    }
+}
