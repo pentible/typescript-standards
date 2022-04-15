@@ -1,0 +1,50 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Determine New Version
+        id: version
+        uses: zwaldowski/semver-release-action@v2
+        with:
+          dry_run: true
+          bump: minor
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set Env
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "TAG=v${VERSION}" >> $GITHUB_ENV
+      - name: Update Version In Code
+        id: commit_version
+        env:
+          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+        run: |
+          npm version --workspaces --no-git-tag-version "$VERSION"
+
+          git add packages/*/package.json
+          git commit -m "bumped version to ${VERSION}"
+          git tag "$TAG"
+          git push origin "$TAG"
+
+          echo "GIT_SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
+      - name: Create Release
+        env:
+          GITHUB_USER: ${{ github.repository_owner }}
+          # NOTE: needs a user token otherwise release events won't be triggered
+          GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+        run: hub release create -t "$GIT_SHA" -m "$TAG" "$TAG"
