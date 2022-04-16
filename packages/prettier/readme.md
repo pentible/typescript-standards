@@ -2,7 +2,10 @@
 
 ## usage
 
+-   `npm i -D @pentible/prettier`
+
+-   `.prettierrc`
+
 ```
-# .prettierrc
 "@pentible/prettier"
 ```

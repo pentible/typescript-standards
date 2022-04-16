@@ -2,8 +2,11 @@
 
 ## usage
 
+-   `npm i -D @pentible/tsconfig`
+
+-   `tsconfig.json`
+
 ```
-# tsconfig.json
 {
     "extends": "@pentible/tsconfig"
 }
