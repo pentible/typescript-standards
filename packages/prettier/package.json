@@ -13,5 +13,6 @@
     "files": [
         ".prettierrc.json"
     ],
-    "main": ".prettierrc.json"
+    "main": ".prettierrc.json",
+    "version": "0.6.0"
 }
