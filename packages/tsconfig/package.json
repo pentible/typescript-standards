@@ -12,5 +12,6 @@
     },
     "files": [
         "tsconfig.json"
-    ]
+    ],
+    "version": "0.7.0"
 }
