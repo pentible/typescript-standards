@@ -7,6 +7,11 @@
         "./packages/*"
     ],
     "devDependencies": {
+        "husky": "7.0.4",
+        "lint-staged": "12.3.8",
         "prettier": "2.6.2"
+    },
+    "scripts": {
+        "prepare": "husky install"
     }
 }
