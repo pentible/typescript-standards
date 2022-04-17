@@ -1,2 +1,2 @@
-"*.{md,yml,json}":
+"*.{md,yml,json,prettierrc}":
   - prettier --check
