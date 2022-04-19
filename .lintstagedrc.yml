@@ -1,2 +1,2 @@
-"*.{md,yml,json,prettierrc}":
-  - prettier --check
+"*":
+  - prettier --check --ignore-unknown
