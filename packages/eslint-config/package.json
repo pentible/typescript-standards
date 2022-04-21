@@ -1,0 +1,26 @@
+{
+    "name": "@pentible/eslint-config",
+    "description": "Pentible's standard eslint config",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "main": "index.cjs",
+    "files": [
+        "index.cjs"
+    ],
+    "dependencies": {
+        "@typescript-eslint/parser": "5.20.0",
+        "eslint-config-prettier": "8.5.0"
+    },
+    "peerDependencies": {
+        "@typescript-eslint/eslint-plugin": ">= 5.20.0",
+        "eslint": ">= 8.13.0",
+        "eslint-plugin-import": ">= 2.26.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

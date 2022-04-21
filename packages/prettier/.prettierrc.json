@@ -3,12 +3,11 @@
     "trailingComma": "all",
     "overrides": [
         {
-            "files": ".prettierrc",
+            "files": [".prettierrc", ".parcelrc"],
             "options": { "parser": "json" }
         },
         {
-            "files": ".parcelrc",
-            "options": { "parser": "json" }
+            "files": "*.cjs"
         }
     ]
 }
