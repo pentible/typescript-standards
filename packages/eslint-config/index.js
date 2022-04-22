@@ -5,6 +5,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:import/recommended",
         "plugin:import/typescript",
+        "plugin:eslint-comments/recommended",
         "prettier",
     ],
     parserOptions: {
@@ -16,5 +17,6 @@ module.exports = {
     },
     rules: {
         // TODO:
+        "eslint-comments/no-unused-disable": "error",
     },
 };
