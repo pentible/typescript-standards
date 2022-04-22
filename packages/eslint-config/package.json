@@ -1,5 +1,6 @@
 {
     "name": "@pentible/eslint-config",
+    "version": "0.0.0",
     "description": "Pentible's standard eslint config",
     "repository": {
         "type": "git",
@@ -7,9 +8,9 @@
     },
     "license": "MIT",
     "author": "pentible",
-    "main": "index.cjs",
     "files": [
-        "index.cjs"
+        "index.js",
+        "react.js"
     ],
     "dependencies": {
         "@typescript-eslint/parser": "5.20.0",

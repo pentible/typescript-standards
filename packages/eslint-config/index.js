@@ -8,9 +8,6 @@ module.exports = {
         "prettier",
     ],
     parserOptions: {
-        ecmaFeatures: {
-            jsx: true, // TODO: move to @pentible/eslint-config/react
-        },
         sourceType: "module",
         ecmaVersion: 2018,
         // TODO: is there a way to make this work better without having a tsconfig here?
