@@ -1,9 +1,9 @@
 // TODO: target/moduleResolution likely need to be tweaked depending on package type
 {
     "compilerOptions": {
-        "target": "ES2018",
+        "target": "es2018",
         "jsx": "react-jsx",
-        "module": "esnext",
+        "module": "es2020",
         "moduleResolution": "node",
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
