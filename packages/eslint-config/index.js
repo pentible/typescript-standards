@@ -6,6 +6,8 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
         "plugin:eslint-comments/recommended",
+        "plugin:jest/recommended",
+        "plugin:jest/style",
         "prettier",
     ],
     parserOptions: {
