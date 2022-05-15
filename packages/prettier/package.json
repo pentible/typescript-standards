@@ -1,6 +1,6 @@
 {
     "name": "@pentible/prettier",
-    "version": "0.0.0",
+    "version": "0.12.0",
     "description": "Pentible's standard prettier config",
     "repository": {
         "type": "git",
