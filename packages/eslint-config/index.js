@@ -1,3 +1,4 @@
+// TODO: try to convert to .ts (should allow us to fix eslint)
 module.exports = {
     extends: [
         "eslint:recommended",

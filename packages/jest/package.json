@@ -1,0 +1,36 @@
+{
+    "name": "@pentible/jest",
+    "version": "0.0.0",
+    "description": "Pentible's standard jest preset",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "main": "./dist/index.js",
+    "source": "./index.ts",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/index.js",
+        "dist/index.d.ts",
+        "jest-preset.js",
+        "monorepo/jest-preset.js"
+    ],
+    "scripts": {
+        "build": "parcel build",
+        "watch": "parcel watch"
+    },
+    "dependencies": {
+        "ts-jest": "28.0.2"
+    },
+    "devDependencies": {
+        "@types/node": "17.0.33"
+    },
+    "engines": {
+        "node": "^16.14.2"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
