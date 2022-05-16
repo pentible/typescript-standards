@@ -1,3 +1,4 @@
+// TODO: use ~ import once ts
 const pentible_preset = require("@pentible/jest/jest-preset");
 
 module.exports = {
