@@ -13,10 +13,12 @@ module.exports = {
     ],
     parserOptions: {
         sourceType: "module",
-        ecmaVersion: 2018,
         // TODO: is there a way to make this work better without having a tsconfig here?
         tsconfigRootDir: __dirname,
         project: ["./tsconfig.json"],
+    },
+    env: {
+        es2018: true,
     },
     rules: {
         // TODO:
