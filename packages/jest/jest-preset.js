@@ -1,4 +1,5 @@
-// TODO: try to convert to .ts (should allow us to fix eslint)
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires */
+// TODO: try to convert to .ts
 const ts_preset = require("ts-jest/jest-preset");
 
 module.exports = {
@@ -16,3 +17,5 @@ module.exports = {
     // Make calling deprecated APIs throw helpful error messages
     errorOnDeprecated: true,
 };
+
+/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires */

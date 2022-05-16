@@ -1,2 +1,4 @@
 "*":
   - prettier --check --ignore-unknown
+"*.{js,ts,jsx,tsx}":
+  - eslint

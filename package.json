@@ -8,8 +8,8 @@
         "./packages/*"
     ],
     "scripts": {
-        "lint": "prettier --loglevel warn --check .",
-        "lint:fix": "prettier --loglevel warn --write .",
+        "lint": "tsc && eslint . && prettier --loglevel warn --check .",
+        "lint:fix": "eslint --fix . && prettier --loglevel warn --write .",
         "prepare": "husky install"
     },
     "devDependencies": {

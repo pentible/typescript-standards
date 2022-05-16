@@ -1,3 +1,7 @@
 {
-    "extends": "@pentible/tsconfig"
+    "extends": "@pentible/tsconfig",
+    "compilerOptions": {
+        "noEmit": true
+    }
+    // TODO: monorepo/projects setup... noEmit gets weird though...
 }
