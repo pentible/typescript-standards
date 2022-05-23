@@ -1,4 +1,5 @@
 // TODO: try to convert to .ts (should allow us to fix eslint)
+const cwd = process.cwd();
 module.exports = {
     extends: [
         "eslint:recommended",
@@ -13,12 +14,11 @@ module.exports = {
     ],
     parserOptions: {
         sourceType: "module",
-        // TODO: is there a way to make this work better without having a tsconfig here?
-        tsconfigRootDir: __dirname,
-        project: ["./tsconfig.json"],
+        tsconfigRootDir: cwd,
+        project: [`${cwd}/tsconfig.json`, `${cwd}/packages/*/tsconfig.json`],
     },
     env: {
-        es2018: true,
+        es2022: true,
     },
     rules: {
         // TODO:

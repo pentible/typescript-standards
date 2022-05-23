@@ -1,9 +1,8 @@
-// TODO: target/moduleResolution likely need to be tweaked depending on package type
 {
     "compilerOptions": {
         "target": "es2018",
         "jsx": "react-jsx",
-        "module": "es2020",
+        "module": "es2022",
         "moduleResolution": "node",
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
@@ -23,5 +22,8 @@
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
         "skipLibCheck": true
+    },
+    "ts-node": {
+        "esm": true
     }
 }

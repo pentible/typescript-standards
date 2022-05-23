@@ -3,6 +3,3 @@ extends:
   - "@pentible/eslint-config"
 env:
   node: true
-parserOptions:
-  tsconfigRootDir: .
-  project: ["./tsconfig.json", "./packages/*/tsconfig.json"]
