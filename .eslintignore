@@ -1,5 +1,5 @@
 node_modules
 /.parcel-cache/
-/packages/jest/dist/
+/packages/*/dist/
 /.husky/_/
 *.tgz
