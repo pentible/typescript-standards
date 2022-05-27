@@ -1,0 +1,35 @@
+{
+    "name": "@pentible/create-package",
+    "version": "0.0.0",
+    "description": "npm initializer to create a standard pentible package",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "type": "module",
+    "main": "./dist/index.js",
+    "source": "./src/index.ts",
+    "bin": {
+        "create-package": "./dist/index.js"
+    },
+    "files": [
+        "dist/index.js"
+    ],
+    "scripts": {
+        "build": "parcel build",
+        "start": "ts-node --transpileOnly ./src/index.ts",
+        "watch": "parcel watch"
+    },
+    "devDependencies": {
+        "@types/node": "17.0.33",
+        "ts-node": "10.7.0"
+    },
+    "engines": {
+        "node": "^16.14.2"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
