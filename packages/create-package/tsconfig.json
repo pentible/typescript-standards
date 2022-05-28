@@ -1,3 +1,9 @@
 {
-    "extends": "@pentible/tsconfig"
+    "extends": "@pentible/tsconfig",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~*": ["./*"]
+        }
+    }
 }

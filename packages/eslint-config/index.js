@@ -1,5 +1,3 @@
-// TODO: try to convert to .ts (should allow us to fix eslint)
-const cwd = process.cwd();
 module.exports = {
     extends: [
         "eslint:recommended",
@@ -14,8 +12,16 @@ module.exports = {
     ],
     parserOptions: {
         sourceType: "module",
-        tsconfigRootDir: cwd,
-        project: [`${cwd}/tsconfig.json`, `${cwd}/packages/*/tsconfig.json`],
+        tsconfigRootDir: ".",
+        project: ["tsconfig.json", "packages/*/tsconfig.json"],
+    },
+    settings: {
+        "import/resolver": {
+            typescript: {
+                alwaysTryTypes: true,
+                project: ["tsconfig.json", "packages/*/tsconfig.json"],
+            },
+        },
     },
     env: {
         es2022: true,

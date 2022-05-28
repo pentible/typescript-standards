@@ -3,3 +3,4 @@ node_modules
 /packages/*/dist/
 /.husky/_/
 *.tgz
+tsconfig.tsbuildinfo

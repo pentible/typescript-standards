@@ -1,7 +1,9 @@
 {
     "extends": "@pentible/tsconfig",
-    "compilerOptions": {
-        "noEmit": true
-    }
-    // TODO: monorepo/projects setup... noEmit gets weird though...
+    "include": [],
+    "references": [
+        { "path": "./packages/create-package" },
+        { "path": "./packages/eslint-config" },
+        { "path": "./packages/jest" }
+    ]
 }
