@@ -3,7 +3,8 @@ import fs from "fs/promises";
 import { isErrorWithCode, isErrorWithExitCode } from "~/src/utility/errors";
 import { tryLoadPackageJson } from "./PackageJson";
 import { userInfo } from "os";
-import { execa, execaCommand } from "execa";
+import { execaCommand } from "execa";
+import { formatGitUrlHttps } from "~/src/utility/git";
 
 function assumeDirectory() {
     // TODO: ~/ support
@@ -35,7 +36,7 @@ async function assumeRepository() {
     try {
         const { stdout } = await execaCommand("git remote get-url origin");
 
-        return stdout;
+        return formatGitUrlHttps(stdout);
     } catch (err) {
         if (isErrorWithExitCode(err)) {
             return undefined;

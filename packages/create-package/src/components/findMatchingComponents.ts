@@ -9,6 +9,7 @@ import HuskyComponent from "~/src/components/HuskyComponent";
 import EditorConfigComponent from "~/src/components/EditorConfigComponent";
 import NpmrcComponent from "~/src/components/NpmrcComponent";
 import IgnoreFileComponent from "~/src/components/IgnoreFileComponent";
+import JestComponent from "~/src/components/JestComponent";
 import MonorepoPackagesComponent from "~/src/components/MonorepoPackagesComponent";
 import LintFixComponent from "~/src/components/LintFixComponent";
 
@@ -18,7 +19,6 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new PackageJsonComponent(),
         new TypescriptComponent(),
         new EslintComponent(),
-        // TODO: jest (do we need in sub-packages?)
 
         // root packages (ie. stand alone or monorepo roots)
         new PrettierComponent(),
@@ -27,6 +27,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new EditorConfigComponent(),
         new NpmrcComponent(),
         new IgnoreFileComponent(),
+        new JestComponent(),
         // TODO: gh actions
 
         // TODO: browserslist

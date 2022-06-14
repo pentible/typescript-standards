@@ -9,7 +9,8 @@
     "scripts": {
         "lint": "tsc --noEmit && eslint . && prettier --loglevel warn --check .",
         "lint:fix": "eslint --fix . && prettier --loglevel warn --write .",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "test": "jest"
     },
     "devDependencies": {
         "@parcel/packager-ts": "2.5.0",

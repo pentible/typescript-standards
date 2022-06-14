@@ -3,3 +3,5 @@
 
 npx tsc --noEmit
 npx lint-staged
+# TODO: jest-silent
+npx jest --passWithNoTests # TODO: remove --passWithNoTests once tests added

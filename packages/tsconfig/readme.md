@@ -6,7 +6,7 @@
 
 -   `tsconfig.json`
 
-```
+```json
 {
     "extends": "@pentible/tsconfig"
 }

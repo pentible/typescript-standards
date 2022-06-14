@@ -6,6 +6,6 @@
 
 -   `.prettierrc`
 
-```
+```json
 "@pentible/prettier"
 ```

@@ -1,12 +1,29 @@
 import Component from "./Component";
-import { execaCommand } from "execa";
+import { execa } from "execa";
+import type PackageContext from "~src/context/PackageContext";
 
 export default class LintFixComponent extends Component {
     matches() {
         return true;
     }
 
-    async apply() {
-        await execaCommand("npx prettier --loglevel warn --write .");
+    getLintDirectory(insideMonorepo: boolean) {
+        if (insideMonorepo) {
+            // TODO: make more flexible
+            return "../../";
+        }
+
+        return ".";
+    }
+
+    async apply({ insideMonorepo }: PackageContext) {
+        const lintDirectory = this.getLintDirectory(insideMonorepo);
+        await execa("npx", [
+            "prettier",
+            "--loglevel",
+            "warn",
+            "--write",
+            lintDirectory,
+        ]);
     }
 }

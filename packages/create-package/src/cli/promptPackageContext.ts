@@ -7,6 +7,7 @@ import promptToContinue from "./promptToContinue";
 import chalk from "chalk";
 import PackageAccessLevel from "~/src/context/PackageAccessLevel";
 import License from "~/src/context/License";
+import { formatGitUrlHttps } from "~/src/utility/git";
 
 type PackageContextAnswers = AsObject<PackageContext>;
 
@@ -168,6 +169,9 @@ export default async function promptPackageContext(
             },
             filter(val: string) {
                 return val.trim();
+            },
+            transformer(val: string) {
+                return formatGitUrlHttps(val);
             },
             validate: Boolean,
             when(answers: Partial<PackageContextAnswers>) {
