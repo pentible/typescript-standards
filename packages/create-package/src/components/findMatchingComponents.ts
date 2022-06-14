@@ -3,6 +3,7 @@ import type Component from "~/src/components/Component";
 import PackageJsonComponent from "~/src/components/PackageJsonComponent";
 import TypescriptComponent from "~/src/components/TypescriptComponent";
 import EslintComponent from "~/src/components/EslintComponent";
+import CheckPackageLockComponent from "~/src/components/CheckPackageLockComponent";
 import PrettierComponent from "~/src/components/PrettierComponent";
 import LintStagedComponent from "~/src/components/LintStagedComponent";
 import HuskyComponent from "~/src/components/HuskyComponent";
@@ -22,6 +23,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
         // TODO: readme.md, src
 
         // root packages (ie. stand alone or monorepo roots)
+        new CheckPackageLockComponent(),
         new PrettierComponent(),
         new LintStagedComponent(),
         new HuskyComponent(),

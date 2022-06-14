@@ -14,6 +14,7 @@ export default class HuskyComponent extends Component {
         await execaCommand("npm i -D husky@7");
 
         await execaCommand("npm run prepare");
+        await this.addPreCommitCommand("npx check-package-lock");
         await this.addPreCommitCommand("npx tsc --noEmit");
         await this.addPreCommitCommand("npx lint-staged");
         await this.addPreCommitCommand(

@@ -1,0 +1,23 @@
+{
+    "name": "@pentible/check-package-lock",
+    "version": "0.0.0",
+    "description": "command to verify a package-lock.json is in sync with its package.json",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "bin": {
+        "check-package-lock": "./check-package-lock.sh"
+    },
+    "files": [
+        "check-package-lock.sh"
+    ],
+    "scripts": {
+        "start": "./check-package-lock.sh"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
