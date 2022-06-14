@@ -19,6 +19,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new PackageJsonComponent(),
         new TypescriptComponent(),
         new EslintComponent(),
+        // TODO: readme.md, src
 
         // root packages (ie. stand alone or monorepo roots)
         new PrettierComponent(),
