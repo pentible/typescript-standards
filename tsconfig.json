@@ -2,8 +2,14 @@
     "extends": "@pentible/tsconfig",
     "include": [],
     "references": [
-        { "path": "./packages/create-package" },
-        { "path": "./packages/eslint-config" },
-        { "path": "./packages/jest" }
+        {
+            "path": "./packages/create-package"
+        },
+        {
+            "path": "./packages/eslint-config"
+        },
+        {
+            "path": "./packages/jest"
+        }
     ]
 }

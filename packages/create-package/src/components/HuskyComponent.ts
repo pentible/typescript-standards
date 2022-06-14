@@ -17,8 +17,7 @@ export default class HuskyComponent extends Component {
         await this.addPreCommitCommand("npx tsc --noEmit");
         await this.addPreCommitCommand("npx lint-staged");
         await this.addPreCommitCommand(
-            // TODO: jest-silent
-            "npx jest --passWithNoTests # TODO: remove --passWithNoTests once tests added",
+            "npx jest-silent --passWithNoTests # TODO: remove --passWithNoTests once tests added",
         );
     }
 }

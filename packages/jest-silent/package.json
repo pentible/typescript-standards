@@ -1,0 +1,26 @@
+{
+    "name": "@pentible/jest-silent",
+    "version": "0.0.0",
+    "description": "command to run jest with silent reporter",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "bin": {
+        "jest-silent": "./jest-silent.sh"
+    },
+    "files": [
+        "jest-silent.sh"
+    ],
+    "scripts": {
+        "start": "./jest-silent.sh"
+    },
+    "dependencies": {
+        "jest-silent-reporter": "0.5.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
