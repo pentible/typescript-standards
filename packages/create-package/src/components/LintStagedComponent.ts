@@ -15,6 +15,7 @@ export default class LintStagedComponent extends Component {
         const lintStaged = {
             "*": ["prettier --check --ignore-unknown"],
             "*.{js,ts,jsx,tsx}": ["eslint"],
+            "*.sh": ["shellcheck --color=always"],
         };
 
         const yaml = stringify(lintStaged);

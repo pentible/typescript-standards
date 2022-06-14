@@ -13,6 +13,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "16"
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Build jest
+        run: npm run build
+        working-directory: ./packages/jest
+      - name: Test
+        run: npx jest-silent --passWithNoTests # TODO: remove --passWithNoTests once tests added
       - name: Determine New Version
         id: version
         uses: zwaldowski/semver-release-action@v2

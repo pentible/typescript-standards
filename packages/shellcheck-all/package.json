@@ -1,0 +1,26 @@
+{
+    "name": "@pentible/shellcheck-all",
+    "version": "0.0.0",
+    "description": "run shellcheck on all *.sh files",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "bin": {
+        "shellcheck-all": "./shellcheck-all.sh"
+    },
+    "files": [
+        "shellcheck-all.sh"
+    ],
+    "scripts": {
+        "start": "./shellcheck-all.sh"
+    },
+    "dependencies": {
+        "shellcheck": "1.1.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

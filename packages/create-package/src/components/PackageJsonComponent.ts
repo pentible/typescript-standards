@@ -41,7 +41,8 @@ export default class PackageJsonComponent extends Component {
         if (!insideMonorepo) {
             partials.push({
                 scripts: {
-                    lint: "check-package-lock && tsc --noEmit && eslint . && prettier --loglevel warn --check .",
+                    // TODO: should consider pulling this out to a script file
+                    lint: "check-package-lock && shellcheck-all && tsc --noEmit && eslint . && prettier --loglevel warn --check .",
                     "lint:fix":
                         "eslint --fix . && prettier --loglevel warn --write .",
                     prepare: "husky install",
