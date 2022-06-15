@@ -11,13 +11,18 @@ export default class JestComponent extends Component {
     }
     async apply({ type }: PackageContext) {
         await execaCommand(
-            "npm i -D jest@28 @types/jest@28 @pentible/jest @pentible/jest-silent",
+            "npm i -D jest@28 @pentible/jest @pentible/jest-silent @types/jest",
         );
 
         const preset =
             type === PackageType.Monorepo
                 ? "@pentible/jest/monorepo"
                 : "@pentible/jest";
+
+        // TODO: parcel feature:
+        // moduleNameMapper: {
+        //     "^~/(.*)$": "<rootDir>/$1"
+        // }
 
         const jestConfig = {
             preset,

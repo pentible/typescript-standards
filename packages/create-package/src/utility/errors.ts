@@ -9,7 +9,7 @@ export function isErrorWithCode(val: unknown): val is ErrorWithCode {
 }
 
 export type ErrorWithExitCode = Error & {
-    exitCode: string;
+    exitCode: number;
 };
 
 export function isErrorWithExitCode(val: unknown): val is ErrorWithExitCode {

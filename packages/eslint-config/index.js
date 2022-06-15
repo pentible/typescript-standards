@@ -26,8 +26,38 @@ module.exports = {
     env: {
         es2022: true,
     },
+    overrides: [
+        {
+            files: ["*.{spec,test}.ts"],
+            rules: {
+                "no-restricted-globals": "off",
+            },
+        },
+    ],
     rules: {
         // TODO:
         "eslint-comments/no-unused-disable": "error",
+        "no-restricted-globals": [
+            "error",
+            // jest globals
+            "afterAll",
+            "afterEach",
+            "beforeAll",
+            "beforeEach",
+            "describe",
+            "expect",
+            "fail",
+            "fdescribe",
+            "fit",
+            "it",
+            "jasmine",
+            "jest",
+            "pending",
+            "spyOn",
+            "test",
+            "xdescribe",
+            "xit",
+            "xtest",
+        ],
     },
 };

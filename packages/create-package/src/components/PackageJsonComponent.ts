@@ -47,6 +47,7 @@ export default class PackageJsonComponent extends Component {
                         "eslint --fix . && prettier --loglevel warn --write .",
                     prepare: "husky install",
                     test: "jest",
+                    "test:watch": "jest --watch",
                 },
             });
         }

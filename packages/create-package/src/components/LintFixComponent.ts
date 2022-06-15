@@ -1,6 +1,6 @@
 import Component from "./Component";
 import { execa } from "execa";
-import type PackageContext from "~src/context/PackageContext";
+import type PackageContext from "~/src/context/PackageContext";
 
 export default class LintFixComponent extends Component {
     matches() {

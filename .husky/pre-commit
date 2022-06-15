@@ -4,4 +4,4 @@
 npx check-package-lock
 npx tsc --noEmit
 npx lint-staged
-npx jest-silent --passWithNoTests # TODO: remove --passWithNoTests once tests added
+npx jest-silent

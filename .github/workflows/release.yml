@@ -17,11 +17,8 @@ jobs:
         run: npm install
       - name: Lint
         run: npm run lint
-      - name: Build jest
-        run: npm run build
-        working-directory: ./packages/jest
       - name: Test
-        run: npx jest-silent --passWithNoTests # TODO: remove --passWithNoTests once tests added
+        run: npx jest-silent
       - name: Determine New Version
         id: version
         uses: zwaldowski/semver-release-action@v2
