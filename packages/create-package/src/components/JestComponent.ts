@@ -5,14 +5,15 @@ import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
 
 export default class JestComponent extends Component {
-    matches({ insideMonorepo }: PackageContext) {
-        // only root packages
-        return !insideMonorepo;
+    matches() {
+        return true;
     }
-    async apply({ type }: PackageContext) {
-        await execaCommand(
-            "npm i -D jest@28 @pentible/jest @pentible/jest-silent @types/jest",
-        );
+    async apply({ type, insideMonorepo }: PackageContext) {
+        if (!insideMonorepo) {
+            await execaCommand(
+                "npm i -D jest@28 @pentible/jest @pentible/jest-silent @types/jest",
+            );
+        }
 
         const preset =
             type === PackageType.Monorepo

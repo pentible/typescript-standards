@@ -20,6 +20,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new PackageJsonComponent(),
         new TypescriptComponent(),
         new EslintComponent(),
+        new JestComponent(),
         // TODO: readme.md, src
 
         // root packages (ie. stand alone or monorepo roots)
@@ -30,7 +31,6 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new EditorConfigComponent(),
         new NpmrcComponent(),
         new IgnoreFileComponent(),
-        new JestComponent(),
         // TODO: gh actions
 
         // TODO: browserslist
