@@ -1,6 +1,6 @@
-import { formatGitUrlHttps } from "~/src/utility/git";
+import formatGitUrlHttps from "~/src/utility/formatGitUrlHttps";
 
-jest.unmock("~/src/utility/git");
+jest.unmock("~/src/utility/formatGitUrlHttps");
 
 describe("git", () => {
     describe("formatGitUrlHttps", () => {
@@ -18,6 +18,7 @@ describe("git", () => {
 
         it.each(cases)("%j -> %j", (input, output) => {
             const result = formatGitUrlHttps(input);
+
             expect(result).toBe(output);
         });
     });

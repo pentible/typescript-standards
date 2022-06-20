@@ -1,7 +1,7 @@
+import { writeFile } from "fs/promises";
+import { execaCommand } from "execa";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
-import { execaCommand } from "execa";
-import { writeFile } from "fs/promises";
 
 export default class PrettierComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
@@ -12,7 +12,8 @@ export default class PrettierComponent extends Component {
         await execaCommand("npm install -D prettier@2 @pentible/prettier");
 
         const prettierrc = "@pentible/prettier";
-        const json = JSON.stringify(prettierrc, undefined, 4); // TODO: extract?
+        const indent = 4;
+        const json = JSON.stringify(prettierrc, undefined, indent); // TODO: extract?
 
         await writeFile(".prettierrc", json);
     }

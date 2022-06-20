@@ -1,8 +1,8 @@
+import { writeFile } from "fs/promises";
+import { execaCommand } from "execa";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 import PackageType from "~/src/context/PackageType";
-import { writeFile } from "fs/promises";
-import { execaCommand } from "execa";
 
 export default class JestComponent extends Component {
     matches() {
@@ -28,7 +28,8 @@ export default class JestComponent extends Component {
         const jestConfig = {
             preset,
         };
-        const json = JSON.stringify(jestConfig, undefined, 4); // TODO: extract?
+        const indent = 4;
+        const json = JSON.stringify(jestConfig, undefined, indent); // TODO: extract?
 
         await writeFile("jest.config.json", json);
     }

@@ -1,18 +1,19 @@
-import type PackageContext from "~/src/context/PackageContext";
-import type Component from "~/src/components/Component";
-import PackageJsonComponent from "~/src/components/PackageJsonComponent";
-import TypescriptComponent from "~/src/components/TypescriptComponent";
-import EslintComponent from "~/src/components/EslintComponent";
 import CheckPackageLockComponent from "~/src/components/CheckPackageLockComponent";
-import PrettierComponent from "~/src/components/PrettierComponent";
-import LintStagedComponent from "~/src/components/LintStagedComponent";
-import HuskyComponent from "~/src/components/HuskyComponent";
+import type Component from "~/src/components/Component";
 import EditorConfigComponent from "~/src/components/EditorConfigComponent";
-import NpmrcComponent from "~/src/components/NpmrcComponent";
+import EslintComponent from "~/src/components/EslintComponent";
+import HuskyComponent from "~/src/components/HuskyComponent";
 import IgnoreFileComponent from "~/src/components/IgnoreFileComponent";
 import JestComponent from "~/src/components/JestComponent";
-import MonorepoPackagesComponent from "~/src/components/MonorepoPackagesComponent";
 import LintFixComponent from "~/src/components/LintFixComponent";
+import LintStagedComponent from "~/src/components/LintStagedComponent";
+import MonorepoPackagesComponent from "~/src/components/MonorepoPackagesComponent";
+import NpmrcComponent from "~/src/components/NpmrcComponent";
+import PackageJsonComponent from "~/src/components/PackageJsonComponent";
+import PrettierComponent from "~/src/components/PrettierComponent";
+import ShellcheckAllComponent from "~/src/components/ShellcheckAllComponent";
+import TypescriptComponent from "~/src/components/TypescriptComponent";
+import type PackageContext from "~/src/context/PackageContext";
 
 export default function findMatchingComponents(ctx: PackageContext) {
     const components: Component[] = [
@@ -25,6 +26,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
 
         // root packages (ie. stand alone or monorepo roots)
         new CheckPackageLockComponent(),
+        new ShellcheckAllComponent(),
         new PrettierComponent(),
         new LintStagedComponent(),
         new HuskyComponent(),

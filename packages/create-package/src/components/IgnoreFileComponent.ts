@@ -1,6 +1,6 @@
+import { writeFile } from "fs/promises";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
-import { writeFile } from "fs/promises";
 
 export default class IgnoreFileComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {

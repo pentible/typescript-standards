@@ -1,4 +1,4 @@
-export type ErrorWithCode = Error & {
+type ErrorWithCode = Error & {
     code: string;
 };
 
@@ -8,7 +8,7 @@ export function isErrorWithCode(val: unknown): val is ErrorWithCode {
     );
 }
 
-export type ErrorWithExitCode = Error & {
+type ErrorWithExitCode = Error & {
     exitCode: number;
 };
 

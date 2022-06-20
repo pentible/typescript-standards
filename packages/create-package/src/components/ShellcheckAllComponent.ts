@@ -1,6 +1,6 @@
+import { execaCommand } from "execa";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
-import { execaCommand } from "execa";
 
 export default class ShellcheckAllComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {

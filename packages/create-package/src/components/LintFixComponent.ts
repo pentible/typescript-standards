@@ -1,5 +1,5 @@
-import Component from "./Component";
 import { execa } from "execa";
+import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 
 export default class LintFixComponent extends Component {

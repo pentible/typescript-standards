@@ -1,23 +1,23 @@
-import PackageContext from "~/src/context/PackageContext";
-import type { AsObject } from "~/src/utility/types";
-import prompt from "~/src/cli/prompt";
-import PackageType from "~/src/context/PackageType";
 import { basename } from "path";
-import promptToContinue from "./promptToContinue";
 import chalk from "chalk";
-import PackageAccessLevel from "~/src/context/PackageAccessLevel";
+import promptToContinue from "./promptToContinue";
+import prompt from "~/src/cli/prompt";
 import License from "~/src/context/License";
-import { formatGitUrlHttps } from "~/src/utility/git";
+import PackageAccessLevel from "~/src/context/PackageAccessLevel";
+import PackageContext from "~/src/context/PackageContext";
+import PackageType from "~/src/context/PackageType";
+import formatGitUrlHttps from "~/src/utility/formatGitUrlHttps";
+import type { AsObject } from "~/src/utility/types";
 
 type PackageContextAnswers = AsObject<PackageContext>;
 
-export type PackageContextAssumptions = {
+export interface PackageContextAssumptions {
     directory: string;
     scope: string | undefined;
     insideMonorepo: boolean;
     repository: string | undefined;
     author: string;
-};
+}
 
 function accessLevelDescription(level: PackageAccessLevel) {
     switch (level) {
@@ -133,7 +133,7 @@ export default async function promptPackageContext(
             name: "author",
             message: "Author:",
             default(answers: Partial<PackageContextAnswers>) {
-                return answers.scope?.slice(1) || assumptions.author;
+                return (answers.scope?.slice(1) ?? "") || assumptions.author;
             },
             filter(val: string) {
                 return val.trim();

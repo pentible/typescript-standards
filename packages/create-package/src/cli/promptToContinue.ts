@@ -1,7 +1,9 @@
 import prompt from "~/src/cli/prompt";
 import UserCancelledError from "~/src/errors/UserCancelledError";
 
-type Answers = { approved: boolean };
+interface Answers {
+    approved: boolean;
+}
 
 export default async function promptToContinue(message: string) {
     const { approved } = await prompt<Answers>([

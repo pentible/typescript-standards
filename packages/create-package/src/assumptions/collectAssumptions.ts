@@ -1,10 +1,10 @@
-import type { PackageContextAssumptions } from "~/src/cli/promptPackageContext";
 import fs from "fs/promises";
-import { isErrorWithCode, isErrorWithExitCode } from "~/src/utility/errors";
-import { tryLoadPackageJson } from "./PackageJson";
 import { userInfo } from "os";
 import { execaCommand } from "execa";
-import { formatGitUrlHttps } from "~/src/utility/git";
+import tryLoadPackageJson from "./tryLoadPackageJson";
+import type { PackageContextAssumptions } from "~/src/cli/promptPackageContext";
+import { isErrorWithCode, isErrorWithExitCode } from "~/src/utility/errors";
+import formatGitUrlHttps from "~/src/utility/formatGitUrlHttps";
 
 function assumeDirectory() {
     // TODO: ~/ support
@@ -12,9 +12,10 @@ function assumeDirectory() {
 }
 
 async function assumeScope() {
-    // TODO: make more flexible (ie. if root doesn't have a scope, maybe adjacent children do, or find relative to directory passed in instead of cwd)
+    // TODO: make more flexible (ie. if root doesn't have a scope, maybe adjacent
+    // children do, or find relative to directory passed in instead of cwd)
     const monorepoPackageJson = await tryLoadPackageJson("../../package.json");
-    return monorepoPackageJson?.name?.match(/^(@[^/]+)\/.*$/)?.[1];
+    return monorepoPackageJson?.name.match(/^(@[^/]+)\/.*$/u)?.[1];
 }
 
 async function assumeInsideMonorepo() {

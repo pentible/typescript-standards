@@ -33,9 +33,11 @@ describe("errors", () => {
 
         it.each(cases)("%j: %j", (output, input) => {
             const result = isErrorWithCode(input);
+
             expect(result).toBe(output);
         });
     });
+
     describe("isErrorWithExitCode", () => {
         const cases: [boolean, unknown][] = [
             ...commonInvalidCases,
@@ -45,6 +47,7 @@ describe("errors", () => {
 
         it.each(cases)("%j: %j", (output, input) => {
             const result = isErrorWithExitCode(input);
+
             expect(result).toBe(output);
         });
     });

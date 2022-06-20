@@ -1,13 +1,13 @@
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
 import { writeFile } from "fs/promises";
 import { join } from "path";
-import PackageAccessLevel from "~/src/context/PackageAccessLevel";
-import PackageType from "~/src/context/PackageType";
 import merge from "deepmerge";
+import Component from "./Component";
+import PackageAccessLevel from "~/src/context/PackageAccessLevel";
+import type PackageContext from "~/src/context/PackageContext";
+import PackageType from "~/src/context/PackageType";
 
 // TODO: consider a stricter type
-type PackageJson = Record<string, string | string[] | Record<string, string>>;
+type PackageJson = Record<string, Record<string, string> | string[] | string>;
 
 export default class PackageJsonComponent extends Component {
     matches() {
@@ -36,13 +36,20 @@ export default class PackageJsonComponent extends Component {
         ];
 
         // TODO: consider sub-components, overlays or something to clean this up
-        // TODO: maybe instead of writing to disk we have in memory state representing the hierarchy and additional components can handle customizations to package.json
+        // TODO: maybe instead of writing to disk we have in memory state representing
+        // the hierarchy and additional components can handle customizations to package.json
 
         if (!insideMonorepo) {
             partials.push({
                 scripts: {
                     // TODO: should consider pulling this out to a script file
-                    lint: "check-package-lock && shellcheck-all && tsc --noEmit && eslint . && prettier --loglevel warn --check .",
+                    lint: [
+                        "check-package-lock",
+                        "shellcheck-all",
+                        "tsc --noEmit",
+                        "eslint .",
+                        "prettier --loglevel warn --check .",
+                    ].join(" && "),
                     "lint:fix":
                         "eslint --fix . && prettier --loglevel warn --write .",
                     prepare: "husky install",
@@ -87,7 +94,8 @@ export default class PackageJsonComponent extends Component {
         const packageJson = merge.all(partials);
 
         // write
-        const json = JSON.stringify(packageJson, undefined, 4); // TODO: extract?
+        const indent = 4;
+        const json = JSON.stringify(packageJson, undefined, indent); // TODO: extract?
         const path = join(directory, "package.json"); // TODO: not required?
 
         await writeFile(path, json);

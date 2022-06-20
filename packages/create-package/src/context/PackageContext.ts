@@ -1,7 +1,7 @@
+import type License from "./License";
+import type PackageAccessLevel from "./PackageAccessLevel";
 import type PackageType from "./PackageType";
 import type { AsObject } from "~/src/utility/types";
-import type PackageAccessLevel from "./PackageAccessLevel";
-import type License from "./License";
 
 export default class PackageContext {
     readonly directory: string;
@@ -9,7 +9,7 @@ export default class PackageContext {
     readonly scope: string;
     readonly type: PackageType;
     readonly access: PackageAccessLevel;
-    readonly insideMonorepo: boolean; // TODO: consider renaming to root or something? feels like it would read better in most places
+    readonly insideMonorepo: boolean; // TODO: rename to 'root'? feels like it would read better in most places
     readonly license: License;
     readonly author?: string;
     readonly description?: string;

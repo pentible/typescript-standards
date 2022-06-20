@@ -1,21 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires */
 // TODO: try to convert to .ts
 const ts_preset = require("ts-jest/jest-preset");
 
 module.exports = {
     ...ts_preset,
 
-    // All imported modules in your tests should be mocked automatically
+    // all imported modules in your tests should be mocked automatically
     automock: true,
 
-    // Automatically reset mock state before every test
+    // automatically reset mock state before every test
     resetMocks: true,
 
-    // Indicates which provider should be used to instrument code for coverage
+    // indicates which provider should be used to instrument code for coverage
     coverageProvider: "v8",
 
-    // Make calling deprecated APIs throw helpful error messages
+    // make calling deprecated APIs throw helpful error messages
     errorOnDeprecated: true,
 };
-
-/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires */
