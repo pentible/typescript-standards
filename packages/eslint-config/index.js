@@ -33,7 +33,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ["*.{spec,test}.ts"],
+            files: ["*.{spec,test}.{ts,tsx}"],
             extends: [
                 ...baseExtends,
                 "plugin:jest/recommended",
@@ -79,7 +79,6 @@ module.exports = {
                     { ignoreTopLevelDescribe: true },
                 ],
                 "jest/prefer-spy-on": "error",
-                "jest/prefer-strict-equal": "error",
                 "jest/prefer-todo": "error",
                 "jest/require-hook": "error",
                 "jest/require-to-throw-message": "error",
@@ -104,6 +103,9 @@ module.exports = {
         {
             files: ["*.d.ts"],
             rules: {
+                "spaced-comment": ["error", "always", { markers: ["/"] }],
+                "import/unambiguous": "off",
+                "import/no-unused-modules": "off",
                 "import/no-unassigned-import": "off",
             },
         },
@@ -145,6 +147,7 @@ module.exports = {
         "new-cap": "error",
         "no-bitwise": "error",
         "no-caller": "error",
+        "no-console": "error",
         "no-eval": "error",
         "no-extend-native": "error",
         "no-extra-bind": "error",
@@ -275,7 +278,7 @@ module.exports = {
         "import/no-deprecated": "warn",
         "import/no-extraneous-dependencies": [
             "error",
-            { devDependencies: ["**/*.test.ts", "**/*.spec.ts"] },
+            { devDependencies: ["**/*.{spec,test}.{ts,tsx}"] },
         ],
         "import/no-mutable-exports": "error",
         "import/no-unused-modules": [

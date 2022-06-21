@@ -10,11 +10,13 @@
     "author": "pentible",
     "exports": {
         ".": "./index.js",
-        "./react": "./react.js"
+        "./react": "./react.js",
+        "./node": "./node.js"
     },
     "files": [
         "index.js",
         "react.js",
+        "node.js",
         "globals.js",
         "helpers.js"
     ],
