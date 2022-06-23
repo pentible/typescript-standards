@@ -1,4 +1,2 @@
 root: true
 extends: "@pentible/eslint-config/node"
-env:
-  node: true

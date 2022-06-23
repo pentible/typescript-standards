@@ -11,7 +11,7 @@ exports.naming = [
         selector: "variableLike",
         modifiers: ["unused"],
         format: ["strictCamelCase"],
-        leadingUnderscore: "require",
+        leadingUnderscore: "allow",
     },
     // quoted properties on object literals (to ease interfacing with external code)
     {

@@ -9,4 +9,7 @@ module.exports = {
         // TODO:
         "no-console": "off",
     },
+    env: {
+        node: true,
+    },
 };
