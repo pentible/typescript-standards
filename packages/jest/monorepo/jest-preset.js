@@ -1,8 +1,8 @@
 // TODO: use ~ import once ts
-const pentible_preset = require("../jest-preset");
+const pentiblePreset = require("../jest-preset");
 
 module.exports = {
-    ...pentible_preset,
+    ...pentiblePreset,
 
     // run tests from one or more projects
     projects: ["<rootDir>/packages/*"],

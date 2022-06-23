@@ -2,6 +2,7 @@
 const confusingBrowserGlobals = require("confusing-browser-globals");
 const { jestGlobals } = require("./globals");
 const { noRestrictedGlobalWithMessage } = require("./helpers");
+const { naming } = require("./naming");
 
 const baseExtends = [
     "eslint:recommended",
@@ -107,6 +108,21 @@ module.exports = {
                 "import/unambiguous": "off",
                 "import/no-unused-modules": "off",
                 "import/no-unassigned-import": "off",
+            },
+        },
+        {
+            files: ["*.tsx"],
+            rules: {
+                "@typescript-eslint/naming-convention": [
+                    "error",
+                    ...naming,
+                    // react components (imperfect match so we still allow camel case)
+                    {
+                        selector: "function",
+                        modifiers: ["exported"],
+                        format: ["strictCamelCase", "StrictPascalCase"],
+                    },
+                ],
             },
         },
     ],
@@ -225,7 +241,7 @@ module.exports = {
         ],
         // TODO: consider: "@typescript-eslint/member-ordering"
         "@typescript-eslint/method-signature-style": ["error", "method"],
-        // TODO: "@typescript-eslint/naming-convention"
+        "@typescript-eslint/naming-convention": ["error", ...naming],
         "@typescript-eslint/no-confusing-void-expression": [
             "error",
             { ignoreArrowShorthand: true },
@@ -262,7 +278,7 @@ module.exports = {
         "@typescript-eslint/no-throw-literal": "error",
         "@typescript-eslint/no-unused-expressions": [
             "error",
-            { enforceForJSX: true },
+            { [`enforceForJSX`]: true },
         ],
 
         // import

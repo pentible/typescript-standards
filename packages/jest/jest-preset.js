@@ -1,8 +1,8 @@
 // TODO: try to convert to .ts
-const ts_preset = require("ts-jest/jest-preset");
+const tsPreset = require("ts-jest/jest-preset");
 
 module.exports = {
-    ...ts_preset,
+    ...tsPreset,
 
     // all imported modules in your tests should be mocked automatically
     automock: true,

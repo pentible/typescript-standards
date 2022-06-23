@@ -18,7 +18,8 @@
         "react.js",
         "node.js",
         "globals.js",
-        "helpers.js"
+        "helpers.js",
+        "naming.js"
     ],
     "dependencies": {
         "@typescript-eslint/parser": "5.28.0",
