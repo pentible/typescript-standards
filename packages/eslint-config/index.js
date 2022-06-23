@@ -11,6 +11,7 @@ const baseExtends = [
     "plugin:@typescript-eslint/strict",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:sort-class-members/recommended",
     "plugin:eslint-comments/recommended",
 ];
 
