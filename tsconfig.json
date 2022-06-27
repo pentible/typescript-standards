@@ -6,10 +6,19 @@
             "path": "./packages/create-package"
         },
         {
+            "path": "./packages/jest"
+        },
+        {
             "path": "./packages/eslint-config"
         },
         {
-            "path": "./packages/jest"
+            "path": "./packages/eslint-config-node"
+        },
+        {
+            "path": "./packages/eslint-config-web"
+        },
+        {
+            "path": "./packages/eslint-config-react"
         }
     ]
 }

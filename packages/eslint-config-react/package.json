@@ -1,0 +1,29 @@
+{
+    "name": "@pentible/eslint-config-react",
+    "version": "0.0.0",
+    "description": "Pentible's standard eslint config (react)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "exports": {
+        ".": "./index.js"
+    },
+    "files": [
+        "index.js"
+    ],
+    "dependencies": {
+        "@pentible/eslint-config": "*"
+    },
+    "peerDependencies": {
+        "eslint-plugin-jsx-a11y": ">= 6.6.0",
+        "eslint-plugin-react": ">= 7.30.1",
+        "eslint-plugin-react-hooks": ">= 4.6.0",
+        "eslint-plugin-react-prefer-function-component": ">= 3.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

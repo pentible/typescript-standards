@@ -35,7 +35,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ["*.{spec,test}.{ts,tsx}"],
+            files: ["*.{spec,test}.{js,ts,jsx,tsx}"],
             extends: [
                 ...baseExtends,
                 "plugin:jest/recommended",
@@ -295,7 +295,7 @@ module.exports = {
         "import/no-deprecated": "warn",
         "import/no-extraneous-dependencies": [
             "error",
-            { devDependencies: ["**/*.{spec,test}.{ts,tsx}"] },
+            { devDependencies: ["**/*.{spec,test}.{js,ts,jsx,tsx}"] },
         ],
         "import/no-mutable-exports": "error",
         "import/no-unused-modules": [

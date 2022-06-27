@@ -1,5 +1,6 @@
 import type License from "./License";
 import type PackageAccessLevel from "./PackageAccessLevel";
+import type PackageFeature from "./PackageFeature";
 import type PackageType from "./PackageType";
 import type { AsObject } from "~/src/utility/types";
 
@@ -8,6 +9,7 @@ export default class PackageContext {
     readonly name: string;
     readonly scope: string;
     readonly type: PackageType;
+    readonly features: PackageFeature[];
     readonly access: PackageAccessLevel;
     readonly insideMonorepo: boolean; // TODO: rename to 'root'? feels like it would read better in most places
     readonly license: License;
@@ -20,6 +22,7 @@ export default class PackageContext {
         name,
         scope,
         type,
+        features,
         access,
         insideMonorepo,
         license,
@@ -31,6 +34,7 @@ export default class PackageContext {
         this.name = name;
         this.scope = scope;
         this.type = type;
+        this.features = features;
         this.access = access;
         this.insideMonorepo = insideMonorepo;
         this.license = license;

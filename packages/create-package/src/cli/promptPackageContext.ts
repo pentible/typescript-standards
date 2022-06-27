@@ -1,5 +1,6 @@
 import { basename } from "path";
 import chalk from "chalk";
+import PackageFeature from "../context/PackageFeature";
 import promptToContinue from "./promptToContinue";
 import prompt from "~/src/cli/prompt";
 import License from "~/src/context/License";
@@ -8,6 +9,12 @@ import PackageContext from "~/src/context/PackageContext";
 import PackageType from "~/src/context/PackageType";
 import formatGitUrlHttps from "~/src/utility/formatGitUrlHttps";
 import type { AsObject } from "~/src/utility/types";
+
+const reactPackageTypes = [
+    PackageType.Web,
+    PackageType.WebExtension,
+    PackageType.Electron,
+];
 
 type PackageContextAnswers = AsObject<PackageContext>;
 
@@ -87,6 +94,20 @@ export default async function promptPackageContext(
             name: "type",
             message: "Package type:",
             choices: Object.values(PackageType),
+        },
+        {
+            type: "checkbox",
+            name: "features",
+            message: "Features:",
+            choices: Object.values(PackageFeature),
+            loop: false,
+            default({ type }: Pick<PackageContextAnswers, "type">) {
+                if (reactPackageTypes.includes(type)) {
+                    return [PackageFeature.React];
+                }
+
+                return [];
+            },
         },
         {
             type: "confirm",

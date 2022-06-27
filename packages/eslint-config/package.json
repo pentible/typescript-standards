@@ -9,14 +9,10 @@
     "license": "MIT",
     "author": "pentible",
     "exports": {
-        ".": "./index.js",
-        "./react": "./react.js",
-        "./node": "./node.js"
+        ".": "./index.js"
     },
     "files": [
         "index.js",
-        "react.js",
-        "node.js",
         "globals.js",
         "helpers.js",
         "naming.js"
