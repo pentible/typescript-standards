@@ -4,5 +4,5 @@
   - eslint
 "*.sh":
   - shellcheck --color=always
-"packages/eslint-config/*.js":
+"{packages/eslint-config/*.js,packages/eslint-config-*/*.js}":
   - npx eslint-config-prettier

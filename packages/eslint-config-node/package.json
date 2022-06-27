@@ -14,9 +14,6 @@
     "files": [
         "index.js"
     ],
-    "dependencies": {
-        "@pentible/eslint-config": "*"
-    },
     "publishConfig": {
         "access": "public"
     }

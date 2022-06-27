@@ -2,7 +2,7 @@
 
 ## usage
 
--   `npm i -D @pentible/eslint-config @pentible/eslint-config-react`
+-   `npm i -D @pentible/eslint-config @pentible/eslint-config-web @pentible/eslint-config-react @pentible/eslint-config-prettier`
 
 -   `.eslintrc.yml`
 
@@ -12,4 +12,5 @@ extends:
   - "@pentible/eslint-config"
   - "@pentible/eslint-config-web"
   - "@pentible/eslint-config-react"
+  - "@pentible/eslint-config-prettier"
 ```

@@ -4,6 +4,8 @@ const { jestGlobals } = require("./globals");
 const { noRestrictedGlobalWithMessage } = require("./helpers");
 const { naming } = require("./naming");
 
+const enforceForJsx = "enforceForJSX";
+
 const baseExtends = [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -16,7 +18,7 @@ const baseExtends = [
 ];
 
 module.exports = {
-    extends: [...baseExtends, "prettier"],
+    extends: baseExtends,
     parserOptions: {
         sourceType: "module",
         tsconfigRootDir: ".",
@@ -41,7 +43,6 @@ module.exports = {
                 "plugin:jest/recommended",
                 "plugin:jest/style",
                 "plugin:jest-formatting/strict",
-                "prettier",
             ],
             rules: {
                 "no-restricted-globals": "off",
@@ -279,7 +280,7 @@ module.exports = {
         "@typescript-eslint/no-throw-literal": "error",
         "@typescript-eslint/no-unused-expressions": [
             "error",
-            { [`enforceForJSX`]: true },
+            { [enforceForJsx]: true },
         ],
 
         // import
@@ -346,17 +347,5 @@ module.exports = {
         "eslint-comments/no-unused-disable": "error",
         // NOTE: default to just not allowing disable comments, projects can override this as needed
         "eslint-comments/no-use": "error",
-
-        // prettier
-        // NOTE: if misconfigured these will conflict with prettier, see:
-        // https://github.com/prettier/eslint-config-prettier#special-rules
-        curly: ["error", "all"],
-        "max-len": ["error", { code: 120, ignoreUrls: true }], // NOTE: https://prettier.io/docs/en/options.html#print-width
-        "no-tabs": ["error", { allowIndentationTabs: true }],
-        "@typescript-eslint/quotes": [
-            "error",
-            "double",
-            { avoidEscape: true, allowTemplateLiterals: false },
-        ],
     },
 };

@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ["plugin:compat/recommended", "prettier"],
+    extends: ["plugin:compat/recommended"],
     env: {
         browser: true,
     },

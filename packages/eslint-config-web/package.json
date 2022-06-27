@@ -14,9 +14,6 @@
     "files": [
         "index.js"
     ],
-    "dependencies": {
-        "@pentible/eslint-config": "*"
-    },
     "peerDependencies": {
         "eslint-plugin-compat": ">= 4.0.2"
     },

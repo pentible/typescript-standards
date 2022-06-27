@@ -39,7 +39,11 @@ export default class EslintComponent extends Component {
                 };
         }
     }
-    private configs(type: PackageType, features: PackageFeature[]): string[] {
+    private configs(
+        type: PackageType,
+        features: PackageFeature[],
+        insideMonorepo: boolean,
+    ): string[] {
         const configs: string[] = [];
 
         // type configs
@@ -65,6 +69,11 @@ export default class EslintComponent extends Component {
             configs.push("@pentible/eslint-config-react");
         }
 
+        // prettier (to override other configs, or root config)
+        if (configs.length > 0 || !insideMonorepo) {
+            configs.push("@pentible/eslint-config-prettier");
+        }
+
         return configs;
     }
     async apply({ type, features, insideMonorepo }: PackageContext) {
@@ -77,7 +86,7 @@ export default class EslintComponent extends Component {
             });
         }
 
-        const configs = this.configs(type, features);
+        const configs = this.configs(type, features, insideMonorepo);
         if (configs.length > 0) {
             partials.push({
                 extends: configs,
