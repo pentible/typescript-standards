@@ -1,3 +1,4 @@
+import BrowserslistComponent from "~/src/components/BrowserslistComponent";
 import CheckPackageLockComponent from "~/src/components/CheckPackageLockComponent";
 import type Component from "~/src/components/Component";
 import EditorConfigComponent from "~/src/components/EditorConfigComponent";
@@ -22,6 +23,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new TypescriptComponent(),
         new EslintComponent(),
         new JestComponent(),
+        new BrowserslistComponent(),
         // TODO: readme.md, src
 
         // root packages (ie. stand alone or monorepo roots)
@@ -34,8 +36,6 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new NpmrcComponent(),
         new IgnoreFileComponent(),
         // TODO: gh actions
-
-        // TODO: browserslist
 
         // package type
         new MonorepoPackagesComponent(),

@@ -1,4 +1,5 @@
 import { writeFile } from "fs/promises";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 
@@ -7,7 +8,7 @@ export default class IgnoreFileComponent extends Component {
         // only root packages
         return !insideMonorepo;
     }
-    async apply() {
+    async apply(_: PackageContext, formatter: Formatter) {
         // TODO: not all applicable, maybe just fine though?
         const ignore = [
             "node_modules",
@@ -18,7 +19,7 @@ export default class IgnoreFileComponent extends Component {
             "tsconfig.tsbuildinfo",
         ];
 
-        const contents = ignore.join("\n");
+        const contents = formatter.lines(ignore);
 
         await writeFile(".gitignore", contents);
         await writeFile(".eslintignore", contents);

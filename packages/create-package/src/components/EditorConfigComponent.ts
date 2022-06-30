@@ -1,5 +1,5 @@
 import { writeFile } from "fs/promises";
-import { stringify } from "ini";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 
@@ -14,7 +14,7 @@ export default class EditorConfigComponent extends Component {
         // only root packages
         return !insideMonorepo;
     }
-    async apply() {
+    async apply(_: PackageContext, formatter: Formatter) {
         const editorConfig = {
             root: true,
             "*": {
@@ -33,10 +33,6 @@ export default class EditorConfigComponent extends Component {
             },
         };
 
-        const ini = stringify(editorConfig, {
-            whitespace: true,
-        });
-
-        await writeFile(".editorconfig", ini);
+        await writeFile(".editorconfig", formatter.ini(editorConfig));
     }
 }

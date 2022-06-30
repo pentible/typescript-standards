@@ -2,6 +2,7 @@ import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 import PackageType from "~/src/context/PackageType";
@@ -26,7 +27,10 @@ export default class TypescriptComponent extends Component {
     matches() {
         return true;
     }
-    async apply({ directory, type, insideMonorepo }: PackageContext) {
+    async apply(
+        { directory, type, insideMonorepo }: PackageContext,
+        formatter: Formatter,
+    ) {
         const partials: Tsconfig[] = [
             {
                 extends: "@pentible/tsconfig",
@@ -73,10 +77,8 @@ export default class TypescriptComponent extends Component {
                 },
             ];
             const tsconfig = merge.all(monorepoTsconfigPartials);
-            const indent = 4;
-            const json = JSON.stringify(tsconfig, undefined, indent); // TODO: extract?
 
-            await writeFile(monorepoTsconfigPath, json);
+            await writeFile(monorepoTsconfigPath, formatter.json(tsconfig));
         }
 
         // install in root
@@ -86,11 +88,9 @@ export default class TypescriptComponent extends Component {
 
         if (partials.length > 0) {
             const tsconfig = merge.all(partials);
-            const indent = 4;
-            const json = JSON.stringify(tsconfig, undefined, indent); // TODO: extract?
 
             // TODO: likely need version inside monorepos for overriding certain env/etc
-            await writeFile("tsconfig.json", json);
+            await writeFile("tsconfig.json", formatter.json(tsconfig));
         }
     }
 }

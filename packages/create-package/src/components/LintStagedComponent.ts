@@ -1,6 +1,6 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
-import { stringify } from "yaml";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 
@@ -9,7 +9,7 @@ export default class LintStagedComponent extends Component {
         // only root packages
         return !insideMonorepo;
     }
-    async apply() {
+    async apply(_: PackageContext, formatter: Formatter) {
         await execaCommand("npm i -D lint-staged@12");
 
         const lintStaged = {
@@ -18,8 +18,6 @@ export default class LintStagedComponent extends Component {
             "*.sh": ["shellcheck --color=always"],
         };
 
-        const yaml = stringify(lintStaged);
-
-        await writeFile(".lintstagedrc.yml", yaml);
+        await writeFile(".lintstagedrc.yml", formatter.yaml(lintStaged));
     }
 }

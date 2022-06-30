@@ -1,5 +1,6 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 
@@ -8,13 +9,11 @@ export default class PrettierComponent extends Component {
         // only root packages
         return !insideMonorepo;
     }
-    async apply() {
+    async apply(_: PackageContext, formatter: Formatter) {
         await execaCommand("npm install -D prettier@2 @pentible/prettier");
 
         const prettierrc = "@pentible/prettier";
-        const indent = 4;
-        const json = JSON.stringify(prettierrc, undefined, indent); // TODO: extract?
 
-        await writeFile(".prettierrc", json);
+        await writeFile(".prettierrc", formatter.json(prettierrc));
     }
 }

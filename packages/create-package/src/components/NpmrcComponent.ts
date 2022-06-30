@@ -1,5 +1,5 @@
 import { writeFile } from "fs/promises";
-import { stringify } from "ini";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 
@@ -8,17 +8,13 @@ export default class NpmrcComponent extends Component {
         // only root packages
         return !insideMonorepo;
     }
-    async apply() {
+    async apply(_: PackageContext, formatter: Formatter) {
         // TODO: exclude auth token for private (non-monorepo type) packages
         const npmrc = {
             "save-exact": true,
             "//registry.npmjs.org/:_authToken": "${NPM_TOKEN}",
         };
 
-        const ini = stringify(npmrc, {
-            whitespace: true,
-        });
-
-        await writeFile(".npmrc", ini);
+        await writeFile(".npmrc", formatter.ini(npmrc));
     }
 }

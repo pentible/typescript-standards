@@ -1,5 +1,6 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 import PackageType from "~/src/context/PackageType";
@@ -8,7 +9,10 @@ export default class JestComponent extends Component {
     matches() {
         return true;
     }
-    async apply({ type, insideMonorepo }: PackageContext) {
+    async apply(
+        { type, insideMonorepo }: PackageContext,
+        formatter: Formatter,
+    ) {
         if (!insideMonorepo) {
             await execaCommand(
                 "npm i -D jest@28 @pentible/jest @pentible/jest-silent @types/jest",
@@ -28,9 +32,7 @@ export default class JestComponent extends Component {
         const jestConfig = {
             preset,
         };
-        const indent = 4;
-        const json = JSON.stringify(jestConfig, undefined, indent); // TODO: extract?
 
-        await writeFile("jest.config.json", json);
+        await writeFile("jest.config.json", formatter.json(jestConfig));
     }
 }

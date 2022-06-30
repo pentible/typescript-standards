@@ -1,6 +1,8 @@
 import { writeFile } from "fs/promises";
-import { join } from "path";
 import merge from "deepmerge";
+import { execaCommand } from "execa";
+import PackageFeature from "../context/PackageFeature";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import PackageAccessLevel from "~/src/context/PackageAccessLevel";
 import type PackageContext from "~/src/context/PackageContext";
@@ -13,66 +15,51 @@ export default class PackageJsonComponent extends Component {
     matches() {
         return true;
     }
+    basePartial({ scope, name, license }: PackageContext): PackageJson {
+        return {
+            name: scope ? `${scope}/${name}` : name,
+            version: "0.0.0",
+            license,
+            type: "module",
+            scripts: {},
+        };
+    }
+    rootPartial({ insideMonorepo }: PackageContext): PackageJson {
+        if (insideMonorepo) {
+            return {};
+        }
 
-    async apply({
-        directory,
-        name,
-        scope,
-        type,
+        const scripts = {
+            // TODO: should consider pulling this out to a script file
+            lint: [
+                "check-package-lock",
+                "shellcheck-all",
+                "tsc --noEmit",
+                "eslint .",
+                "prettier --loglevel warn --check .",
+            ].join(" && "),
+            "lint:fix": "eslint --fix . && prettier --loglevel warn --write .",
+            prepare: "husky install",
+            test: "jest",
+            "test:watch": "jest --watch",
+        };
+
+        return {
+            scripts,
+        };
+    }
+    accessPartial({
         access,
-        insideMonorepo,
-        license,
         author,
         description,
         repository,
-    }: PackageContext) {
-        const partials: PackageJson[] = [
-            {
-                name: scope ? `${scope}/${name}` : name,
-                version: "0.0.0",
-                scripts: {},
-                license,
-            },
-        ];
-
-        // TODO: consider sub-components, overlays or something to clean this up
-        // TODO: maybe instead of writing to disk we have in memory state representing
-        // the hierarchy and additional components can handle customizations to package.json
-
-        if (!insideMonorepo) {
-            partials.push({
-                scripts: {
-                    // TODO: should consider pulling this out to a script file
-                    lint: [
-                        "check-package-lock",
-                        "shellcheck-all",
-                        "tsc --noEmit",
-                        "eslint .",
-                        "prettier --loglevel warn --check .",
-                    ].join(" && "),
-                    "lint:fix":
-                        "eslint --fix . && prettier --loglevel warn --write .",
-                    prepare: "husky install",
-                    test: "jest",
-                    "test:watch": "jest --watch",
-                },
-            });
-        }
-
-        // // TODO: if parcel? or maybe we should modify package.json in ParcelComponent?
-        // scripts["build"] = "parcel build";
-        // scripts["watch"] = "parcel watch";
-        // scripts["start"] =
-        // - web-ext: parcel watch --no-autoinstall
-        // - node: ts-node --transpileOnly ./src/index.ts
-        // - else: parcel serve --no-autoinstall
-
+    }: PackageContext): PackageJson {
         if (access === PackageAccessLevel.Private) {
-            partials.push({
+            return {
                 private: "true",
-            });
+            };
         } else {
-            partials.push({
+            return {
                 publishConfig: {
                     access,
                 },
@@ -82,25 +69,105 @@ export default class PackageJsonComponent extends Component {
                     url: repository ?? "",
                 },
                 author: author ?? "",
-            });
+            };
+        }
+    }
+    typePartial({ type, name, features }: PackageContext): PackageJson {
+        const engines = {
+            node: "^16.14.2",
+        };
+
+        switch (type) {
+            case PackageType.Web:
+                return {
+                    main: "./dist/index.js",
+                    source: features.includes(PackageFeature.React)
+                        ? "./src/index.tsx"
+                        : "./src/index.ts",
+                };
+            case PackageType.Node:
+                return {
+                    main: "./dist/index.js",
+                    source: "./src/index.ts",
+                    bin: {
+                        [name]: "./dist/index.js",
+                    },
+                    files: ["dist/index.js"],
+                    engines,
+                    scripts: {
+                        start: "node: ts-node --transpileOnly ./src/index.ts",
+                    },
+                };
+            case PackageType.Library:
+                return {
+                    main: "./dist/index.js",
+                    source: "./src/index.ts",
+                    // TODO: consider: "exports": {
+                    //   ".": "./index.ts"
+                    // },
+                    files: ["dist/index.js"],
+                    engines,
+                };
+            case PackageType.Monorepo:
+                return {
+                    workspaces: ["./packages/*"],
+                };
+            case PackageType.WebExtension:
+                return {
+                    source: "manifest.json",
+                };
+            case PackageType.Electron:
+                return {
+                    // TODO: figure out
+                };
+            case PackageType.Config:
+                return {
+                    exports: {
+                        ".": "./index.js",
+                    },
+                    engines,
+                };
+        }
+    }
+    parcelStartScript(type: PackageType): PackageJson {
+        switch (type) {
+            case PackageType.WebExtension:
+                return { start: "parcel watch" };
+            case PackageType.Web:
+                return { start: "parcel serve" };
+            default:
+                return {};
+        }
+    }
+    parcelPartial({ type, features }: PackageContext): PackageJson {
+        if (!features.includes(PackageFeature.Parcel)) {
+            return {};
         }
 
-        if (type === PackageType.Monorepo) {
-            partials.push({
-                workspaces: ["./packages/*"],
-            });
-        }
+        return {
+            scripts: {
+                ...this.parcelStartScript(type),
+                build: "parcel build",
+                watch: "parcel watch",
+            },
+        };
+    }
+    async apply(ctx: PackageContext, formatter: Formatter) {
+        const { insideMonorepo } = ctx;
 
-        const packageJson = merge.all(partials);
+        const packageJson = merge.all([
+            this.basePartial(ctx),
+            this.rootPartial(ctx),
+            this.accessPartial(ctx),
+            this.typePartial(ctx),
+            this.parcelPartial(ctx),
+        ]);
 
-        // write
-        const indent = 4;
-        const json = JSON.stringify(packageJson, undefined, indent); // TODO: extract?
-        const path = join(directory, "package.json"); // TODO: not required?
+        await writeFile("package.json", formatter.json(packageJson));
 
-        await writeFile(path, json);
-
-        // TODO: refactor to something more like:
-        // await writer.write("package.json", formatter.json(packageJson))
+        const rootDirectory = this.getRootDirectory(insideMonorepo);
+        await execaCommand("npm install --ignore-scripts", {
+            cwd: rootDirectory,
+        });
     }
 }

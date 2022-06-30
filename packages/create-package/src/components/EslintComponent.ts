@@ -1,8 +1,8 @@
 import { writeFile } from "fs/promises";
 import merge from "deepmerge";
 import { execa, execaCommand } from "execa";
-import { stringify } from "yaml";
 import PackageFeature from "../context/PackageFeature";
+import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
 import PackageType from "~/src/context/PackageType";
@@ -76,7 +76,10 @@ export default class EslintComponent extends Component {
 
         return configs;
     }
-    async apply({ type, features, insideMonorepo }: PackageContext) {
+    async apply(
+        { type, features, insideMonorepo }: PackageContext,
+        formatter: Formatter,
+    ) {
         const partials: Eslintrc[] = [];
 
         if (!insideMonorepo) {
@@ -99,9 +102,8 @@ export default class EslintComponent extends Component {
 
         if (partials.length > 0) {
             const eslintrc = merge.all(partials);
-            const yaml = stringify(eslintrc);
 
-            await writeFile(".eslintrc.yml", yaml);
+            await writeFile(".eslintrc.yml", formatter.yaml(eslintrc));
         }
 
         // install in root

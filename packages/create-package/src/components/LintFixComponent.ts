@@ -7,23 +7,14 @@ export default class LintFixComponent extends Component {
         return true;
     }
 
-    getLintDirectory(insideMonorepo: boolean) {
-        if (insideMonorepo) {
-            // TODO: make more flexible
-            return "../../";
-        }
-
-        return ".";
-    }
-
     async apply({ insideMonorepo }: PackageContext) {
-        const lintDirectory = this.getLintDirectory(insideMonorepo);
+        const rootDirectory = this.getRootDirectory(insideMonorepo);
         await execa("npx", [
             "prettier",
             "--loglevel",
             "warn",
             "--write",
-            lintDirectory,
+            rootDirectory,
         ]);
     }
 }
