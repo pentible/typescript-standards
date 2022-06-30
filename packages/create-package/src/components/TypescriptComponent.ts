@@ -2,6 +2,7 @@ import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
+import PackageFeature from "../context/PackageFeature";
 import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
@@ -28,7 +29,7 @@ export default class TypescriptComponent extends Component {
         return true;
     }
     async apply(
-        { directory, type, insideMonorepo }: PackageContext,
+        { directory, type, features, insideMonorepo }: PackageContext,
         formatter: Formatter,
     ) {
         const partials: Tsconfig[] = [
@@ -44,15 +45,16 @@ export default class TypescriptComponent extends Component {
             });
         }
 
-        // TODO: if parcel
-        // partials.push({
-        //     compilerOptions: {
-        //         baseUrl: ".",
-        //         paths: {
-        //             "~*": ["./*"],
-        //         },
-        //     },
-        // });
+        if (features.includes(PackageFeature.Parcel)) {
+            partials.push({
+                compilerOptions: {
+                    baseUrl: ".",
+                    paths: {
+                        "~*": ["./*"],
+                    },
+                },
+            });
+        }
 
         if (insideMonorepo) {
             // TODO: make more flexible

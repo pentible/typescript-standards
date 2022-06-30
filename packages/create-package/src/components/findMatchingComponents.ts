@@ -12,6 +12,7 @@ import LintStagedComponent from "~/src/components/LintStagedComponent";
 import MonorepoPackagesComponent from "~/src/components/MonorepoPackagesComponent";
 import NpmrcComponent from "~/src/components/NpmrcComponent";
 import PackageJsonComponent from "~/src/components/PackageJsonComponent";
+import ParcelComponent from "~/src/components/ParcelComponent";
 import PrettierComponent from "~/src/components/PrettierComponent";
 import ReactComponent from "~/src/components/ReactComponent";
 import ShellcheckAllComponent from "~/src/components/ShellcheckAllComponent";
@@ -43,7 +44,7 @@ export default function findMatchingComponents(ctx: PackageContext) {
         new MonorepoPackagesComponent(),
 
         // features
-        // TODO: Parcel
+        new ParcelComponent(),
         new ReactComponent(),
         new ChakraUiComponent(),
 

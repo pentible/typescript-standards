@@ -1,5 +1,6 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
+import PackageFeature from "../context/PackageFeature";
 import type Formatter from "../formatting/Formatter";
 import Component from "./Component";
 import type PackageContext from "~/src/context/PackageContext";
@@ -10,7 +11,7 @@ export default class JestComponent extends Component {
         return true;
     }
     async apply(
-        { type, insideMonorepo }: PackageContext,
+        { type, features, insideMonorepo }: PackageContext,
         formatter: Formatter,
     ) {
         if (!insideMonorepo) {
@@ -24,13 +25,15 @@ export default class JestComponent extends Component {
                 ? "@pentible/jest/monorepo"
                 : "@pentible/jest";
 
-        // TODO: parcel feature:
-        // moduleNameMapper: {
-        //     "^~/(.*)$": "<rootDir>/$1"
-        // }
+        const moduleNameMapper = features.includes(PackageFeature.Parcel)
+            ? {
+                  "^~/(.*)$": "<rootDir>/$1",
+              }
+            : undefined;
 
         const jestConfig = {
             preset,
+            moduleNameMapper,
         };
 
         await writeFile("jest.config.json", formatter.json(jestConfig));
