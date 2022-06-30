@@ -103,7 +103,7 @@ export default async function promptPackageContext(
             loop: false,
             default({ type }: Pick<PackageContextAnswers, "type">) {
                 if (reactPackageTypes.includes(type)) {
-                    return [PackageFeature.React];
+                    return [PackageFeature.React, PackageFeature.ChakraUi];
                 }
 
                 return [];

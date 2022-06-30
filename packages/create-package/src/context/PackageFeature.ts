@@ -1,6 +1,7 @@
 enum PackageFeature {
-    React = "react",
     Parcel = "parcel",
+    React = "react",
+    ChakraUi = "chakra-ui",
 }
 
 export default PackageFeature;

@@ -1,4 +1,5 @@
 import BrowserslistComponent from "~/src/components/BrowserslistComponent";
+import ChakraUiComponent from "~/src/components/ChakraUiComponent";
 import CheckPackageLockComponent from "~/src/components/CheckPackageLockComponent";
 import type Component from "~/src/components/Component";
 import EditorConfigComponent from "~/src/components/EditorConfigComponent";
@@ -12,6 +13,7 @@ import MonorepoPackagesComponent from "~/src/components/MonorepoPackagesComponen
 import NpmrcComponent from "~/src/components/NpmrcComponent";
 import PackageJsonComponent from "~/src/components/PackageJsonComponent";
 import PrettierComponent from "~/src/components/PrettierComponent";
+import ReactComponent from "~/src/components/ReactComponent";
 import ShellcheckAllComponent from "~/src/components/ShellcheckAllComponent";
 import TypescriptComponent from "~/src/components/TypescriptComponent";
 import type PackageContext from "~/src/context/PackageContext";
@@ -42,6 +44,8 @@ export default function findMatchingComponents(ctx: PackageContext) {
 
         // features
         // TODO: Parcel
+        new ReactComponent(),
+        new ChakraUiComponent(),
 
         // lint fix
         new LintFixComponent(),
