@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import { chdir, exit } from "process";
-import collectAssumptions from "./assumptions/collectAssumptions";
-import findMatchingComponents from "./components/findMatchingComponents";
-import Formatter from "./formatting/Formatter";
-import promptPackageContext from "~/src/cli/promptPackageContext";
-import UserCancelledError from "~/src/errors/UserCancelledError";
+import { collectAssumptions } from "./assumptions/collectAssumptions";
+import { findMatchingComponents } from "./components/findMatchingComponents";
+import { Formatter } from "./formatting/Formatter";
+import { promptPackageContext } from "~/src/cli/promptPackageContext";
+import { UserCancelledError } from "~/src/errors/UserCancelledError";
 
 try {
     // TODO: maybe assumptions should be collected after directory is set...

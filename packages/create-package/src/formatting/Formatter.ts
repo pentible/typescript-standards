@@ -1,7 +1,7 @@
 import { stringify as iniStringify } from "ini";
 import { stringify as yamlStringify } from "yaml";
 
-export default class Formatter {
+export class Formatter {
     json(value: unknown) {
         const indent = 4;
         const json = JSON.stringify(value, undefined, indent);

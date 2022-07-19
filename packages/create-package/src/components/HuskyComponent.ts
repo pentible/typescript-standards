@@ -1,8 +1,8 @@
 import { execa, execaCommand } from "execa";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
 
-export default class HuskyComponent extends Component {
+export class HuskyComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
         // only root packages
         return !insideMonorepo;

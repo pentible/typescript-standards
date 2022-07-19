@@ -1,4 +1,4 @@
-import formatGitUrlHttps from "~/src/utility/formatGitUrlHttps";
+import { formatGitUrlHttps } from "~/src/utility/formatGitUrlHttps";
 
 jest.unmock("~/src/utility/formatGitUrlHttps");
 

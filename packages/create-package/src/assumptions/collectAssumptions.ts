@@ -1,10 +1,10 @@
 import fs from "fs/promises";
 import { userInfo } from "os";
 import { execaCommand } from "execa";
-import tryLoadPackageJson from "./tryLoadPackageJson";
+import { tryLoadPackageJson } from "./tryLoadPackageJson";
 import type { PackageContextAssumptions } from "~/src/cli/promptPackageContext";
 import { isErrorWithCode, isErrorWithExitCode } from "~/src/utility/errors";
-import formatGitUrlHttps from "~/src/utility/formatGitUrlHttps";
+import { formatGitUrlHttps } from "~/src/utility/formatGitUrlHttps";
 
 function assumeDirectory() {
     // TODO: ~/ support
@@ -51,7 +51,7 @@ function assumeAuthor() {
     return userInfo().username;
 }
 
-export default async function collectAssumptions(): Promise<PackageContextAssumptions> {
+export async function collectAssumptions(): Promise<PackageContextAssumptions> {
     // TODO: maybe load monorepo package json here and pass into relevant sub-functions
     const directory = assumeDirectory();
     const scope = await assumeScope();

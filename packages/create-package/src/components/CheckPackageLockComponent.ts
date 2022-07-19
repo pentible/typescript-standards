@@ -1,8 +1,8 @@
 import { execaCommand } from "execa";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
 
-export default class CheckPackageLockComponent extends Component {
+export class CheckPackageLockComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
         // only root packages
         return !insideMonorepo;

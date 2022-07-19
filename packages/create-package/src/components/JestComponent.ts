@@ -1,12 +1,12 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
-import PackageFeature from "../context/PackageFeature";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
-import PackageType from "~/src/context/PackageType";
+import { PackageFeature } from "../context/PackageFeature";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
+import { PackageType } from "~/src/context/PackageType";
 
-export default class JestComponent extends Component {
+export class JestComponent extends Component {
     matches() {
         return true;
     }

@@ -1,9 +1,9 @@
 import { writeFile } from "fs/promises";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
 
-export default class IgnoreFileComponent extends Component {
+export class IgnoreFileComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
         // only root packages
         return !insideMonorepo;

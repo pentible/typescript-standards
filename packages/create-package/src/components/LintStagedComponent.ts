@@ -1,10 +1,10 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
 
-export default class LintStagedComponent extends Component {
+export class LintStagedComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
         // only root packages
         return !insideMonorepo;

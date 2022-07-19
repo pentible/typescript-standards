@@ -1,7 +1,7 @@
 import { writeFile } from "fs/promises";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
 
 const indentStyle = "indent_style";
 const indentSize = "indent_size";
@@ -9,7 +9,7 @@ const endOfLine = "end_of_line";
 const insertFinalNewline = "insert_final_newline";
 const trimTrailingWhitespace = "trim_trailing_whitespace";
 
-export default class EditorConfigComponent extends Component {
+export class EditorConfigComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
         // only root packages
         return !insideMonorepo;

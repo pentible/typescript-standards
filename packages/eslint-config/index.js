@@ -327,7 +327,7 @@ module.exports = {
             },
         ],
         "import/newline-after-import": "error", // TODO: once released: ["error", { considerComments: true }]
-        "import/prefer-default-export": "warn", // TODO: unsure, may want to disable for libraries
+        "import/no-default-export": "error",
         "import/no-unassigned-import": [
             "error",
             {

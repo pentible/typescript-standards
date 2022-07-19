@@ -16,6 +16,7 @@
         "noUnusedParameters": true,
         "strict": true,
         "importsNotUsedAsValues": "error",
+        "removeComments": true,
         "allowJs": false,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,

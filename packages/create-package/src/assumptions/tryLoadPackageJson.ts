@@ -14,7 +14,7 @@ function isPackageJson(val: unknown): val is PackageJson {
     return typeof unsafe.name === "string";
 }
 
-export default async function tryLoadPackageJson(path: string) {
+export async function tryLoadPackageJson(path: string) {
     try {
         const contents = await fs.readFile(path, "utf8");
         const json: unknown = JSON.parse(contents);

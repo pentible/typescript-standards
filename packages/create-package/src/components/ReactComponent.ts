@@ -1,9 +1,9 @@
 import { execa } from "execa";
-import PackageFeature from "../context/PackageFeature";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
+import { PackageFeature } from "../context/PackageFeature";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
 
-export default class ReactComponent extends Component {
+export class ReactComponent extends Component {
     matches({ features }: PackageContext) {
         return features.includes(PackageFeature.React);
     }

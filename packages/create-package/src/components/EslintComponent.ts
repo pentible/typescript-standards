@@ -1,11 +1,11 @@
 import { writeFile } from "fs/promises";
 import merge from "deepmerge";
 import { execa, execaCommand } from "execa";
-import PackageFeature from "../context/PackageFeature";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
-import PackageType from "~/src/context/PackageType";
+import { PackageFeature } from "../context/PackageFeature";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
+import { PackageType } from "~/src/context/PackageType";
 
 // TODO: consider a stricter type
 type Eslintrc = Record<
@@ -13,7 +13,7 @@ type Eslintrc = Record<
     Record<string, boolean | string> | string[] | boolean | string | undefined
 >;
 
-export default class EslintComponent extends Component {
+export class EslintComponent extends Component {
     matches() {
         return true;
     }

@@ -1,12 +1,12 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
-import PackageFeature from "../context/PackageFeature";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
-import PackageType from "~/src/context/PackageType";
+import { PackageFeature } from "../context/PackageFeature";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
+import { PackageType } from "~/src/context/PackageType";
 
-export default class ParcelComponent extends Component {
+export class ParcelComponent extends Component {
     matches({ features }: PackageContext) {
         return features.includes(PackageFeature.Parcel);
     }

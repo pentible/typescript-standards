@@ -1,4 +1,4 @@
-enum PackageType {
+export enum PackageType {
     Web = "web",
     Node = "node",
     Library = "library",
@@ -7,5 +7,3 @@ enum PackageType {
     Electron = "electron",
     Config = "config", // TODO: maybe rename something like Plain/Basic/Base idk. or include a description
 }
-
-export default PackageType;

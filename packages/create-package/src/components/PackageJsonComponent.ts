@@ -1,17 +1,17 @@
 import { writeFile } from "fs/promises";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
-import PackageFeature from "../context/PackageFeature";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import PackageAccessLevel from "~/src/context/PackageAccessLevel";
-import type PackageContext from "~/src/context/PackageContext";
-import PackageType from "~/src/context/PackageType";
+import { PackageFeature } from "../context/PackageFeature";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import { PackageAccessLevel } from "~/src/context/PackageAccessLevel";
+import type { PackageContext } from "~/src/context/PackageContext";
+import { PackageType } from "~/src/context/PackageType";
 
 // TODO: consider a stricter type
 type PackageJson = Record<string, Record<string, string> | string[] | string>;
 
-export default class PackageJsonComponent extends Component {
+export class PackageJsonComponent extends Component {
     matches() {
         return true;
     }
@@ -95,7 +95,7 @@ export default class PackageJsonComponent extends Component {
                     files: ["dist/index.js"],
                     engines,
                     scripts: {
-                        start: "node: ts-node --transpileOnly ./src/index.ts",
+                        start: "ts-node --transpileOnly ./src/index.ts",
                     },
                 };
             case PackageType.Library:

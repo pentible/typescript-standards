@@ -2,11 +2,11 @@ import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
-import PackageFeature from "../context/PackageFeature";
-import type Formatter from "../formatting/Formatter";
-import Component from "./Component";
-import type PackageContext from "~/src/context/PackageContext";
-import PackageType from "~/src/context/PackageType";
+import { PackageFeature } from "../context/PackageFeature";
+import type { Formatter } from "../formatting/Formatter";
+import { Component } from "./Component";
+import type { PackageContext } from "~/src/context/PackageContext";
+import { PackageType } from "~/src/context/PackageType";
 
 // TODO: consider a stricter type
 type Tsconfig = Record<
@@ -24,7 +24,7 @@ type Tsconfig = Record<
     | string
 >;
 
-export default class TypescriptComponent extends Component {
+export class TypescriptComponent extends Component {
     matches() {
         return true;
     }
@@ -50,7 +50,7 @@ export default class TypescriptComponent extends Component {
                 compilerOptions: {
                     baseUrl: ".",
                     paths: {
-                        "~*": ["./*"],
+                        "~/*": ["./*"],
                     },
                 },
             });
@@ -81,6 +81,10 @@ export default class TypescriptComponent extends Component {
             const tsconfig = merge.all(monorepoTsconfigPartials);
 
             await writeFile(monorepoTsconfigPath, formatter.json(tsconfig));
+        }
+
+        if (type === PackageType.Node) {
+            await execaCommand("npm i -D ts-node@10");
         }
 
         // install in root

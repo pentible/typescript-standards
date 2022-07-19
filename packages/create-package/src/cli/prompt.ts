@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
 import type { Answers, DistinctQuestion } from "inquirer";
 
-export default async function prompt<T = Answers>(
+export async function prompt<T = Answers>(
     questions: DistinctQuestion<T>[],
     initialAnswers?: Partial<T>,
 ) {

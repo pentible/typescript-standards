@@ -1,7 +1,7 @@
-import type Formatter from "../formatting/Formatter";
-import type PackageContext from "~/src/context/PackageContext";
+import type { Formatter } from "../formatting/Formatter";
+import type { PackageContext } from "~/src/context/PackageContext";
 
-export default abstract class Component {
+export abstract class Component {
     abstract matches(ctx: PackageContext): boolean;
     abstract apply(ctx: PackageContext, formatter: Formatter): Promise<void>;
 
