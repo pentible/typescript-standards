@@ -8,17 +8,13 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node
-        uses: actions/setup-node@v2
+      - name: Wait for validate job to finish
+        uses: lewagon/wait-on-check-action@v1.1.1
         with:
-          node-version: "16"
-      - name: Install dependencies
-        run: npm install
-      - name: Lint
-        run: npm run lint
-      - name: Test
-        run: npx jest-silent
+          check-name: Validate
+          ref: ${{ github.ref }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
       - name: Determine New Version
         id: version
         uses: zwaldowski/semver-release-action@v2
