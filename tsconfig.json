@@ -19,6 +19,9 @@
         },
         {
             "path": "./packages/eslint-config-react"
+        },
+        {
+            "path": "./packages/eslint-config-nestjs"
         }
     ]
 }
