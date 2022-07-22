@@ -27,7 +27,6 @@ jobs:
           VERSION: v${{ steps.version.outputs.version }}
         run: echo "VERSION=${VERSION}" >> $GITHUB_ENV
       - name: Update Version In Code
-        id: commit_version
         env:
           GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
           GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}

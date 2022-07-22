@@ -15,4 +15,4 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Test
-        run: npx jest-silent
+        run: npm test
