@@ -282,6 +282,10 @@ module.exports = {
             "error",
             { [enforceForJsx]: true },
         ],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            { argsIgnorePattern: "^_" },
+        ],
 
         // import
         "import/no-absolute-path": "error",
