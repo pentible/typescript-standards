@@ -264,6 +264,10 @@ module.exports = {
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "@typescript-eslint/default-param-last": "error",
         "@typescript-eslint/init-declarations": "error",
+        "@typescript-eslint/no-empty-function": [
+            "error",
+            { allow: ["private-constructors"] },
+        ],
         "@typescript-eslint/no-invalid-this": "error",
         "@typescript-eslint/no-loop-func": "error",
         "@typescript-eslint/no-magic-numbers": [
@@ -272,6 +276,7 @@ module.exports = {
                 ignoreArrayIndexes: true,
                 ignoreDefaultValues: true,
                 ignoreEnums: true,
+                ignoreReadonlyClassProperties: true,
                 ignoreTypeIndexes: true,
                 ignore: [0, 1],
             },

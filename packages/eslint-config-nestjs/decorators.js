@@ -1,5 +1,6 @@
+// all TitleCase exports in *.decorator.ts files from each nest package
 exports.decorators = [
-    // all TitleCase exports in *.decorator.ts files from nestjs/nest
+    // nestjs/nest
     "All",
     "Bind",
     "Body",
@@ -60,4 +61,27 @@ exports.decorators = [
     "Version",
     "WebSocketGateway",
     "WebSocketServer",
+    // nestjs/graphql
+    "Parent",
+    "Subscription",
+    "ResolveReference",
+    "ResolveProperty",
+    "Root",
+    "Directive",
+    "Query",
+    "ResolveField",
+    "HideField",
+    "Args",
+    "Context",
+    "Scalar",
+    "InterfaceType",
+    "ObjectType",
+    "ArgsType",
+    "Mutation",
+    "Plugin",
+    "InputType",
+    "Info",
+    "Resolver",
+    "Extensions",
+    "Field",
 ];
