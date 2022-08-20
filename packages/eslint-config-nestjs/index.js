@@ -18,5 +18,11 @@ module.exports = {
                 ],
             },
         },
+        {
+            files: "*.dto.ts",
+            rules: {
+                "max-classes-per-file": ["error", { max: 2 }],
+            },
+        },
     ],
 };
