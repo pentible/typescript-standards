@@ -1,8 +1,12 @@
 const { decorators } = require("./decorators");
+const { typeHelpers } = require("./typeHelpers");
 
 module.exports = {
     rules: {
-        "new-cap": ["error", { capIsNewExceptions: decorators }],
+        "new-cap": [
+            "error",
+            { capIsNewExceptions: [...decorators, ...typeHelpers] },
+        ],
     },
     overrides: [
         {

@@ -13,7 +13,8 @@
     },
     "files": [
         "index.js",
-        "decorators.js"
+        "decorators.js",
+        "typeHelpers.js"
     ],
     "publishConfig": {
         "access": "public"
