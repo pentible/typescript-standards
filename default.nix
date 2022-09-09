@@ -5,6 +5,7 @@ pkgs.mkShell {
         pkgs.nodejs-18_x
     ];
     shellHook = ''
-        export PATH="${toString ./.}/node_modules/.bin:$PATH"
+        cd "${toString ./.}"
+        export PATH="$(npm bin):$PATH"
     '';
 }
