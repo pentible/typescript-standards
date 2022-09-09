@@ -4,9 +4,6 @@ const tsPreset = require("ts-jest/jest-preset");
 module.exports = {
     ...tsPreset,
 
-    // all imported modules in your tests should be mocked automatically
-    automock: true,
-
     // automatically reset mock state before every test
     resetMocks: true,
 
