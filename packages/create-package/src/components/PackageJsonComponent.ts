@@ -74,7 +74,7 @@ export class PackageJsonComponent extends Component {
     }
     typePartial({ type, name, features }: PackageContext): PackageJson {
         const engines = {
-            node: "^16.14.2",
+            node: "^18.8.0",
         };
 
         switch (type) {
