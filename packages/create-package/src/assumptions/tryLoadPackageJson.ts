@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import { isErrorWithCode } from "~/src/utility/errors";
+import { isErrorWithCode } from "src/utility/errors";
 
 interface PackageJson {
     name: string;

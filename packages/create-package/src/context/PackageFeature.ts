@@ -1,5 +1,5 @@
 export enum PackageFeature {
-    Parcel = "parcel",
+    Esbuild = "esbuild",
     React = "react",
     ChakraUi = "chakra-ui",
 }

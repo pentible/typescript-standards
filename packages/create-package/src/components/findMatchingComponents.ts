@@ -1,23 +1,22 @@
-import { BrowserslistComponent } from "~/src/components/BrowserslistComponent";
-import { ChakraUiComponent } from "~/src/components/ChakraUiComponent";
-import { CheckPackageLockComponent } from "~/src/components/CheckPackageLockComponent";
-import type { Component } from "~/src/components/Component";
-import { EditorConfigComponent } from "~/src/components/EditorConfigComponent";
-import { EslintComponent } from "~/src/components/EslintComponent";
-import { HuskyComponent } from "~/src/components/HuskyComponent";
-import { IgnoreFileComponent } from "~/src/components/IgnoreFileComponent";
-import { JestComponent } from "~/src/components/JestComponent";
-import { LintFixComponent } from "~/src/components/LintFixComponent";
-import { LintStagedComponent } from "~/src/components/LintStagedComponent";
-import { MonorepoPackagesComponent } from "~/src/components/MonorepoPackagesComponent";
-import { NpmrcComponent } from "~/src/components/NpmrcComponent";
-import { PackageJsonComponent } from "~/src/components/PackageJsonComponent";
-import { ParcelComponent } from "~/src/components/ParcelComponent";
-import { PrettierComponent } from "~/src/components/PrettierComponent";
-import { ReactComponent } from "~/src/components/ReactComponent";
-import { ShellcheckAllComponent } from "~/src/components/ShellcheckAllComponent";
-import { TypescriptComponent } from "~/src/components/TypescriptComponent";
-import type { PackageContext } from "~/src/context/PackageContext";
+import { BrowserslistComponent } from "src/components/BrowserslistComponent";
+import { ChakraUiComponent } from "src/components/ChakraUiComponent";
+import { CheckPackageLockComponent } from "src/components/CheckPackageLockComponent";
+import type { Component } from "src/components/Component";
+import { EditorConfigComponent } from "src/components/EditorConfigComponent";
+import { EsbuildComponent } from "src/components/EsbuildComponent";
+import { EslintComponent } from "src/components/EslintComponent";
+import { HuskyComponent } from "src/components/HuskyComponent";
+import { IgnoreFileComponent } from "src/components/IgnoreFileComponent";
+import { LintFixComponent } from "src/components/LintFixComponent";
+import { LintStagedComponent } from "src/components/LintStagedComponent";
+import { MonorepoPackagesComponent } from "src/components/MonorepoPackagesComponent";
+import { NpmrcComponent } from "src/components/NpmrcComponent";
+import { PackageJsonComponent } from "src/components/PackageJsonComponent";
+import { PrettierComponent } from "src/components/PrettierComponent";
+import { ReactComponent } from "src/components/ReactComponent";
+import { ShellcheckAllComponent } from "src/components/ShellcheckAllComponent";
+import { TypescriptComponent } from "src/components/TypescriptComponent";
+import type { PackageContext } from "src/context/PackageContext";
 
 export function findMatchingComponents(ctx: PackageContext) {
     const components: Component[] = [
@@ -25,7 +24,6 @@ export function findMatchingComponents(ctx: PackageContext) {
         new PackageJsonComponent(),
         new TypescriptComponent(),
         new EslintComponent(),
-        new JestComponent(),
         new BrowserslistComponent(),
         // TODO: readme.md, src
 
@@ -44,7 +42,7 @@ export function findMatchingComponents(ctx: PackageContext) {
         new MonorepoPackagesComponent(),
 
         // features
-        new ParcelComponent(),
+        new EsbuildComponent(),
         new ReactComponent(),
         new ChakraUiComponent(),
 

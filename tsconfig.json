@@ -6,9 +6,6 @@
             "path": "./packages/create-package"
         },
         {
-            "path": "./packages/jest"
-        },
-        {
             "path": "./packages/eslint-config"
         },
         {

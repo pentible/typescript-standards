@@ -4,4 +4,3 @@
 npx check-package-lock
 npx tsc --noEmit
 npx lint-staged
-npx jest-silent

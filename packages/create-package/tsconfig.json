@@ -2,8 +2,6 @@
     "extends": "@pentible/tsconfig",
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {
-            "~/*": ["./*"]
-        }
+        "module": "commonjs"
     }
 }

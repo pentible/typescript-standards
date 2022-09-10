@@ -2,11 +2,10 @@ import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
 import execa from "execa";
-import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
-import type { PackageContext } from "~/src/context/PackageContext";
-import { PackageType } from "~/src/context/PackageType";
+import type { PackageContext } from "src/context/PackageContext";
+import { PackageType } from "src/context/PackageType";
 
 // TODO: consider a stricter type
 type Tsconfig = Record<
@@ -29,7 +28,7 @@ export class TypescriptComponent extends Component {
         return true;
     }
     async apply(
-        { directory, type, features, insideMonorepo }: PackageContext,
+        { directory, type, insideMonorepo }: PackageContext,
         formatter: Formatter,
     ) {
         const partials: Tsconfig[] = [
@@ -45,13 +44,10 @@ export class TypescriptComponent extends Component {
             });
         }
 
-        if (features.includes(PackageFeature.Parcel)) {
+        if (![PackageType.Monorepo, PackageType.Config].includes(type)) {
             partials.push({
                 compilerOptions: {
                     baseUrl: ".",
-                    paths: {
-                        "~/*": ["./*"],
-                    },
                 },
             });
         }
@@ -81,10 +77,6 @@ export class TypescriptComponent extends Component {
             const tsconfig = merge.all(monorepoTsconfigPartials);
 
             await writeFile(monorepoTsconfigPath, formatter.json(tsconfig));
-        }
-
-        if (type === PackageType.Node) {
-            await execa.command("npm i -D ts-node@10");
         }
 
         // install in root

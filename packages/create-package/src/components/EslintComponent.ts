@@ -4,8 +4,8 @@ import execa from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
-import type { PackageContext } from "~/src/context/PackageContext";
-import { PackageType } from "~/src/context/PackageType";
+import type { PackageContext } from "src/context/PackageContext";
+import { PackageType } from "src/context/PackageType";
 
 // TODO: consider a stricter type
 type Eslintrc = Record<

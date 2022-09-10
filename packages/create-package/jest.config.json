@@ -1,6 +1,0 @@
-{
-    "preset": "@pentible/jest",
-    "moduleNameMapper": {
-        "^~/(.*)$": "<rootDir>/$1"
-    }
-}

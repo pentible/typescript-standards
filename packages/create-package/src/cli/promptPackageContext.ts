@@ -2,13 +2,13 @@ import { basename } from "path";
 import chalk from "chalk";
 import { PackageFeature } from "../context/PackageFeature";
 import { promptToContinue } from "./promptToContinue";
-import { prompt } from "~/src/cli/prompt";
-import { License } from "~/src/context/License";
-import { PackageAccessLevel } from "~/src/context/PackageAccessLevel";
-import { PackageContext } from "~/src/context/PackageContext";
-import { PackageType } from "~/src/context/PackageType";
-import { formatGitUrlHttps } from "~/src/utility/formatGitUrlHttps";
-import type { AsObject } from "~/src/utility/types";
+import { prompt } from "src/cli/prompt";
+import { License } from "src/context/License";
+import { PackageAccessLevel } from "src/context/PackageAccessLevel";
+import { PackageContext } from "src/context/PackageContext";
+import { PackageType } from "src/context/PackageType";
+import { formatGitUrlHttps } from "src/utility/formatGitUrlHttps";
+import type { AsObject } from "src/utility/types";
 
 const reactPackageTypes = [
     PackageType.Web,

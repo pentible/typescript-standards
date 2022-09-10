@@ -24,8 +24,5 @@
         "isolatedModules": true,
         "composite": true,
         "skipLibCheck": true
-    },
-    "ts-node": {
-        "esm": true
     }
 }

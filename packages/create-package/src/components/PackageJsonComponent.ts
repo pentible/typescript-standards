@@ -4,9 +4,9 @@ import execa from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
-import { PackageAccessLevel } from "~/src/context/PackageAccessLevel";
-import type { PackageContext } from "~/src/context/PackageContext";
-import { PackageType } from "~/src/context/PackageType";
+import { PackageAccessLevel } from "src/context/PackageAccessLevel";
+import type { PackageContext } from "src/context/PackageContext";
+import { PackageType } from "src/context/PackageType";
 
 // TODO: consider a stricter type
 type PackageJson = Record<string, Record<string, string> | string[] | string>;
@@ -40,8 +40,6 @@ export class PackageJsonComponent extends Component {
             ].join(" && "),
             "lint:fix": "eslint --fix . && prettier --loglevel warn --write .",
             prepare: "husky install",
-            test: "jest",
-            "test:watch": "jest --watch",
         };
 
         return {
@@ -72,7 +70,7 @@ export class PackageJsonComponent extends Component {
             };
         }
     }
-    typePartial({ type, name, features }: PackageContext): PackageJson {
+    typePartial({ type, name }: PackageContext): PackageJson {
         const engines = {
             node: "^18.8.0",
         };
@@ -81,27 +79,23 @@ export class PackageJsonComponent extends Component {
             case PackageType.Web:
                 return {
                     main: "./dist/index.js",
-                    source: features.includes(PackageFeature.React)
-                        ? "./src/index.tsx"
-                        : "./src/index.ts",
                 };
             case PackageType.Node:
                 return {
+                    type: "commonjs",
                     main: "./dist/index.js",
-                    source: "./src/index.ts",
                     bin: {
                         [name]: "./dist/index.js",
                     },
                     files: ["dist/index.js"],
                     engines,
                     scripts: {
-                        start: "ts-node --transpileOnly ./src/index.ts",
+                        start: "./dist/index.js",
                     },
                 };
             case PackageType.Library:
                 return {
                     main: "./dist/index.js",
-                    source: "./src/index.ts",
                     // TODO: consider: "exports": {
                     //   ".": "./index.ts"
                     // },
@@ -129,26 +123,18 @@ export class PackageJsonComponent extends Component {
                 };
         }
     }
-    parcelStartScript(type: PackageType): PackageJson {
-        switch (type) {
-            case PackageType.WebExtension:
-                return { start: "parcel watch" };
-            case PackageType.Web:
-                return { start: "parcel serve" };
-            default:
-                return {};
-        }
-    }
-    parcelPartial({ type, features }: PackageContext): PackageJson {
-        if (!features.includes(PackageFeature.Parcel)) {
+    esbuildPartial({ features }: PackageContext): PackageJson {
+        if (!features.includes(PackageFeature.Esbuild)) {
             return {};
         }
 
+        const build =
+            "esbuild --bundle --platform=node src/index.ts --target=node18 --format=esm --outfile=./dist/index.js";
+
         return {
             scripts: {
-                ...this.parcelStartScript(type),
-                build: "parcel build",
-                watch: "parcel watch",
+                build,
+                watch: "npm run build -- --watch",
             },
         };
     }
@@ -160,7 +146,7 @@ export class PackageJsonComponent extends Component {
             this.rootPartial(ctx),
             this.accessPartial(ctx),
             this.typePartial(ctx),
-            this.parcelPartial(ctx),
+            this.esbuildPartial(ctx),
         ]);
 
         await writeFile("package.json", formatter.json(packageJson));

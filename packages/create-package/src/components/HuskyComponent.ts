@@ -1,6 +1,6 @@
 import execa from "execa";
 import { Component } from "./Component";
-import type { PackageContext } from "~/src/context/PackageContext";
+import type { PackageContext } from "src/context/PackageContext";
 
 export class HuskyComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
@@ -18,8 +18,5 @@ export class HuskyComponent extends Component {
         await this.addPreCommitCommand("npx check-package-lock");
         await this.addPreCommitCommand("npx tsc --noEmit");
         await this.addPreCommitCommand("npx lint-staged");
-        await this.addPreCommitCommand(
-            "npx jest-silent --passWithNoTests # TODO: remove --passWithNoTests once tests added",
-        );
     }
 }

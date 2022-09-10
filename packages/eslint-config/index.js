@@ -1,24 +1,21 @@
 // TODO: consider: convert to ts but commit compiled version (lint-staged re-build)
 const confusingBrowserGlobals = require("confusing-browser-globals");
-const { jestGlobals } = require("./globals");
 const { noRestrictedGlobalWithMessage } = require("./helpers");
 const { naming } = require("./naming");
 
 const enforceForJsx = "enforceForJSX";
 
-const baseExtends = [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:@typescript-eslint/strict",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:sort-class-members/recommended",
-    "plugin:eslint-comments/recommended",
-];
-
 module.exports = {
-    extends: baseExtends,
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/strict",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:sort-class-members/recommended",
+        "plugin:eslint-comments/recommended",
+    ],
     parserOptions: {
         sourceType: "module",
         tsconfigRootDir: ".",
@@ -36,61 +33,6 @@ module.exports = {
         es2022: true,
     },
     overrides: [
-        {
-            files: ["*.{spec,test}.{js,ts,jsx,tsx}"],
-            extends: [
-                ...baseExtends,
-                "plugin:jest/recommended",
-                "plugin:jest/style",
-                "plugin:jest-formatting/strict",
-            ],
-            rules: {
-                "no-restricted-globals": "off",
-                "max-nested-callbacks": "off",
-                "@typescript-eslint/no-magic-numbers": "off",
-                "import/no-unused-modules": "off",
-
-                // jest
-                "jest/consistent-test-it": "error",
-                "jest/max-nested-describe": "error",
-                "jest/no-conditional-in-test": "error",
-                "jest/no-duplicate-hooks": "error",
-                "jest/no-large-snapshots": ["warn", { maxSize: 20 }],
-                "jest/no-restricted-matchers": [
-                    "error",
-                    {
-                        resolves: "Use `expect(await promise)` instead.",
-                        toMatchSnapshot: null,
-                        toThrowErrorMatchingSnapshot: null,
-                    },
-                ],
-                "jest/no-test-return-statement": "error",
-                "jest/prefer-called-with": "error",
-                "jest/prefer-comparison-matcher": "error",
-                "jest/prefer-equality-matcher": "error",
-                "jest/prefer-expect-assertions": [
-                    "warn",
-                    {
-                        onlyFunctionsWithExpectInLoop: true,
-                        onlyFunctionsWithExpectInCallback: true,
-                    },
-                ],
-                "jest/prefer-hooks-in-order": "error",
-                "jest/prefer-hooks-on-top": "error",
-                "jest/prefer-lowercase-title": [
-                    "error",
-                    { ignoreTopLevelDescribe: true },
-                ],
-                "jest/prefer-spy-on": "error",
-                "jest/prefer-todo": "error",
-                "jest/require-hook": "error",
-                "jest/require-to-throw-message": "error",
-                "jest/require-top-level-describe": "error",
-
-                "@typescript-eslint/unbound-method": "off",
-                "jest/unbound-method": "error",
-            },
-        },
         {
             files: ["*.js"],
             rules: {
@@ -185,11 +127,6 @@ module.exports = {
         "no-proto": "error",
         "no-restricted-globals": [
             "error",
-            ...jestGlobals.map(
-                noRestrictedGlobalWithMessage(
-                    "Jest globals should not be used outside of test files",
-                ),
-            ),
             ...confusingBrowserGlobals.map(
                 noRestrictedGlobalWithMessage(
                     "Confusing browser global, should use window property or local param instead",
@@ -303,10 +240,7 @@ module.exports = {
         ],
         "import/no-relative-packages": "error",
         "import/no-deprecated": "warn",
-        "import/no-extraneous-dependencies": [
-            "error",
-            { devDependencies: ["**/*.{spec,test}.{js,ts,jsx,tsx}"] },
-        ],
+        "import/no-extraneous-dependencies": "error",
         "import/no-mutable-exports": "error",
         "import/no-unused-modules": [
             "error",
@@ -340,13 +274,7 @@ module.exports = {
         "import/no-unassigned-import": [
             "error",
             {
-                allow: [
-                    "**/*.css",
-                    "@testing-library/jest-dom",
-                    "@testing-library/jest-dom/**",
-                    "ghspa",
-                    "@fontsource/**",
-                ],
+                allow: ["**/*.css", "ghspa", "@fontsource/**"],
             },
         ],
         "import/no-named-default": "error",

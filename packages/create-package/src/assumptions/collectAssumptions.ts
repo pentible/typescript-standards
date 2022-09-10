@@ -2,9 +2,9 @@ import fs from "fs/promises";
 import { userInfo } from "os";
 import execa from "execa";
 import { tryLoadPackageJson } from "./tryLoadPackageJson";
-import type { PackageContextAssumptions } from "~/src/cli/promptPackageContext";
-import { isErrorWithCode, isErrorWithExitCode } from "~/src/utility/errors";
-import { formatGitUrlHttps } from "~/src/utility/formatGitUrlHttps";
+import type { PackageContextAssumptions } from "src/cli/promptPackageContext";
+import { isErrorWithCode, isErrorWithExitCode } from "src/utility/errors";
+import { formatGitUrlHttps } from "src/utility/formatGitUrlHttps";
 
 function assumeDirectory() {
     // TODO: ~/ support

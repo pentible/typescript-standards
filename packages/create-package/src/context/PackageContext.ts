@@ -2,7 +2,7 @@ import type { License } from "./License";
 import type { PackageAccessLevel } from "./PackageAccessLevel";
 import type { PackageFeature } from "./PackageFeature";
 import type { PackageType } from "./PackageType";
-import type { AsObject } from "~/src/utility/types";
+import type { AsObject } from "src/utility/types";
 
 export class PackageContext {
     readonly directory: string;

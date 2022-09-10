@@ -1,9 +1,9 @@
 import { writeFile } from "fs/promises";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
-import type { PackageContext } from "~/src/context/PackageContext";
-import { PackageType } from "~/src/context/PackageType";
-import { base64UrlEncode } from "~/src/utility/base64UrlEncode";
+import type { PackageContext } from "src/context/PackageContext";
+import { PackageType } from "src/context/PackageType";
+import { base64UrlEncode } from "src/utility/base64UrlEncode";
 
 export class BrowserslistComponent extends Component {
     matches() {
