@@ -1,4 +1,4 @@
-import execa from "execa";
+import { execaCommand } from "execa";
 import { Component } from "./Component";
 import type { PackageContext } from "src/context/PackageContext";
 
@@ -8,6 +8,6 @@ export class ShellcheckAllComponent extends Component {
         return !insideMonorepo;
     }
     async apply() {
-        await execa.command("npm install -D @pentible/shellcheck-all");
+        await execaCommand("npm install -D @pentible/shellcheck-all");
     }
 }

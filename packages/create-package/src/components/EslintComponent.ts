@@ -1,6 +1,6 @@
 import { writeFile } from "fs/promises";
 import merge from "deepmerge";
-import execa from "execa";
+import { execa, execaCommand } from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
@@ -108,7 +108,7 @@ export class EslintComponent extends Component {
 
         // install in root
         if (!insideMonorepo) {
-            await execa.command("npm install -D @pentible/eslint-config");
+            await execaCommand("npm install -D @pentible/eslint-config");
         }
 
         // additional configs can start out as package specific (or root if not in a monorepo of course)
