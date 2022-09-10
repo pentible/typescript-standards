@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import { userInfo } from "os";
-import { execaCommand } from "execa";
+import execa from "execa";
 import { tryLoadPackageJson } from "./tryLoadPackageJson";
 import type { PackageContextAssumptions } from "~/src/cli/promptPackageContext";
 import { isErrorWithCode, isErrorWithExitCode } from "~/src/utility/errors";
@@ -35,7 +35,7 @@ async function assumeInsideMonorepo() {
 
 async function assumeRepository() {
     try {
-        const { stdout } = await execaCommand("git remote get-url origin");
+        const { stdout } = await execa.command("git remote get-url origin");
 
         return formatGitUrlHttps(stdout);
     } catch (err) {

@@ -1,5 +1,5 @@
 import { writeFile } from "fs/promises";
-import { execaCommand } from "execa";
+import execa from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
@@ -31,7 +31,7 @@ export class ParcelComponent extends Component {
     }
     async apply({ type }: PackageContext, formatter: Formatter) {
         // TODO: don't install if insideMonorepo and root has parcel as a devDependency
-        await execaCommand("npm install -D parcel@2");
+        await execa.command("npm install -D parcel@2");
 
         const parcelrc = this.parcelrc(type);
 

@@ -1,4 +1,4 @@
-import { execa } from "execa";
+import execa from "execa";
 import { Component } from "./Component";
 import type { PackageContext } from "~/src/context/PackageContext";
 

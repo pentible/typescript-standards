@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
-import { execaCommand } from "execa";
+import execa from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
@@ -84,12 +84,12 @@ export class TypescriptComponent extends Component {
         }
 
         if (type === PackageType.Node) {
-            await execaCommand("npm i -D ts-node@10");
+            await execa.command("npm i -D ts-node@10");
         }
 
         // install in root
         if (!insideMonorepo) {
-            await execaCommand("npm i -D typescript@4 @pentible/tsconfig");
+            await execa.command("npm i -D typescript@4 @pentible/tsconfig");
         }
 
         if (partials.length > 0) {

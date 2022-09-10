@@ -1,5 +1,5 @@
 import { writeFile } from "fs/promises";
-import { execaCommand } from "execa";
+import execa from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
@@ -15,7 +15,7 @@ export class JestComponent extends Component {
         formatter: Formatter,
     ) {
         if (!insideMonorepo) {
-            await execaCommand(
+            await execa.command(
                 "npm i -D jest@28 @pentible/jest @pentible/jest-silent @types/jest",
             );
         }

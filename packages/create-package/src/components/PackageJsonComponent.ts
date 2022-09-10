@@ -1,6 +1,6 @@
 import { writeFile } from "fs/promises";
 import merge from "deepmerge";
-import { execaCommand } from "execa";
+import execa from "execa";
 import { PackageFeature } from "../context/PackageFeature";
 import type { Formatter } from "../formatting/Formatter";
 import { Component } from "./Component";
@@ -166,7 +166,7 @@ export class PackageJsonComponent extends Component {
         await writeFile("package.json", formatter.json(packageJson));
 
         const rootDirectory = this.getRootDirectory(insideMonorepo);
-        await execaCommand("npm install --ignore-scripts", {
+        await execa.command("npm install --ignore-scripts", {
             cwd: rootDirectory,
         });
     }
