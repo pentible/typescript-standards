@@ -4,8 +4,11 @@
 
 set -e
 
+declare script_dir
+script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 usage() {
-    echo 'usage: check-package-lock'
+    echo 'usage: check-package-lock [-h|--help]'
 }
 
 parse_cli_args() {
@@ -23,6 +26,14 @@ parse_cli_args() {
         esac
         shift
     done
+}
+
+is_monorepo() {
+    node "${script_dir}/is-monorepo.cjs"
+}
+
+find_conflicting_packages() {
+    node "${script_dir}/find-conflicting-packages.cjs"
 }
 
 quiet() {
@@ -43,4 +54,16 @@ if [[ -t 1 ]]; then
     args+=('--color=always')
 fi
 
+# ensure packages in sync with lock
 quiet npm "${args[@]}" ls --package-lock-only
+
+# ensure no conflicting packages in monorepo
+if is_monorepo; then
+    declare conflicting_packages
+    conflicting_packages="$(find_conflicting_packages)"
+    if [[ -n "$conflicting_packages" ]]; then
+        echo 'Conflicting package versions detected:'
+        echo "$conflicting_packages"
+        exit 1
+    fi
+fi

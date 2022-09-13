@@ -52,6 +52,7 @@ module.exports = {
                 "import/unambiguous": "off",
                 "import/no-unused-modules": "off",
                 "import/no-unassigned-import": "off",
+                "no-var": "off",
             },
         },
         {

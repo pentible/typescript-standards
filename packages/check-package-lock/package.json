@@ -12,7 +12,9 @@
         "check-package-lock": "./check-package-lock.sh"
     },
     "files": [
-        "check-package-lock.sh"
+        "check-package-lock.sh",
+        "is-monorepo.cjs",
+        "find-conflicting-packages.cjs"
     ],
     "scripts": {
         "start": "./check-package-lock.sh"
