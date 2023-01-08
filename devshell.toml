@@ -1,0 +1,11 @@
+# https://numtide.github.io/devshell
+[devshell]
+motd = ""
+packages = ["nodejs-18_x"]
+
+[[env]]
+name = "PATH"
+prefix = "$(npm bin)"
+
+[devshell.startup.git-hooks]
+text = "git config --local core.hookspath .hooks"

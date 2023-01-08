@@ -21,10 +21,15 @@ parse_cli_args() {
                 return 1
                 ;;
         esac
-        shift
+        # NOTE: would normally `shift` here, but in this case it's unreachable
     done
 }
 
 parse_cli_args "$@"
 
-git ls-files '*.sh' -z | xargs -0 --no-run-if-empty shellcheck
+declare -a files=()
+while IFS= read -r file; do
+    files+=("$file")
+done < <(git ls-files '*.sh')
+
+shellcheck "${files[@]}"

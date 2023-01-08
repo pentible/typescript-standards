@@ -24,7 +24,7 @@ parse_cli_args() {
                 return 1
                 ;;
         esac
-        shift
+        # NOTE: would normally `shift` here, but in this case it's unreachable
     done
 }
 
