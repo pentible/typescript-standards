@@ -36,6 +36,10 @@ find_conflicting_packages() {
     node "${script_dir}/find-conflicting-packages.cjs"
 }
 
+find_missing_workspaces() {
+    node "${script_dir}/find-missing-workspaces.cjs"
+}
+
 quiet() {
     # only display command output if the command fails
 
@@ -57,13 +61,22 @@ fi
 # ensure packages in sync with lock
 quiet npm "${args[@]}" ls --package-lock-only
 
-# ensure no conflicting packages in monorepo
 if is_monorepo; then
+    # ensure no conflicting packages in monorepo
     declare conflicting_packages
     conflicting_packages="$(find_conflicting_packages)"
     if [[ -n "$conflicting_packages" ]]; then
         echo 'Conflicting package versions detected:'
         echo "$conflicting_packages"
+        exit 1
+    fi
+
+    # ensure no missing workspaces
+    declare missing_workspaces
+    missing_workspaces="$(find_missing_workspaces)"
+    if [[ -n "$missing_workspaces" ]]; then
+        echo 'Missing workspaces detected:'
+        echo "$missing_workspaces"
         exit 1
     fi
 fi
