@@ -14,7 +14,8 @@
     "files": [
         "check-package-lock.sh",
         "is-monorepo.cjs",
-        "find-conflicting-packages.cjs"
+        "find-conflicting-packages.cjs",
+        "find-missing-workspaces.cjs"
     ],
     "scripts": {
         "start": "./check-package-lock.sh"

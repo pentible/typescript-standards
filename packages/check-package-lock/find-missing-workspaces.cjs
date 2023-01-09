@@ -4,6 +4,6 @@ const packages = (packageLock && packageLock.packages) || {};
 
 Object.keys(packages)
     .filter((p) => typeof p === "string")
-    .filter((p) => p.startsWith("packages/"))
+    .filter((p) => !p.startsWith("node_modules/"))
     .filter((p) => !fs.existsSync(p))
     .forEach((p) => console.log(p));
