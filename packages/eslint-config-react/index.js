@@ -1,3 +1,6 @@
+/**
+ * @type {import('eslint').ESLint.ConfigData}
+ */
 module.exports = {
     plugins: ["react-prefer-function-component"],
     extends: [
@@ -21,7 +24,7 @@ module.exports = {
         // react
         "react/button-has-type": "error",
         "react/destructuring-assignment": "error",
-        "react/forbid-component-props": "warn", // TODO: decide
+        "react/forbid-component-props": "warn",
         "react/function-component-definition": "error",
         "react/hook-use-state": "error",
         "react/iframe-missing-sandbox": "error",
@@ -30,13 +33,11 @@ module.exports = {
         "react/no-array-index-key": "warn",
         "react/no-danger": "warn",
         "react/no-invalid-html-attribute": "error",
-        "react/no-multi-comp": "error",
         "react/no-namespace": "error",
         "react/no-this-in-sfc": "error",
         "react/no-unstable-nested-components": "error",
         "react/no-unused-prop-types": "error",
         "react/self-closing-comp": "error",
-        // "react/sort-prop-types": "error", // TODO: consider along with react/jsx-sort-props
         "react/void-dom-elements-no-children": "error",
         "react/jsx-boolean-value": "error",
         "react/jsx-curly-brace-presence": [
@@ -49,9 +50,8 @@ module.exports = {
         ],
         "react/jsx-fragments": "error",
         "react/jsx-handler-names": "error",
-        "react/jsx-max-depth": ["error", { max: 10 }], // TODO: consider a lower limit
-        "react/jsx-no-bind": "error",
-        // "react/jsx-no-constructed-context-values": "error", // TODO: consider
+        "react/jsx-max-depth": ["error", { max: 8 }],
+        "react/jsx-no-constructed-context-values": "error",
         "react/jsx-no-leaked-render": [
             "error",
             { validStrategies: ["coerce", "ternary"] },
@@ -60,6 +60,5 @@ module.exports = {
         "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
         "react/jsx-pascal-case": "error",
         "react/jsx-props-no-spreading": "error",
-        // "react/jsx-sort-props": "error", // TODO: consider along with react/sort-prop-types
     },
 };

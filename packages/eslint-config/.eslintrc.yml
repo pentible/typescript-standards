@@ -1,3 +1,2 @@
 rules:
   "@typescript-eslint/no-magic-numbers": "off"
-  max-lines: ["error", 400] # TODO: remove

@@ -1,10 +1,10 @@
-// TODO: consider: convert to ts but commit compiled version (lint-staged re-build)
 const confusingBrowserGlobals = require("confusing-browser-globals");
 const { noRestrictedGlobalWithMessage } = require("./helpers");
 const { naming } = require("./naming");
 
-const enforceForJsx = "enforceForJSX";
-
+/**
+ * @type {import('eslint').ESLint.ConfigData}
+ */
 module.exports = {
     extends: [
         "eslint:recommended",
@@ -50,7 +50,10 @@ module.exports = {
             rules: {
                 "spaced-comment": ["error", "always", { markers: ["/"] }],
                 "import/unambiguous": "off",
-                "import/no-unused-modules": "off",
+                "import/no-unused-modules": [
+                    "error",
+                    { unusedExports: true, missingExports: false },
+                ],
                 "import/no-unassigned-import": "off",
                 "no-var": "off",
             },
@@ -83,14 +86,6 @@ module.exports = {
         "require-atomic-updates": "error",
         "arrow-body-style": ["error", "as-needed"],
         "block-scoped-var": "error",
-        "capitalized-comments": [
-            "error",
-            "never",
-            {
-                ignorePattern: "TODO|NOTE|FIXME",
-            },
-        ],
-        complexity: "warn", // TODO: unsure about...
         "default-case-last": "error",
         eqeqeq: ["error", "smart"],
         "func-name-matching": "error",
@@ -98,12 +93,9 @@ module.exports = {
         "func-style": ["error", "declaration", { allowArrowFunctions: true }],
         "grouped-accessor-pairs": "error",
         "guard-for-in": "error",
-        "max-classes-per-file": ["error", { ignoreExpressions: true }],
         "max-depth": ["error", 4],
-        "max-lines": ["error", 300],
         "max-nested-callbacks": ["error", 2],
         "max-params": ["error", 4],
-        "max-statements": ["warn", 20], // TODO: unsure about...
         "multiline-comment-style": ["error", "separate-lines"],
         "new-cap": "error",
         "no-bitwise": "error",
@@ -124,7 +116,7 @@ module.exports = {
         "no-new-object": "error",
         "no-new-wrappers": "error",
         "no-octal-escape": "error",
-        "no-param-reassign": "error", // TODO: consider: ["error", { "props": true }]
+        "no-param-reassign": ["error", { props: true }],
         "no-proto": "error",
         "no-restricted-globals": [
             "error",
@@ -143,24 +135,18 @@ module.exports = {
         "no-useless-concat": "error",
         "no-useless-rename": "error",
         "no-useless-return": "error",
-        // "no-warning-comments": "warn", // TODO: decide
-        "object-shorthand": [
-            "error",
-            "always",
-            { avoidQuotes: true, avoidExplicitReturnArrows: true },
-        ],
+        "object-shorthand": ["error", "always", { avoidQuotes: true }],
         "one-var": ["error", "never"],
         "operator-assignment": "error",
         "prefer-arrow-callback": "error",
         "prefer-numeric-literals": "error",
-        // "prefer-object-has-own": "error", // TODO: once proper browser support
+        // "prefer-object-has-own": "error", // TODO: once better browser support: https://caniuse.com/?search=object.hasOwn
         "prefer-object-spread": "error",
         "prefer-promise-reject-errors": "error",
         "prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
         "prefer-template": "error",
         radix: ["error", "as-needed"],
         "require-unicode-regexp": "error",
-        // "sort-keys": ["error", "asc", { natural: true }], // TODO: doesn't seem to auto fix? find a plugin for this
         "spaced-comment": "error",
         strict: "error",
         "symbol-description": "error",
@@ -179,8 +165,7 @@ module.exports = {
             "error",
             { accessibility: "no-public" },
         ],
-        // TODO: consider: "@typescript-eslint/member-ordering"
-        "@typescript-eslint/method-signature-style": ["error", "method"],
+        "@typescript-eslint/method-signature-style": "error",
         "@typescript-eslint/naming-convention": ["error", ...naming],
         "@typescript-eslint/no-confusing-void-expression": [
             "error",
@@ -192,7 +177,6 @@ module.exports = {
         "@typescript-eslint/no-useless-empty-export": "error",
         "@typescript-eslint/prefer-enum-initializers": "error",
         "@typescript-eslint/prefer-readonly": "error",
-        // "@typescript-eslint/prefer-readonly-parameter-types": "error", // TODO: consider?
         "@typescript-eslint/promise-function-async": "error",
         "@typescript-eslint/require-array-sort-compare": [
             "error",
@@ -216,14 +200,13 @@ module.exports = {
                 ignoreEnums: true,
                 ignoreReadonlyClassProperties: true,
                 ignoreTypeIndexes: true,
-                ignore: [0, 1],
+                ignore: [-1, 0, 1],
             },
         ],
-        // "@typescript-eslint/no-shadow": ["error", { builtinGlobals: true }], // TODO: decide
         "@typescript-eslint/no-throw-literal": "error",
         "@typescript-eslint/no-unused-expressions": [
             "error",
-            { [enforceForJsx]: true },
+            { enforceForJSX: true },
         ],
         "@typescript-eslint/no-unused-vars": [
             "error",
@@ -245,10 +228,8 @@ module.exports = {
         "import/no-mutable-exports": "error",
         "import/no-unused-modules": [
             "error",
-            // TODO: may want to disable in libraries (because of unusedExports)
-            // TODO: would be nice to be able to enable missingExports, entry points are problematic though
-            // TODO: would also be nice if it allowed otherwise unused types on used exports
-            { unusedExports: true },
+            // NOTE: missingExports will need to be overridden for entrypoints
+            { unusedExports: true, missingExports: true },
         ],
         "import/unambiguous": "error",
         "import/no-import-module-exports": "error",
@@ -257,9 +238,8 @@ module.exports = {
         "import/extensions": [
             "error",
             "never",
-            { svg: "always", json: "always", css: "always" },
+            { svg: "always", json: "always", css: "always", scss: "always" },
         ],
-        // TODO: consider: https://www.npmjs.com/package/eslint-plugin-simple-import-sort
         "import/order": [
             "error",
             {
@@ -275,11 +255,14 @@ module.exports = {
         "import/no-unassigned-import": [
             "error",
             {
-                allow: ["**/*.css", "ghspa", "@fontsource/**"],
+                allow: ["**/*.css", "**/*.scss", "@fontsource/**"],
             },
         ],
         "import/no-named-default": "error",
-        "import/no-anonymous-default-export": "error",
+        "import/no-anonymous-default-export": [
+            "error",
+            { allowCallExpression: false },
+        ],
 
         // eslint-comments
         "eslint-comments/no-unused-disable": "error",

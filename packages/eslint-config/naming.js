@@ -2,26 +2,21 @@ exports.naming = [
     // default
     {
         selector: "default",
-        format: ["strictCamelCase"],
+        format: ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
         leadingUnderscore: "forbid",
         trailingUnderscore: "forbid",
     },
-    // unused variable
+    // unused variables
     {
         selector: "variableLike",
         modifiers: ["unused"],
-        format: ["strictCamelCase"],
+        format: ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
         leadingUnderscore: "allow",
     },
-    // quoted properties on object literals (to ease interfacing with external code)
-    {
-        selector: "objectLiteralProperty",
-        modifiers: ["requiresQuotes"],
-        format: null,
-    },
+    // properties on object literals (to ease interfacing with external code)
+    { selector: "objectLiteralProperty", format: null },
+    // functions
+    { selector: "function", format: ["strictCamelCase", "StrictPascalCase"] },
     // types & enum members
-    {
-        selector: ["typeLike", "enumMember"],
-        format: ["StrictPascalCase"],
-    },
+    { selector: ["typeLike", "enumMember"], format: ["StrictPascalCase"] },
 ];

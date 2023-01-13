@@ -1,0 +1,7 @@
+overrides:
+  - files: ["src/cli/promptPackageContext.ts"]
+    rules:
+      no-param-reassign: ["error", { props: false }]
+  - files: ["src/index.ts"]
+    rules:
+      import/no-unused-modules: off
