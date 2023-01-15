@@ -1,3 +1,6 @@
 {
-    "extends": "@pentible/tsconfig"
+    "extends": "@pentible/tsconfig/js",
+    "compilerOptions": {
+        "outDir": "dist"
+    }
 }

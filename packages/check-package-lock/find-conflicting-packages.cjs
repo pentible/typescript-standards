@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 const packageLock = JSON.parse(fs.readFileSync("package-lock.json", "utf8"));
 const packages = (packageLock && packageLock.packages) || {};
 

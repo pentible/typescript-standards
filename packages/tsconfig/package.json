@@ -9,7 +9,8 @@
     "license": "MIT",
     "author": "pentible",
     "files": [
-        "tsconfig.json"
+        "tsconfig.json",
+        "js/tsconfig.json"
     ],
     "publishConfig": {
         "access": "public"

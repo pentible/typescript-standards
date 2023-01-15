@@ -1,6 +1,6 @@
 "*":
   - prettier --check --ignore-unknown
-"*.{js,ts,jsx,tsx}":
+"*.{js,ts,jsx,tsx,cjs}":
   - eslint
 "*.sh":
   - shellcheck --color=always

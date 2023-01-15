@@ -14,7 +14,7 @@ export class LintStagedComponent extends Component {
 
         const lintStaged = {
             "*": ["prettier --check --ignore-unknown"],
-            "*.{js,ts,jsx,tsx}": ["eslint"],
+            "*.{js,ts,jsx,tsx,cjs}": ["eslint"],
             "*.sh": ["shellcheck --color=always"],
         };
 

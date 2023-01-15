@@ -16,6 +16,12 @@
         },
         {
             "path": "./packages/eslint-config-react"
+        },
+        {
+            "path": "./packages/eslint-config-prettier"
+        },
+        {
+            "path": "./packages/check-package-lock"
         }
     ]
 }
