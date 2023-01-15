@@ -1,6 +1,7 @@
 {
     "extends": "@pentible/tsconfig",
     "compilerOptions": {
+        "outDir": "dist",
         "baseUrl": ".",
         "module": "commonjs"
     }

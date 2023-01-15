@@ -1,0 +1,23 @@
+{
+    "name": "@pentible/eslint-config-next",
+    "version": "0.0.0",
+    "description": "Pentible's standard eslint config (next.js)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "exports": {
+        ".": "./index.js"
+    },
+    "files": [
+        "index.js"
+    ],
+    "peerDependencies": {
+        "eslint-config-next": ">= 13.1.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
