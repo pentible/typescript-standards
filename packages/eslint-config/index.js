@@ -260,7 +260,7 @@ module.exports = {
                 "newlines-between": "never",
             },
         ],
-        "import/newline-after-import": ["error", { considerComments: true }],
+        "import/newline-after-import": "error",
         "import/no-default-export": "error",
         "import/no-unassigned-import": [
             "error",
