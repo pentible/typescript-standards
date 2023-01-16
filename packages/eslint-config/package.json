@@ -25,11 +25,11 @@
         "@types/eslint": "8.4.10"
     },
     "peerDependencies": {
-        "@typescript-eslint/eslint-plugin": ">= 5.36.2",
-        "eslint": ">= 8.23.0",
-        "eslint-import-resolver-typescript": ">= 3.5.1",
+        "@typescript-eslint/eslint-plugin": ">= 5.48.1",
+        "eslint": ">= 8.32.0",
+        "eslint-import-resolver-typescript": ">= 3.5.3",
         "eslint-plugin-eslint-comments": ">= 3.2.0",
-        "eslint-plugin-import": ">= 2.26.0",
+        "eslint-plugin-import": ">= 2.27.4",
         "eslint-plugin-sort-class-members": ">= 1.15.2"
     },
     "publishConfig": {

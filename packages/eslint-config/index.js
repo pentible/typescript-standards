@@ -155,6 +155,9 @@ module.exports = {
         strict: "error",
         "symbol-description": "error",
         yoda: "error",
+        "logical-assignment-operators": "error",
+        "no-empty-static-block": "error",
+        "no-new-native-nonconstructor": "error",
 
         // typescript-eslint
         "@typescript-eslint/consistent-type-exports": [
@@ -201,6 +204,7 @@ module.exports = {
             {
                 ignoreArrayIndexes: true,
                 ignoreDefaultValues: true,
+                ignoreClassFieldInitialValues: true,
                 ignoreEnums: true,
                 ignoreReadonlyClassProperties: true,
                 ignoreTypeIndexes: true,
@@ -218,7 +222,9 @@ module.exports = {
         ],
 
         // import
+        "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
         "import/no-absolute-path": "error",
+        "import/no-empty-named-blocks": "error",
         "import/no-self-import": "error",
         "import/no-useless-path-segments": [
             "error",
@@ -228,7 +234,7 @@ module.exports = {
         ],
         "import/no-relative-packages": "error",
         "import/no-deprecated": "warn",
-        "import/no-extraneous-dependencies": "error",
+        "import/no-extraneous-dependencies": ["error", { includeTypes: true }],
         "import/no-mutable-exports": "error",
         "import/no-unused-modules": [
             "error",
@@ -254,7 +260,7 @@ module.exports = {
                 "newlines-between": "never",
             },
         ],
-        "import/newline-after-import": "error", // TODO: once released: ["error", { considerComments: true }]
+        "import/newline-after-import": ["error", { considerComments: true }],
         "import/no-default-export": "error",
         "import/no-unassigned-import": [
             "error",

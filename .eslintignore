@@ -4,3 +4,4 @@ node_modules
 *.tgz
 tsconfig.tsbuildinfo
 /.direnv/
+/.vscode/settings.json

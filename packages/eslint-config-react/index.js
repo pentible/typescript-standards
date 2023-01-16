@@ -26,7 +26,7 @@ module.exports = {
         "react/destructuring-assignment": "error",
         "react/forbid-component-props": "warn",
         "react/function-component-definition": "error",
-        "react/hook-use-state": "error",
+        "react/hook-use-state": ["error", { allowDestructuredState: true }],
         "react/iframe-missing-sandbox": "error",
         "react/no-access-state-in-setstate": "error",
         "react/no-adjacent-inline-elements": "error",
