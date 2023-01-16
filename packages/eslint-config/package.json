@@ -21,7 +21,8 @@
         "confusing-browser-globals": "1.0.11"
     },
     "devDependencies": {
-        "@types/confusing-browser-globals": "1.0.0"
+        "@types/confusing-browser-globals": "1.0.0",
+        "@types/eslint": "8.4.10"
     },
     "peerDependencies": {
         "@typescript-eslint/eslint-plugin": ">= 5.36.2",
