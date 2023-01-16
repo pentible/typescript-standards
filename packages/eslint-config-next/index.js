@@ -3,6 +3,11 @@
  */
 module.exports = {
     extends: ["next/core-web-vitals"],
+    settings: {
+        next: {
+            rootDir: ["packages/*", "."],
+        },
+    },
     overrides: [
         {
             files: ["src/{pages,app}/**/*.{js,jsx,ts,tsx}"],
