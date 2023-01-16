@@ -34,7 +34,8 @@ module.exports = {
     },
     overrides: [
         {
-            files: ["*.{js,cjs}"],
+            // TODO: debug: ["*.{js,cjs}"]
+            files: ["*.js"],
             rules: {
                 "@typescript-eslint/no-require-imports": "off",
                 "@typescript-eslint/no-unsafe-argument": "off",
@@ -61,7 +62,8 @@ module.exports = {
             },
         },
         {
-            files: ["*.{jsx,tsx}"],
+            // TODO: debug: ["*.{jsx,tsx}"]
+            files: ["*.tsx"],
             rules: {
                 "@typescript-eslint/naming-convention": [
                     "error",
