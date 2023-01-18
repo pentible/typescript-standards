@@ -189,7 +189,7 @@ module.exports = {
             "error",
             { ignoreStringArrays: true },
         ],
-        "@typescript-eslint/sort-type-union-intersection-members": "error",
+        "@typescript-eslint/sort-type-constituents": "error",
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "@typescript-eslint/default-param-last": "error",
         "@typescript-eslint/init-declarations": "error",
