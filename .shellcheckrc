@@ -1,0 +1,13 @@
+enable=add-default-case
+enable=avoid-nullary-conditions
+# enable=check-extra-masked-returns # TODO: consider
+# enable=check-set-e-suppressed # TODO: consider along with set -eE
+enable=check-unassigned-uppercase
+enable=quote-safe-variables
+enable=require-double-brackets
+# enable=require-variable-braces # TODO: would be nice if only required when multiple more than 1 variable OR other text in the string...
+
+disable=SC1090
+disable=SC1091
+
+# TODO: consider including this in create-package?

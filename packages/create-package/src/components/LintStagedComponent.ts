@@ -13,9 +13,11 @@ export class LintStagedComponent extends Component {
         await execaCommand("npm i -D lint-staged@12");
 
         const lintStaged = {
-            "*": ["prettier --check --ignore-unknown"],
+            "*": [
+                "prettier --check --ignore-unknown",
+                "shellcheck-all --color=always",
+            ],
             "*.{js,ts,jsx,tsx,cjs}": ["eslint"],
-            "*.sh": ["shellcheck --color=always"],
         };
 
         await writeFile(".lintstagedrc.yml", formatter.yaml(lintStaged));
