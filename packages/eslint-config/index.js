@@ -61,22 +61,6 @@ module.exports = {
                 "no-var": "off",
             },
         },
-        {
-            // TODO: debug: ["*.{jsx,tsx}"]
-            files: ["*.tsx"],
-            rules: {
-                "@typescript-eslint/naming-convention": [
-                    "error",
-                    ...naming,
-                    // react components (imperfect match so we still allow camel case)
-                    {
-                        selector: "function",
-                        modifiers: ["exported"],
-                        format: ["strictCamelCase", "StrictPascalCase"],
-                    },
-                ],
-            },
-        },
     ],
     rules: {
         // eslint
