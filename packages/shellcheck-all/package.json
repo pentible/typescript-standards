@@ -17,9 +17,6 @@
     "scripts": {
         "start": "./shellcheck-all.sh"
     },
-    "dependencies": {
-        "shellcheck": "1.1.0"
-    },
     "publishConfig": {
         "access": "public"
     }
