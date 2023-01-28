@@ -84,6 +84,7 @@ export class PackageJsonComponent extends Component {
                 return {
                     type: "commonjs",
                     main: "./dist/index.js",
+                    source: "./src/index.ts",
                     bin: {
                         [name]: "./dist/index.js",
                     },
@@ -108,7 +109,7 @@ export class PackageJsonComponent extends Component {
                 };
             case PackageType.WebExtension:
                 return {
-                    source: "manifest.json",
+                    // NOTE: likely nothing required
                 };
             case PackageType.Electron:
                 return {
