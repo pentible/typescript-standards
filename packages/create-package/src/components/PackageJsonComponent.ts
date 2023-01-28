@@ -24,7 +24,7 @@ export class PackageJsonComponent extends Component {
             scripts: {},
         };
     }
-    rootPartial({ insideMonorepo }: PackageContext): PackageJson {
+    rootPartial({ insideMonorepo, type }: PackageContext): PackageJson {
         if (insideMonorepo) {
             return {};
         }
@@ -34,7 +34,7 @@ export class PackageJsonComponent extends Component {
             lint: [
                 "check-package-lock",
                 "shellcheck-all",
-                "tsc --noEmit",
+                type === PackageType.Monorepo ? "tsc -b" : "tsc --noEmit",
                 "eslint .",
                 "prettier --loglevel warn --check .",
             ].join(" && "),

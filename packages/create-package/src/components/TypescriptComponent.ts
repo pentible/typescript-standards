@@ -52,6 +52,14 @@ export class TypescriptComponent extends Component {
             });
         }
 
+        if (![PackageType.Monorepo].includes(type)) {
+            partials.push({
+                compilerOptions: {
+                    outDir: "dist",
+                },
+            });
+        }
+
         if (insideMonorepo) {
             // TODO: make more flexible
             const monorepoDirectory = "../../";

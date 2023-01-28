@@ -1,6 +1,7 @@
 import { execa, execaCommand } from "execa";
 import { Component } from "./Component";
 import type { PackageContext } from "src/context/PackageContext";
+import { PackageType } from "src/context/PackageType";
 
 export class HuskyComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {
@@ -10,13 +11,15 @@ export class HuskyComponent extends Component {
     private async addPreCommitCommand(command: string) {
         await execa("npx", ["husky", "add", ".husky/pre-commit", command]);
     }
-    async apply() {
+    async apply({ type }: PackageContext) {
         await execaCommand("npm i -D husky@7");
 
         // TODO: only creates .husky if inside a git dir, maybe we should just automatically git init?
         await execaCommand("npm run prepare");
         await this.addPreCommitCommand("npx check-package-lock");
-        await this.addPreCommitCommand("npx tsc --noEmit");
+        await this.addPreCommitCommand(
+            type === PackageType.Monorepo ? "npx tsc -b" : "npx tsc --noEmit",
+        );
         await this.addPreCommitCommand("npx lint-staged");
     }
 }
