@@ -129,8 +129,9 @@ export class PackageJsonComponent extends Component {
             return {};
         }
 
+        // TODO: --format=esm once properly supported
         const build =
-            "esbuild --bundle --platform=node src/index.ts --target=node18 --format=esm --outfile=./dist/index.js";
+            "esbuild --bundle --platform=node --target=node18 --minify --outfile=./dist/index.js src/index.ts";
 
         return {
             scripts: {
