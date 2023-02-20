@@ -1,7 +1,7 @@
 import { execa, execaCommand } from "execa";
-import { Component } from "./Component";
-import type { PackageContext } from "src/context/PackageContext";
-import { PackageType } from "src/context/PackageType";
+import { Component } from "./component";
+import type { PackageContext } from "src/context/package-context";
+import { PackageType } from "src/context/package-type";
 
 export class HuskyComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {

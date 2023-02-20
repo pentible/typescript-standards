@@ -1,0 +1,27 @@
+ls:
+  .dir: kebab-case | lowercase # lint directory names
+  .js: kebab-case | lowercase
+  .jsx: kebab-case | lowercase
+  .cjs: kebab-case | lowercase
+  .ts: kebab-case | lowercase
+  .tsx: kebab-case | lowercase
+  .md: kebab-case | lowercase
+  .sh: kebab-case | lowercase
+  .yml: kebab-case | lowercase
+  .json: kebab-case | lowercase
+  .toml: kebab-case | lowercase
+
+ignore:
+  - .git
+  - node_modules
+  # TODO: why no globs?... - /packages/*/dist/
+  - packages/create-package/dist
+  - packages/eslint-config/dist
+  - packages/eslint-config-next/dist
+  - packages/eslint-config-node/dist
+  - packages/eslint-config-prettier/dist
+  - packages/eslint-config-react/dist
+  - packages/eslint-config-web/dist
+  - .husky/_
+  - .direnv
+  - .vscode

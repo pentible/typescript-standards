@@ -1,13 +1,13 @@
 import { basename } from "path";
 import chalk from "chalk";
 import { prompt } from "src/cli/prompt";
-import { License } from "src/context/License";
-import { PackageAccessLevel } from "src/context/PackageAccessLevel";
-import { PackageContext } from "src/context/PackageContext";
-import { PackageFeature } from "src/context/PackageFeature";
-import { PackageType } from "src/context/PackageType";
-import { promptToContinue } from "./promptToContinue";
-import { formatGitUrlHttps } from "src/utility/formatGitUrlHttps";
+import { License } from "src/context/license";
+import { PackageAccessLevel } from "src/context/package-access-level";
+import { PackageContext } from "src/context/package-context";
+import { PackageFeature } from "src/context/package-feature";
+import { PackageType } from "src/context/package-type";
+import { promptToContinue } from "./prompt-to-continue";
+import { formatGitUrlHttps } from "src/utility/format-git-url-https";
 import type { AsObject } from "src/utility/types";
 
 const reactPackageTypes = [

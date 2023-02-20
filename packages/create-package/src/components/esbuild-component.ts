@@ -1,7 +1,7 @@
 import { execaCommand } from "execa";
-import { PackageFeature } from "../context/PackageFeature";
-import { Component } from "./Component";
-import type { PackageContext } from "src/context/PackageContext";
+import { PackageFeature } from "../context/package-feature";
+import { Component } from "./component";
+import type { PackageContext } from "src/context/package-context";
 
 export class EsbuildComponent extends Component {
     matches({ features }: PackageContext) {

@@ -1,5 +1,5 @@
 import { prompt } from "src/cli/prompt";
-import { UserCancelledError } from "src/errors/UserCancelledError";
+import { UserCancelledError } from "src/errors/user-cancelled-error";
 
 interface Answers {
     approved: boolean;

@@ -1,7 +1,7 @@
-import type { License } from "./License";
-import type { PackageAccessLevel } from "./PackageAccessLevel";
-import type { PackageFeature } from "./PackageFeature";
-import type { PackageType } from "./PackageType";
+import type { License } from "./license";
+import type { PackageAccessLevel } from "./package-access-level";
+import type { PackageFeature } from "./package-feature";
+import type { PackageType } from "./package-type";
 import type { AsObject } from "src/utility/types";
 
 export class PackageContext {

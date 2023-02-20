@@ -1,8 +1,8 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
-import type { Formatter } from "../formatting/Formatter";
-import { Component } from "./Component";
-import type { PackageContext } from "src/context/PackageContext";
+import type { Formatter } from "../formatting/formatter";
+import { Component } from "./component";
+import type { PackageContext } from "src/context/package-context";
 
 export class PrettierComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {

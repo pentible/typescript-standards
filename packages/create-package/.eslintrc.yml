@@ -1,5 +1,5 @@
 overrides:
-  - files: ["src/cli/promptPackageContext.ts"]
+  - files: ["src/cli/prompt-package-context.ts"]
     rules:
       no-param-reassign: ["error", { props: false }]
   - files: ["src/index.ts"]

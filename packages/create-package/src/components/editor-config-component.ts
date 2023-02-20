@@ -1,7 +1,7 @@
 import { writeFile } from "fs/promises";
-import type { Formatter } from "../formatting/Formatter";
-import { Component } from "./Component";
-import type { PackageContext } from "src/context/PackageContext";
+import type { Formatter } from "../formatting/formatter";
+import { Component } from "./component";
+import type { PackageContext } from "src/context/package-context";
 
 const indentStyle = "indent_style";
 const indentSize = "indent_size";

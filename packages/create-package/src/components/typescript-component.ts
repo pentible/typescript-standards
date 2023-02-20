@@ -2,10 +2,10 @@ import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
-import type { PackageContext } from "src/context/PackageContext";
-import { Component } from "./Component";
-import { PackageType } from "src/context/PackageType";
-import type { Formatter } from "src/formatting/Formatter";
+import type { PackageContext } from "src/context/package-context";
+import { Component } from "./component";
+import { PackageType } from "src/context/package-type";
+import type { Formatter } from "src/formatting/formatter";
 
 // TODO: consider a stricter type
 type Tsconfig = Record<
