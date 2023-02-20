@@ -9,7 +9,7 @@ jobs:
     outputs:
       packages: ${{ steps.set_packages.outputs.packages }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - id: set_packages
         run: |
           echo "::set-output name=packages::$(
@@ -28,9 +28,9 @@ jobs:
       run:
         working-directory: ./packages/${{ matrix.package }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
       - name: Install dependencies
