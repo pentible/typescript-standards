@@ -34,7 +34,7 @@
         "yaml": "2.2.1"
     },
     "engines": {
-        "node": "^18.8.0"
+        "node": ">=18"
     },
     "publishConfig": {
         "access": "public"

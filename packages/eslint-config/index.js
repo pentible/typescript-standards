@@ -54,7 +54,7 @@ module.exports = {
                 "spaced-comment": ["error", "always", { markers: ["/"] }],
                 "import/unambiguous": "off",
                 "import/no-unused-modules": [
-                    "error",
+                    "warn",
                     { unusedExports: true, missingExports: false },
                 ],
                 "import/no-unassigned-import": "off",
@@ -220,7 +220,7 @@ module.exports = {
         "import/no-extraneous-dependencies": ["error", { includeTypes: true }],
         "import/no-mutable-exports": "error",
         "import/no-unused-modules": [
-            "error",
+            "warn",
             // NOTE: missingExports will need to be overridden for entrypoints
             { unusedExports: true, missingExports: true },
         ],
