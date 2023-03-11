@@ -6,3 +6,7 @@ packages = ["nodejs-18_x", "shellcheck"]
 [[env]]
 name = "PATH"
 prefix = "$(npm bin)"
+
+[[env]]
+name = "PATH"
+prefix = "${PRJ_ROOT}/bin"

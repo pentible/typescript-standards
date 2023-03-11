@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -e
+
+declare script_dir
+script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+declare repo_dir
+repo_dir="$(dirname "$script_dir")"
+
+# load direnv environment (in case we're run from outside the project directory)
+eval "$(cd "$repo_dir" && direnv export bash 2> /dev/null)"
+
+dev::usage() {
+    echo 'usage: dev <command>'
+    echo '       dev reset  # deletes temp files and sets project back up'
+    exit 1
+}
+
+dev::reset() {
+    cd "$script_dir"
+
+    echo '==> delete git ignored files'
+    git clean -ffdX # -e '!.env'
+
+    echo '==> reload direnv'
+    direnv reload
+
+    echo '==> install dependencies'
+    npm install
+
+    echo '==> build'
+    npm run build
+}
+
+case "$1" in
+    reset) dev::reset ;;
+    *) dev::usage ;;
+esac
