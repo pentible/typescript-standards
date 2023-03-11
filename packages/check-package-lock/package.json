@@ -12,10 +12,11 @@
     "main": "./dist/index.js",
     "source": "./src/index.ts",
     "bin": {
-        "check-package-lock": "./dist/index.js"
+        "check-package-lock": "./check-package-lock.sh"
     },
     "files": [
-        "dist/index.js"
+        "dist/index.js",
+        "check-package-lock.sh"
     ],
     "scripts": {
         "build": "esbuild --bundle --platform=node --target=node18 --minify --outfile=./dist/index.js src/index.ts",

@@ -7,6 +7,8 @@
         "./packages/*"
     ],
     "scripts": {
+        "build": "npm run build --ws --if-present",
+        "prelint": "npm run build",
         "lint": "ls-lint && check-package-lock && shellcheck-all && tsc -b && eslint . && prettier --loglevel warn --check .",
         "lint:fix": "eslint --fix . && prettier --loglevel warn --write .",
         "prepare": "husky install"
