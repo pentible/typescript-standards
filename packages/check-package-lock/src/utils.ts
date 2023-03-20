@@ -1,5 +1,5 @@
 export function isNonNullable<T>(val: T): val is NonNullable<T> {
-    return Boolean(val);
+    return val !== null && val !== undefined;
 }
 
 export function onlyUnique<T>(value: T, index: number, array: T[]) {
