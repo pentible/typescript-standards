@@ -20,16 +20,13 @@ dev::reset() {
     cd "$script_dir"
 
     echo '==> delete git ignored files'
-    git clean -ffdX # -e '!.env'
+    git clean -ffdX
 
     echo '==> reload direnv'
     direnv reload
 
     echo '==> install dependencies'
     npm install
-
-    echo '==> build'
-    npm run build
 }
 
 case "$1" in
