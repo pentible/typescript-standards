@@ -182,18 +182,6 @@ module.exports = {
         ],
         "@typescript-eslint/no-invalid-this": "error",
         "@typescript-eslint/no-loop-func": "error",
-        "@typescript-eslint/no-magic-numbers": [
-            "error",
-            {
-                ignoreArrayIndexes: true,
-                ignoreDefaultValues: true,
-                ignoreClassFieldInitialValues: true,
-                ignoreEnums: true,
-                ignoreReadonlyClassProperties: true,
-                ignoreTypeIndexes: true,
-                ignore: [-1, 0, 1],
-            },
-        ],
         "@typescript-eslint/no-throw-literal": "error",
         "@typescript-eslint/no-unused-expressions": [
             "error",
