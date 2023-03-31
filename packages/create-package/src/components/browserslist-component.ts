@@ -10,6 +10,7 @@ export class BrowserslistComponent extends Component {
         return true;
     }
     browsers(type: PackageType) {
+        // TODO: nextjs should use web + node
         switch (type) {
             case PackageType.Web:
                 return ["defaults", "not IE 11", "not op_mini all"];
