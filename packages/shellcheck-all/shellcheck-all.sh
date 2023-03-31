@@ -41,7 +41,7 @@ is_shell_file() {
 has_shell_shebang() {
     declare file="$1"
     declare first_line
-    first_line="$(head -1 "$file")"
+    read -r first_line < "$file"
 
     if [[ "$first_line" == '#!/usr/bin/env bash' ]]; then
         return 0
