@@ -16,5 +16,11 @@ module.exports = {
                 "import/no-unused-modules": "off",
             },
         },
+        {
+            files: ["src/pages/_app.{js,jsx,ts,tsx}"],
+            rules: {
+                "react/jsx-props-no-spreading": "off",
+            },
+        },
     ],
 };

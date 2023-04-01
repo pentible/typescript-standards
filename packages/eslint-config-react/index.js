@@ -24,7 +24,6 @@ module.exports = {
         // react
         "react/button-has-type": "error",
         "react/destructuring-assignment": "error",
-        "react/forbid-component-props": "warn",
         "react/function-component-definition": "error",
         "react/hook-use-state": ["error", { allowDestructuredState: true }],
         "react/iframe-missing-sandbox": "error",
