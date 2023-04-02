@@ -61,6 +61,13 @@ module.exports = {
                 "no-var": "off",
             },
         },
+        {
+            files: ["tailwind.config.ts"],
+            rules: {
+                "import/no-unused-modules": "off",
+                "import/no-default-export": "off",
+            },
+        },
     ],
     rules: {
         // eslint

@@ -17,7 +17,7 @@ export class LintStagedComponent extends Component {
                 "prettier --check --ignore-unknown",
                 "shellcheck-all --color=always",
             ],
-            "*.{js,ts,jsx,tsx,cjs}": ["eslint"],
+            "*.{js,ts,jsx,tsx}": ["eslint"],
         };
 
         await writeFile(".lintstagedrc.yml", formatter.yaml(lintStaged));
