@@ -172,6 +172,10 @@ module.exports = {
         "@typescript-eslint/no-import-type-side-effects": "error",
         "@typescript-eslint/no-redundant-type-constituents": "error",
         "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/no-unnecessary-condition": [
+            "error",
+            { allowConstantLoopConditions: true },
+        ],
         "@typescript-eslint/no-unnecessary-qualifier": "error",
         "@typescript-eslint/no-useless-empty-export": "error",
         "@typescript-eslint/prefer-enum-initializers": "error",
