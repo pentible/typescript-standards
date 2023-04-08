@@ -1,6 +1,6 @@
 {
     "name": "@pentible/eslint-config-next",
-    "version": "0.0.0",
+    "version": "0.67.0",
     "description": "Pentible's standard eslint config (next.js)",
     "repository": {
         "type": "git",
