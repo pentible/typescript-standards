@@ -19,12 +19,12 @@
         "check-package-lock.sh"
     ],
     "scripts": {
-        "build": "esbuild --bundle --platform=node --target=node18 --minify --outfile=./dist/index.js src/index.ts",
+        "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/index.js src/index.ts",
         "start": "./dist/index.js",
         "watch": "npm run build -- --watch"
     },
     "devDependencies": {
-        "@types/node": "18.15.11",
+        "@types/node": "16.18.25",
         "@types/semver": "7.3.13",
         "@types/yargs": "17.0.24",
         "chalk": "4.1.2",
@@ -35,7 +35,7 @@
         "zod": "3.21.4"
     },
     "engines": {
-        "node": ">=18"
+        "node": ">=16"
     },
     "publishConfig": {
         "access": "public"
