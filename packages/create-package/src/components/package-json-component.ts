@@ -9,7 +9,10 @@ import { PackageType } from "src/context/package-type";
 import { Component } from "./component";
 
 // TODO: consider a stricter type
-type PackageJson = Record<string, Record<string, string> | string[] | string>;
+type PackageJson = Record<
+    string,
+    Record<string, string> | string[] | boolean | string
+>;
 
 export class PackageJsonComponent extends Component {
     matches() {
@@ -54,7 +57,7 @@ export class PackageJsonComponent extends Component {
     }: PackageContext): PackageJson {
         if (access === PackageAccessLevel.Private) {
             return {
-                private: "true",
+                private: true,
             };
         } else {
             return {

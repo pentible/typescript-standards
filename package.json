@@ -1,7 +1,7 @@
 {
     "name": "@pentible/typescript-standards",
     "version": "0.0.0",
-    "private": "true",
+    "private": true,
     "license": "MIT",
     "workspaces": [
         "./packages/*"
