@@ -185,7 +185,7 @@ async function main() {
     }
 
     // run checks
-    const results = await Promise.all(checks.map(async (c) => c()));
+    const results = await Promise.all(checks.map(async (c) => await c()));
 
     // filter out successful checks
     const failedChecks = results

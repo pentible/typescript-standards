@@ -86,15 +86,15 @@ export class PackageJsonComponent extends Component {
             case PackageType.Node:
                 return {
                     type: "commonjs",
-                    main: "./dist/index.js",
-                    source: "./src/index.ts",
+                    main: "./dist/main.js",
+                    source: "./src/main.ts",
                     bin: {
-                        [name]: "./dist/index.js",
+                        [name]: "./dist/main.js",
                     },
-                    files: ["dist/index.js"],
+                    files: ["dist/main.js"],
                     engines,
                     scripts: {
-                        start: "./dist/index.js",
+                        start: "./dist/main.js",
                     },
                 };
             case PackageType.Library:

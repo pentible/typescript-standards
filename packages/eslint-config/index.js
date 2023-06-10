@@ -68,6 +68,12 @@ module.exports = {
                 "import/no-default-export": "off",
             },
         },
+        {
+            files: ["main.ts"],
+            rules: {
+                "import/no-unused-modules": "off",
+            },
+        },
     ],
     rules: {
         // eslint
@@ -182,6 +188,7 @@ module.exports = {
             "error",
             { ignoreStringArrays: true },
         ],
+        "@typescript-eslint/return-await": ["error", "always"],
         "@typescript-eslint/sort-type-constituents": "error",
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "@typescript-eslint/default-param-last": "error",

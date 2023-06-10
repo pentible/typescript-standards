@@ -9,4 +9,4 @@ script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # NOTE: we wrap the script because `npm i` won't link it on the first install
 # (since the file doesn't exist yet)
-exec node "${script_dir}/dist/index.js" "$@"
+exec node "${script_dir}/dist/main.js" "$@"

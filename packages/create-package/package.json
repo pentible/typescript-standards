@@ -9,17 +9,17 @@
     "license": "MIT",
     "author": "pentible",
     "type": "commonjs",
-    "main": "./dist/index.js",
-    "source": "./src/index.ts",
+    "main": "./dist/main.js",
+    "source": "./src/main.ts",
     "bin": {
-        "create-package": "./dist/index.js"
+        "create-package": "./dist/main.js"
     },
     "files": [
-        "dist/index.js"
+        "dist/main.js"
     ],
     "scripts": {
-        "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/index.js src/index.ts",
-        "start": "./dist/index.js",
+        "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/main.js src/main.ts",
+        "start": "./dist/main.js",
         "watch": "npm run build -- --watch"
     },
     "devDependencies": {
