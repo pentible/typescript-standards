@@ -108,7 +108,7 @@ export class PackageJsonComponent extends Component {
                 };
             case PackageType.Monorepo:
                 return {
-                    workspaces: ["./packages/*"],
+                    workspaces: ["./packages/*", "./apps/*"],
                 };
             case PackageType.WebExtension:
                 return {

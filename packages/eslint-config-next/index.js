@@ -5,7 +5,7 @@ module.exports = {
     extends: ["next/core-web-vitals"],
     settings: {
         next: {
-            rootDir: ["packages/*", "."],
+            rootDir: ["packages/*", "apps/*", "."],
         },
     },
     overrides: [

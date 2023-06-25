@@ -9,5 +9,6 @@ export class MonorepoPackagesComponent extends Component {
     }
     async apply() {
         await mkdir("packages", { recursive: true });
+        await mkdir("apps", { recursive: true });
     }
 }

@@ -13,6 +13,7 @@ export class IgnoreFileComponent extends Component {
         const ignore = [
             "node_modules",
             "/packages/*/dist/",
+            "/apps/*/dist/",
             "/.husky/_/",
             "*.tgz",
             "tsconfig.tsbuildinfo",

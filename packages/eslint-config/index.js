@@ -19,13 +19,21 @@ module.exports = {
     parserOptions: {
         sourceType: "module",
         tsconfigRootDir: ".",
-        project: ["tsconfig.json", "packages/*/tsconfig.json"],
+        project: [
+            "tsconfig.json",
+            "packages/*/tsconfig.json",
+            "apps/*/tsconfig.json",
+        ],
     },
     settings: {
         "import/resolver": {
             typescript: {
                 alwaysTryTypes: true,
-                project: ["tsconfig.json", "packages/*/tsconfig.json"],
+                project: [
+                    "tsconfig.json",
+                    "packages/*/tsconfig.json",
+                    "apps/*/tsconfig.json",
+                ],
             },
         },
     },
