@@ -12,7 +12,9 @@ eval "$(cd "$repo_dir" && direnv export bash 2> /dev/null)"
 
 dev::usage() {
     echo 'usage: dev <command>'
-    echo '       dev reset  # deletes temp files and sets project back up'
+    echo '       dev reset    # deletes temp files and sets project back up'
+    echo '       dev lint     # run linters'
+    echo '       dev lint fix # fix auto-fixable linter errors'
     exit 1
 }
 
@@ -29,7 +31,17 @@ dev::reset() {
     npm install
 }
 
+dev::lint() {
+    npm run lint
+}
+
+dev::lint::fix() {
+    npm run lint:fix
+}
+
 case "$1" in
     reset) dev::reset ;;
+    lint) dev::lint ;;
+    'lint fix') dev::lint::fix ;;
     *) dev::usage ;;
 esac
