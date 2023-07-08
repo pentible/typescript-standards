@@ -129,7 +129,7 @@ async function checkMissingWorkspaces() {
 
     const packages = Object.keys(packageLock.packages)
         // filter out node_modules
-        .filter((p) => !p.startsWith("node_modules/"))
+        .filter((p) => !/\bnode_modules\b/u.test(p))
         // filter out monorepo root package
         .filter((p) => p !== "");
 
