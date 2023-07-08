@@ -2,9 +2,9 @@ import fs from "fs/promises";
 import minimatch from "minimatch";
 import { SemVer, parse, satisfies } from "semver";
 import { z } from "zod";
-import { CheckError } from "src/checks";
-import { Err, Ok } from "src/result";
-import { onlyUnique, isNonNullable } from "src/utils";
+import { CheckError } from "~/checks";
+import { Err, Ok } from "~/result";
+import { onlyUnique, isNonNullable } from "~/utils";
 
 type SchemaPackage = z.infer<typeof packageLockSchema>["packages"][number];
 type Package = ReturnType<typeof mapPackageEntry>;

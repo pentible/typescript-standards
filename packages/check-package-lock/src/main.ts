@@ -6,14 +6,14 @@ import { stderr, stdout } from "process";
 import chalk, { supportsColor } from "chalk";
 import type { ExecaError, Options } from "execa";
 import { execa } from "execa";
-import { checkDependenciesConflict } from "src/check-conflicting-dependencies";
+import { checkDependenciesConflict } from "~/check-conflicting-dependencies";
 import { hideBin } from "yargs/helpers";
-import { CheckError, UnknownCheckError } from "src/checks";
+import { CheckError, UnknownCheckError } from "~/checks";
 import yargs from "yargs/yargs";
 import { z } from "zod";
-import type { Result } from "src/result";
-import { ErrFromUnknown, Err, Ok } from "src/result";
-import { isNonNullable } from "src/utils";
+import type { Result } from "~/result";
+import { ErrFromUnknown, Err, Ok } from "~/result";
+import { isNonNullable } from "~/utils";
 
 async function execaResult(
     file: string,

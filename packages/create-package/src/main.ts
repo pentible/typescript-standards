@@ -3,9 +3,9 @@
 import { chdir, exit } from "process";
 import { findMatchingComponents } from "./components/find-matching-components";
 import { Formatter } from "./formatting/formatter";
-import { collectAssumptions } from "src/assumptions/collect-assumptions";
-import { promptPackageContext } from "src/cli/prompt-package-context";
-import { UserCancelledError } from "src/errors/user-cancelled-error";
+import { collectAssumptions } from "~/assumptions/collect-assumptions";
+import { promptPackageContext } from "~/cli/prompt-package-context";
+import { UserCancelledError } from "~/errors/user-cancelled-error";
 
 async function main() {
     try {

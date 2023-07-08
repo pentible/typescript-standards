@@ -1,5 +1,5 @@
 import type { Formatter } from "../formatting/formatter";
-import type { PackageContext } from "src/context/package-context";
+import type { PackageContext } from "~/context/package-context";
 
 export abstract class Component {
     abstract matches(ctx: PackageContext): boolean;

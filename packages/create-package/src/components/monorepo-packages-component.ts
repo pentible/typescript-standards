@@ -1,7 +1,7 @@
 import { mkdir } from "fs/promises";
 import { Component } from "./component";
-import type { PackageContext } from "src/context/package-context";
-import { PackageType } from "src/context/package-type";
+import type { PackageContext } from "~/context/package-context";
+import { PackageType } from "~/context/package-type";
 
 export class MonorepoPackagesComponent extends Component {
     matches({ type }: PackageContext) {
