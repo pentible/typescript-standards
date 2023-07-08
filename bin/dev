@@ -19,7 +19,7 @@ dev::usage() {
 }
 
 dev::reset() {
-    cd "$script_dir"
+    cd "$repo_dir"
 
     echo '==> delete git ignored files'
     git clean -ffdX

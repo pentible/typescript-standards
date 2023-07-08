@@ -12,14 +12,14 @@
     "main": "./dist/main.js",
     "source": "./src/main.ts",
     "bin": {
-        "check-package-lock": "./check-package-lock.sh"
+        "check-package-lock": "./dist/main.js"
     },
     "files": [
-        "dist/main.js",
-        "check-package-lock.sh"
+        "dist/main.js"
     ],
     "scripts": {
         "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/main.js src/main.ts",
+        "preinstall": "mkdir -p dist && touch dist/main.js",
         "start": "./dist/main.js",
         "watch": "npm run build -- --watch"
     },

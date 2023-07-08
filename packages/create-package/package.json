@@ -19,6 +19,7 @@
     ],
     "scripts": {
         "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/main.js src/main.ts",
+        "preinstall": "mkdir -p dist && touch dist/main.js",
         "start": "./dist/main.js",
         "watch": "npm run build -- --watch"
     },
