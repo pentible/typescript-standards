@@ -1,6 +1,6 @@
 {
     "name": "@pentible/tsconfig",
-    "version": "0.0.0",
+    "version": "0.74.0",
     "description": "Pentible's standard tsconfig",
     "repository": {
         "type": "git",
