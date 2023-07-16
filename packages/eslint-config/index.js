@@ -70,14 +70,14 @@ module.exports = {
             },
         },
         {
-            files: ["tailwind.config.ts"],
+            files: ["*.config.ts"],
             rules: {
                 "import/no-unused-modules": "off",
                 "import/no-default-export": "off",
             },
         },
         {
-            files: ["main.ts"],
+            files: ["main.ts", "index.ts"],
             rules: {
                 "import/no-unused-modules": "off",
             },
