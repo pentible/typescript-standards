@@ -9,7 +9,9 @@
     "license": "MIT",
     "author": "pentible",
     "exports": {
-        ".": "./index.js"
+        ".": "./index.js",
+        "./helpers": "./helpers.js",
+        "./naming": "./naming.js"
     },
     "files": [
         "index.js",
