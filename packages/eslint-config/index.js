@@ -2,9 +2,7 @@ const confusingBrowserGlobals = require("confusing-browser-globals");
 const { noRestrictedGlobalWithMessage } = require("./helpers");
 const { naming } = require("./naming");
 
-/**
- * @type {import('eslint').ESLint.ConfigData}
- */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
     extends: [
         "eslint:recommended",

@@ -1,6 +1,4 @@
-/**
- * @type {import('eslint').ESLint.ConfigData}
- */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
     extends: ["next/core-web-vitals"],
     settings: {

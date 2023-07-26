@@ -1,6 +1,4 @@
-/**
- * @type {import('eslint').ESLint.ConfigData}
- */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
     extends: [
         // TODO: consider eslint-plugin-n/eslint-plugin-node once properly updated

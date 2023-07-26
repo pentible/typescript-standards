@@ -1,6 +1,4 @@
-/**
- * @type {import('eslint').ESLint.ConfigData}
- */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
     plugins: ["react-prefer-function-component"],
     extends: [
