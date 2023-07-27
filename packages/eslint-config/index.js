@@ -59,10 +59,7 @@ module.exports = {
             rules: {
                 "spaced-comment": ["error", "always", { markers: ["/"] }],
                 "import/unambiguous": "off",
-                "import/no-unused-modules": [
-                    "warn",
-                    { unusedExports: true, missingExports: false },
-                ],
+                "import/no-unused-modules": "off",
                 "import/no-unassigned-import": "off",
                 "import/no-default-export": "off",
                 "no-var": "off",

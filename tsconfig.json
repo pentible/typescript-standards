@@ -18,6 +18,9 @@
             "path": "./packages/eslint-config-react"
         },
         {
+            "path": "./packages/eslint-config-expo"
+        },
+        {
             "path": "./packages/eslint-config-next"
         },
         {

@@ -1,0 +1,23 @@
+{
+    "name": "@pentible/eslint-config-expo",
+    "version": "0.0.0",
+    "description": "Pentible's standard eslint config (expo)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pentible/typescript-standards.git"
+    },
+    "license": "MIT",
+    "author": "pentible",
+    "exports": {
+        ".": "./index.js"
+    },
+    "files": [
+        "index.js"
+    ],
+    "peerDependencies": {
+        "@pentible/eslint-config": "*"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
