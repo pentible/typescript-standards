@@ -64,6 +64,7 @@ module.exports = {
                     { unusedExports: true, missingExports: false },
                 ],
                 "import/no-unassigned-import": "off",
+                "import/no-default-export": "off",
                 "no-var": "off",
             },
         },
@@ -242,7 +243,16 @@ module.exports = {
         "import/extensions": [
             "error",
             "never",
-            { svg: "always", json: "always", css: "always", scss: "always" },
+            {
+                svg: "always",
+                json: "always",
+                css: "always",
+                scss: "always",
+                ttf: "always",
+                otf: "always",
+                woff: "always",
+                woff2: "always",
+            },
         ],
         "import/order": [
             "error",
