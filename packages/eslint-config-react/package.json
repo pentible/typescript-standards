@@ -1,6 +1,6 @@
 {
     "name": "@pentible/eslint-config-react",
-    "version": "0.0.0",
+    "version": "0.77.0",
     "description": "Pentible's standard eslint config (react)",
     "repository": {
         "type": "git",
