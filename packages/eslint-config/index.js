@@ -266,7 +266,12 @@ module.exports = {
         "import/no-unassigned-import": [
             "error",
             {
-                allow: ["**/*.css", "**/*.scss", "@fontsource/**"],
+                allow: [
+                    "**/*.css",
+                    "**/*.scss",
+                    "@fontsource/**",
+                    "expo-router/entry",
+                ],
             },
         ],
         "import/no-named-default": "error",
