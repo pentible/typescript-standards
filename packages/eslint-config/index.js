@@ -146,7 +146,7 @@ module.exports = {
         "prefer-promise-reject-errors": "error",
         "prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
         "prefer-template": "error",
-        radix: ["error", "as-needed"],
+        radix: "error",
         "require-unicode-regexp": "error",
         "spaced-comment": "error",
         strict: "error",
