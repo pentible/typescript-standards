@@ -3,9 +3,9 @@ import merge from "deepmerge";
 import { execa, execaCommand } from "execa";
 import { PackageFeature } from "../context/package-feature";
 import type { Formatter } from "../formatting/formatter";
+import { Component } from "./component";
 import type { PackageContext } from "~/context/package-context";
 import { PackageType } from "~/context/package-type";
-import { Component } from "./component";
 
 // TODO: consider a stricter type
 type Eslintrc = Record<

@@ -1,12 +1,12 @@
 import { basename } from "path";
 import chalk from "chalk";
+import { promptToContinue } from "./prompt-to-continue";
 import { prompt } from "~/cli/prompt";
 import { License } from "~/context/license";
 import { PackageAccessLevel } from "~/context/package-access-level";
 import { PackageContext } from "~/context/package-context";
 import { PackageFeature } from "~/context/package-feature";
 import { PackageType } from "~/context/package-type";
-import { promptToContinue } from "./prompt-to-continue";
 import { formatGitUrlHttps } from "~/utility/format-git-url-https";
 import type { AsObject } from "~/utility/types";
 

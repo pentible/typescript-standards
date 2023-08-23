@@ -2,8 +2,8 @@ import { readFile, writeFile } from "fs/promises";
 import { join, relative } from "path";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
-import type { PackageContext } from "~/context/package-context";
 import { Component } from "./component";
+import type { PackageContext } from "~/context/package-context";
 import { PackageType } from "~/context/package-type";
 import type { Formatter } from "~/formatting/formatter";
 
