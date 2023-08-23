@@ -15,7 +15,8 @@
         "index.js"
     ],
     "peerDependencies": {
-        "eslint-config-next": ">= 13.1.1"
+        "@pentible/eslint-config": "*",
+        "eslint-config-next": ">= 13.2.5"
     },
     "publishConfig": {
         "access": "public"
