@@ -26,6 +26,9 @@ module.exports = {
         },
         {
             files: ["*.{js,cjs}"],
+            env: {
+                node: true,
+            },
             rules: {
                 "import/no-unused-modules": "off",
                 "import/unambiguous": "off",
