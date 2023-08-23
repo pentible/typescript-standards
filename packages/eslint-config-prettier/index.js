@@ -16,10 +16,17 @@ module.exports = {
             },
         ],
         "no-tabs": ["error", { allowIndentationTabs: true }],
-        "@typescript-eslint/quotes": [
-            "error",
-            "double",
-            { avoidEscape: true, allowTemplateLiterals: false },
-        ],
     },
+    overrides: [
+        {
+            files: ["*.{ts,tsx}"],
+            rules: {
+                "@typescript-eslint/quotes": [
+                    "error",
+                    "double",
+                    { avoidEscape: true, allowTemplateLiterals: false },
+                ],
+            },
+        },
+    ],
 };

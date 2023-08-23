@@ -23,7 +23,7 @@ module.exports = {
             },
         },
         {
-            files: ["src/app/**/route.{js,ts}"],
+            files: ["src/app/**/route.ts"],
             rules: {
                 "@typescript-eslint/naming-convention": [
                     "error",

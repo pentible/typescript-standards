@@ -8,6 +8,11 @@ module.exports = {
             rules: {
                 "import/no-default-export": "off",
                 "import/no-unused-modules": "off",
+            },
+        },
+        {
+            files: ["src/app/**/*.{ts,tsx}"],
+            rules: {
                 "@typescript-eslint/naming-convention": [
                     "error",
                     {
