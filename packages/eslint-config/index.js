@@ -25,7 +25,7 @@ module.exports = {
             },
         },
         {
-            files: ["*.{js,cjs}"],
+            files: ["*.{js,cjs,mjs}"],
             env: {
                 node: true,
             },
@@ -133,7 +133,7 @@ module.exports = {
             },
         },
         {
-            files: ["*.config.ts"],
+            files: ["*.config.{ts,mjs}"],
             rules: {
                 "import/no-unused-modules": "off",
                 "import/no-default-export": "off",
