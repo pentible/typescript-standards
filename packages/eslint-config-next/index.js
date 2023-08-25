@@ -10,7 +10,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ["src/{pages,app}/**/*.{js,jsx,ts,tsx}"],
+            files: [
+                "src/{pages,app}/**/*.{js,jsx,ts,tsx}",
+                "src/middleware.ts",
+            ],
             rules: {
                 "import/no-default-export": "off",
                 "import/no-unused-modules": "off",
