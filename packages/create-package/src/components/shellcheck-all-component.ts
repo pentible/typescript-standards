@@ -8,6 +8,7 @@ export class ShellcheckAllComponent extends Component {
         return !insideMonorepo;
     }
     async apply() {
+        // TODO: configure: .shellcheckrc
         await execaCommand("npm install -D @pentible/shellcheck-all");
     }
 }

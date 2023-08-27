@@ -7,15 +7,54 @@ script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 declare repo_dir
 repo_dir="$(dirname "$script_dir")"
 
-# load direnv environment (in case we're run from outside the project directory)
-eval "$(cd "$repo_dir" && direnv export bash 2> /dev/null)"
+# load rtx environment (in case we're run from outside the project directory)
+eval "$(cd "$repo_dir" && rtx hook-env 2> /dev/null)"
 
 dev::usage() {
     echo 'usage: dev <command>'
+    echo '       dev initial setup    # install app and dev env dependencies'
     echo '       dev reset    # deletes temp files and sets project back up'
     echo '       dev lint     # run linters'
     echo '       dev lint fix # fix auto-fixable linter errors'
     exit 1
+}
+
+dev::initial::setup() {
+    cd "$repo_dir"
+
+    echo '==> install brew'
+    if ! type 'brew' > /dev/null 2>&1; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    echo '==> install dependencies'
+    brew install \
+        jdxcode/tap/rtx \
+        shellcheck
+
+    echo '==> allow rtx to load project directory'
+    rtx trust
+
+    echo '==> dev reset'
+    dev::reset
+
+    tput blink
+    tput bold
+    tput setaf 1
+    echo '==> please modify your shell configs'
+    tput sgr0
+    echo '    # ~/.zshrc
+    # ...
+    eval "$(rtx activate zsh)"
+    . "$HOME/.cargo/env"
+    '
+
+    echo '==> you may want to configure rtx'
+    echo '    # ~/.config/rtx/config.toml
+    [settings]
+    missing_runtime_behavior = "autoinstall"
+    trusted_config_paths = ["~/Projects"]
+    '
 }
 
 dev::reset() {
@@ -24,8 +63,8 @@ dev::reset() {
     echo '==> delete git ignored files'
     git clean -ffdX
 
-    echo '==> reload direnv'
-    direnv reload
+    echo '==> reload rtx'
+    rtx install
 
     echo '==> install dependencies'
     npm install
@@ -40,6 +79,7 @@ dev::lint::fix() {
 }
 
 case "$1" in
+    'initial setup') dev::initial::setup ;;
     reset) dev::reset ;;
     lint) dev::lint ;;
     'lint fix') dev::lint::fix ;;

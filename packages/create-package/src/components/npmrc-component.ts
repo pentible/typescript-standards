@@ -12,6 +12,7 @@ export class NpmrcComponent extends Component {
         // TODO: exclude auth token for private (non-monorepo type) packages
         const npmrc = {
             "save-exact": true,
+            audit: false,
             "//registry.npmjs.org/:_authToken": "${NPM_TOKEN}",
         };
 

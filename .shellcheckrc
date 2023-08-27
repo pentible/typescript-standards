@@ -9,5 +9,6 @@ enable=require-double-brackets
 
 disable=SC1090
 disable=SC1091
+disable=SC2016
 
 # TODO: consider including this in create-package?

@@ -3,5 +3,4 @@ node_modules
 /.husky/_/
 *.tgz
 tsconfig.tsbuildinfo
-/.direnv/
 /.vscode/settings.json
