@@ -3,5 +3,5 @@
 
 npx ls-lint
 npx check-package-lock
-tsc -b
+npx tsc -b
 npx lint-staged
