@@ -10,7 +10,7 @@ export class PrettierComponent extends Component {
         return !insideMonorepo;
     }
     async apply(_: PackageContext, formatter: Formatter) {
-        await execaCommand("npm install -D prettier@2 @pentible/prettier");
+        await execaCommand("npm install -D prettier@3 @pentible/prettier");
 
         const prettierrc = "@pentible/prettier";
 

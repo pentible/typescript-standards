@@ -39,9 +39,9 @@ export class PackageJsonComponent extends Component {
                 "shellcheck-all",
                 type === PackageType.Monorepo ? "tsc -b" : "tsc --noEmit",
                 "eslint .",
-                "prettier --loglevel warn --check .",
+                "prettier --log-level warn --check .",
             ].join(" && "),
-            "lint:fix": "eslint --fix . && prettier --loglevel warn --write .",
+            "lint:fix": "eslint --fix . && prettier --log-level warn --write .",
             prepare: "husky install",
         };
 

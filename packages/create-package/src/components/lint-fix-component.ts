@@ -11,7 +11,7 @@ export class LintFixComponent extends Component {
         const rootDirectory = this.getRootDirectory(insideMonorepo);
         await execa("npx", [
             "prettier",
-            "--loglevel",
+            "--log-level",
             "warn",
             "--write",
             rootDirectory,

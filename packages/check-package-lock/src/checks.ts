@@ -1,5 +1,8 @@
 export abstract class CheckError extends Error {
-    constructor(message: string, readonly description: string) {
+    constructor(
+        message: string,
+        readonly description: string,
+    ) {
         super(message);
     }
 }
