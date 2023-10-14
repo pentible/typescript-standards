@@ -137,6 +137,7 @@ module.exports = {
             rules: {
                 "import/no-unused-modules": "off",
                 "import/no-default-export": "off",
+                "@typescript-eslint/no-require-imports": "off",
             },
         },
         {
