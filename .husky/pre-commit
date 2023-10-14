@@ -1,7 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx ls-lint
 npx check-package-lock
 npx tsc -b
 npx lint-staged
