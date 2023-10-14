@@ -206,7 +206,7 @@ module.exports = {
         "object-shorthand": ["error", "always", { avoidQuotes: true }],
         "one-var": ["error", "never"],
         "operator-assignment": "error",
-        "prefer-arrow-callback": "error",
+        "prefer-arrow-callback": ["error", { allowNamedFunctions: true }],
         "prefer-numeric-literals": "error",
         // "prefer-object-has-own": "error", // TODO: once better browser support: https://caniuse.com/?search=object.hasOwn
         "prefer-object-spread": "error",
