@@ -46,4 +46,8 @@ jobs:
           GITHUB_USER: ${{ github.repository_owner }}
           # NOTE: needs a user token otherwise release events won't be triggered
           GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
-        run: hub release create -m "$VERSION" "$VERSION"
+        run: |
+          gh release create \
+            --title "$VERSION" \
+            --notes '' \
+            "$VERSION"
