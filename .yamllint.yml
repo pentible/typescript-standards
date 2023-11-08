@@ -1,0 +1,13 @@
+extends: default
+
+ignore-from-file: .gitignore
+
+rules:
+  truthy:
+    allowed-values: ["true", "false"]
+    check-keys: false
+  document-start: false
+  comments:
+    min-spaces-from-content: 1
+  quoted-strings:
+    required: only-when-needed

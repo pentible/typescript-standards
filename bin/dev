@@ -30,7 +30,8 @@ dev::initial::setup() {
     echo '==> install dependencies'
     brew install \
         jdxcode/tap/rtx \
-        shellcheck
+        shellcheck \
+        yamllint
 
     echo '==> allow rtx to load project directory'
     rtx trust
