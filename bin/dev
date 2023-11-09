@@ -14,6 +14,7 @@ dev::usage() {
     echo 'usage: dev <command>'
     echo '       dev initial setup    # install app and dev env dependencies'
     echo '       dev reset            # deletes temp files and sets project back up'
+    echo '       dev start            # run build watchers'
     echo '       dev lint             # run linters'
     echo '       dev lint fix         # fix auto-fixable linter errors'
     exit 1
@@ -70,6 +71,11 @@ dev::reset() {
     npm install
 }
 
+dev::start() {
+    # TODO: remove once bug is fixed: https://github.com/vercel/turbo/issues/4291
+    turbo dev --concurrency 100
+}
+
 dev::lint() {
     npm run lint
 }
@@ -81,6 +87,7 @@ dev::lint::fix() {
 case "$1" in
     'initial setup') dev::initial::setup ;;
     reset) dev::reset ;;
+    start) dev::start ;;
     lint) dev::lint ;;
     'lint fix') dev::lint::fix ;;
     *) dev::usage ;;
