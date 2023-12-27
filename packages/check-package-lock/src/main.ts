@@ -153,7 +153,12 @@ async function checkMissingWorkspaces() {
 type Check = () => Promise<Result<boolean, CheckError>>;
 
 async function main() {
-    const console = new Console({ groupIndentation: 4, stdout, stderr });
+    const console = new Console({
+        groupIndentation: 4,
+        stdout,
+        stderr,
+        inspectOptions: { depth: 10000 },
+    });
 
     // TODO: consider a lockFilePath param (checkLockInSync might need to be
     // skipped then if there's no adjacent package.json...)
