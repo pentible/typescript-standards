@@ -141,7 +141,7 @@ module.exports = {
             },
         },
         {
-            files: ["main.ts", "index.ts"],
+            files: ["main.ts", "main.tsx", "index.ts", "index.tsx"],
             rules: {
                 "import/no-unused-modules": "off",
             },
