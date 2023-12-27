@@ -18,20 +18,18 @@
         "dist/main.js"
     ],
     "scripts": {
-        "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/main.js src/main.ts",
+        "build": "esbuild --bundle --platform=node --target=node16 --minify --external:node-gyp/bin/node-gyp.js --outfile=./dist/main.js src/main.ts",
         "dev": "faketty npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
         "start": "./dist/main.js"
     },
     "devDependencies": {
-        "@types/minimatch": "3.0.5",
+        "@npmcli/arborist": "7.2.1",
         "@types/node": "16.18.25",
-        "@types/semver": "7.3.13",
+        "@types/npmcli__arborist": "5.6.5",
         "@types/yargs": "17.0.24",
         "chalk": "4.1.2",
         "execa": "6.1.0",
-        "minimatch": "3.1.2",
-        "semver": "7.3.8",
         "yargs": "17.7.1",
         "zod": "3.21.4"
     },
