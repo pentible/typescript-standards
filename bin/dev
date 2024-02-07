@@ -7,8 +7,8 @@ script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 declare repo_dir
 repo_dir="$(dirname "$script_dir")"
 
-# load rtx environment (in case we're run from outside the project directory)
-eval "$(cd "$repo_dir" && rtx hook-env 2> /dev/null)"
+# load mise environment (in case we're run from outside the project directory)
+eval "$(cd "$repo_dir" && mise hook-env 2> /dev/null)"
 
 dev::usage() {
     echo 'usage: dev <command>'
@@ -30,12 +30,12 @@ dev::initial::setup() {
 
     echo '==> install dependencies'
     brew install \
-        jdxcode/tap/rtx \
+        mise \
         shellcheck \
         yamllint
 
-    echo '==> allow rtx to load project directory'
-    rtx trust
+    echo '==> allow mise to load project directory'
+    mise trust
 
     echo '==> dev reset'
     dev::reset
@@ -47,14 +47,12 @@ dev::initial::setup() {
     tput sgr0
     echo '    # ~/.zshrc
     # ...
-    eval "$(rtx activate zsh)"
+    eval "$(mise activate zsh)"
     '
 
-    echo '==> you may want to configure rtx'
-    echo '    # ~/.config/rtx/config.toml
-    [settings]
-    missing_runtime_behavior = "autoinstall"
-    trusted_config_paths = ["~/Projects"]
+    echo '==> you may want to configure mise'
+    echo '    # ~/.config/mise/settings.toml
+    trusted_config_paths = ["~/Projects"] # where ~/Projects is wherever you clone your repos
     '
 }
 
@@ -64,8 +62,8 @@ dev::reset() {
     echo '==> delete git ignored files'
     git clean -ffdX
 
-    echo '==> reload rtx'
-    rtx install
+    echo '==> reload mise'
+    mise install
 
     echo '==> install dependencies'
     npm install
