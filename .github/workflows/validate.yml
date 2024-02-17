@@ -12,5 +12,10 @@ jobs:
           node-version: 18.x
       - name: Install dependencies
         run: npm install
-      - name: Lint
-        run: npm run lint
+      # lint
+      - run: npx check-package-lock
+      - run: npx shellcheck-all
+      - run: yamllint --strict .
+      - run: npx tsc -b
+      - run: npx eslint .
+      - run: npx prettier --log-level warn --check .

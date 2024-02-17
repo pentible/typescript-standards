@@ -8,8 +8,8 @@
     ],
     "scripts": {
         "build": "npm run build --ws --if-present",
-        "lint": "check-package-lock && shellcheck-all && tsc -b && eslint . && prettier --log-level warn --check .",
-        "lint:fix": "eslint --fix . && prettier --log-level warn --write .",
+        "lint": "./bin/dev lint",
+        "lint:fix": "./bin/dev lint fix",
         "prepare": "husky install && npm run build"
     },
     "devDependencies": {

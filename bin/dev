@@ -59,11 +59,17 @@ dev::start() {
 }
 
 dev::lint() {
-    npm run lint
+    check-package-lock
+    shellcheck-all
+    yamllint --strict .
+    tsc -b
+    eslint .
+    prettier --log-level warn --check .
 }
 
 dev::lint::fix() {
-    npm run lint:fix
+    eslint --fix .
+    prettier --log-level warn --write .
 }
 
 case "$*" in
