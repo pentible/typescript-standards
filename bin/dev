@@ -35,7 +35,7 @@ dev::initial::setup() {
         yamllint
 
     echo '==> allow mise to load project directory'
-    mise trust
+    mise trust --all
 
     echo '==> dev reset'
     dev::reset
