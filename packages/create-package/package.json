@@ -19,7 +19,7 @@
     ],
     "scripts": {
         "build": "esbuild --bundle --platform=node --target=node16 --minify --outfile=./dist/main.js src/main.ts",
-        "dev": "faketty npm run build -- --watch",
+        "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
         "start": "./dist/main.js"
     },
