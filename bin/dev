@@ -39,21 +39,6 @@ dev::initial::setup() {
 
     echo '==> dev reset'
     dev::reset
-
-    tput blink
-    tput bold
-    tput setaf 1
-    echo '==> please modify your shell configs'
-    tput sgr0
-    echo '    # ~/.zshrc
-    # ...
-    eval "$(mise activate zsh)"
-    '
-
-    echo '==> you may want to configure mise'
-    echo '    # ~/.config/mise/settings.toml
-    trusted_config_paths = ["~/Projects"] # where ~/Projects is wherever you clone your repos
-    '
 }
 
 dev::reset() {
