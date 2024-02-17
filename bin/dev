@@ -55,8 +55,7 @@ dev::reset() {
 }
 
 dev::start() {
-    # TODO: remove once bug is fixed: https://github.com/vercel/turbo/issues/4291
-    turbo dev --concurrency 100
+    turbo dev
 }
 
 dev::lint() {
