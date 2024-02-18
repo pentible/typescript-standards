@@ -1,11 +1,17 @@
-name: release
+name: bump
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch: # Manually trigger
+    inputs:
+      bump:
+        type: choice
+        description: How to bump version
+        options:
+          - minor
+          - major
+          - patch
 jobs:
-  release:
-    name: Release
+  bump:
+    name: Bump
     runs-on: ubuntu-latest
     steps:
       - name: Wait for validate job to finish
@@ -18,7 +24,7 @@ jobs:
         uses: zwaldowski/semver-release-action@v3
         with:
           dry_run: true
-          bump: minor
+          bump: ${{ github.event.inputs.bump }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set Env
         env:
@@ -33,17 +39,12 @@ jobs:
         run: |
           npm version --workspaces --no-git-tag-version "$VERSION"
 
-          git add packages/*/package.json
+          git add -u .
           git commit -m "bumped version to ${VERSION}"
           git tag "$VERSION"
-          git push origin "$VERSION"
+          git push --atomic origin HEAD "$VERSION"
       - name: Create Release
         env:
-          GITHUB_USER: ${{ github.repository_owner }}
           # NOTE: needs a user token otherwise release events won't be triggered
-          GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
-        run: |
-          gh release create \
-            --title "$VERSION" \
-            --notes '' \
-            "$VERSION"
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: gh release create --generate-notes "$VERSION"
