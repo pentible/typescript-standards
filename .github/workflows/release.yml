@@ -31,8 +31,6 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
           GIT_COMMITTER_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
         run: |
-          # TODO: figure out why this wasn't committing/tagging on it's own
-          # - (explicitly telling it not to now so it doesn't randomly break...)
           npm version --workspaces --no-git-tag-version "$VERSION"
 
           git add packages/*/package.json
