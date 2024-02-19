@@ -1,6 +1,6 @@
 {
     "name": "@pentible/eslint-config-prettier",
-    "version": "0.0.0",
+    "version": "0.96.0",
     "description": "Pentible's standard eslint config (prettier)",
     "repository": {
         "type": "git",
