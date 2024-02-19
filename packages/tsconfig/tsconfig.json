@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "target": "es2018",
+        "target": "ES2021",
         "jsx": "react-jsx",
-        "module": "es2022",
-        "moduleResolution": "node",
+        "module": "ES2022",
+        "moduleResolution": "Node10",
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
         "noFallthroughCasesInSwitch": true,
