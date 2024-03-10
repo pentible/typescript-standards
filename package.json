@@ -16,7 +16,7 @@
         "esbuild": "0.16.15",
         "husky": "8.0.3",
         "lint-staged": "13.1.0",
-        "prettier": "3.0.3",
+        "prettier": "3.2.5",
         "turbo": "1.12.4",
         "typescript": "5.0.3"
     }
