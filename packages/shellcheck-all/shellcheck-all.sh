@@ -65,7 +65,7 @@ if [[ "${#files[@]}" == '0' ]]; then
     # assume all git tracked files
     while IFS= read -r file; do
         files+=("$file")
-    done < <(git ls-files)
+    done < <(comm -23 <(git ls-files) <(git ls-files --deleted))
 fi
 
 # filter for *.sh or #! shell files
