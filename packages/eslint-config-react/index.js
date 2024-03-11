@@ -1,6 +1,5 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-    plugins: ["react-prefer-function-component"],
     extends: [
         "plugin:react/recommended",
         "plugin:react-prefer-function-component/recommended",

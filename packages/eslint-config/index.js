@@ -4,12 +4,8 @@ const { naming } = require("./naming");
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-    extends: [
-        "eslint:recommended",
-        "plugin:import/recommended",
-        "plugin:sort-class-members/recommended",
-        "plugin:eslint-comments/recommended",
-    ],
+    extends: ["eslint:recommended", "plugin:import/recommended"],
+    reportUnusedDisableDirectives: true,
     parserOptions: {
         sourceType: "module",
         ecmaVersion: 2022,
@@ -276,10 +272,5 @@ module.exports = {
             "error",
             { allowCallExpression: false },
         ],
-
-        // eslint-comments
-        "eslint-comments/no-unused-disable": "error",
-        // NOTE: default to just not allowing disable comments, projects can override this as needed
-        "eslint-comments/no-use": "error",
     },
 };
