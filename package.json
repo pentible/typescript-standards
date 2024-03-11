@@ -10,14 +10,14 @@
         "build": "npm run build --ws --if-present",
         "lint": "./bin/dev lint",
         "lint:fix": "./bin/dev lint fix",
-        "prepare": "husky install && npm run build"
+        "prepare": "husky && npm run build"
     },
     "devDependencies": {
-        "esbuild": "0.16.15",
-        "husky": "8.0.3",
-        "lint-staged": "13.1.0",
+        "esbuild": "0.20.1",
+        "husky": "9.0.11",
+        "lint-staged": "15.2.2",
         "prettier": "3.2.5",
-        "turbo": "1.12.4",
-        "typescript": "5.0.3"
+        "turbo": "1.12.5",
+        "typescript": "5.3.3"
     }
 }
