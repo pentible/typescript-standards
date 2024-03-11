@@ -37,18 +37,13 @@ module.exports = {
         {
             files: ["*.{ts,tsx}"],
             extends: [
-                "plugin:@typescript-eslint/recommended",
-                "plugin:@typescript-eslint/recommended-requiring-type-checking",
-                "plugin:@typescript-eslint/strict",
+                "plugin:@typescript-eslint/strict-type-checked",
+                "plugin:@typescript-eslint/stylistic-type-checked",
                 "plugin:import/typescript",
             ],
             parserOptions: {
                 tsconfigRootDir: ".",
-                project: [
-                    "tsconfig.json",
-                    "packages/*/tsconfig.json",
-                    "apps/*/tsconfig.json",
-                ],
+                project: true,
             },
             settings: {
                 "import/resolver": {
@@ -64,10 +59,7 @@ module.exports = {
             },
             rules: {
                 // typescript-eslint
-                "@typescript-eslint/consistent-type-exports": [
-                    "error",
-                    { fixMixedExportsWithInlineTypeSpecifier: true },
-                ],
+                "@typescript-eslint/consistent-type-exports": "error",
                 "@typescript-eslint/consistent-type-imports": [
                     "error",
                     { prefer: "type-imports" },
@@ -95,10 +87,7 @@ module.exports = {
                 "@typescript-eslint/prefer-enum-initializers": "error",
                 "@typescript-eslint/prefer-readonly": "error",
                 "@typescript-eslint/promise-function-async": "error",
-                "@typescript-eslint/require-array-sort-compare": [
-                    "error",
-                    { ignoreStringArrays: true },
-                ],
+                "@typescript-eslint/require-array-sort-compare": "error",
                 "@typescript-eslint/return-await": ["error", "always"],
                 "@typescript-eslint/sort-type-constituents": "error",
                 "@typescript-eslint/switch-exhaustiveness-check": "error",
@@ -108,7 +97,6 @@ module.exports = {
                     "error",
                     { allow: ["private-constructors"] },
                 ],
-                "@typescript-eslint/no-invalid-this": "error",
                 "@typescript-eslint/no-loop-func": "error",
                 "@typescript-eslint/no-throw-literal": "error",
                 "@typescript-eslint/no-unused-expressions": [
@@ -124,7 +112,6 @@ module.exports = {
         {
             files: ["*.d.ts"],
             rules: {
-                "spaced-comment": ["error", "always", { markers: ["/"] }],
                 "import/unambiguous": "off",
                 "import/no-unused-modules": "off",
                 "import/no-unassigned-import": "off",
@@ -182,8 +169,8 @@ module.exports = {
         "no-negated-condition": "error",
         "no-nested-ternary": "error",
         "no-new": "error",
-        "no-new-object": "error",
         "no-new-wrappers": "error",
+        "no-object-constructor": "error",
         "no-octal-escape": "error",
         "no-param-reassign": ["error", { props: true }],
         "no-proto": "error",
@@ -216,7 +203,6 @@ module.exports = {
         "prefer-template": "error",
         radix: "error",
         "require-unicode-regexp": "error",
-        "spaced-comment": "error",
         strict: "error",
         "symbol-description": "error",
         yoda: "error",

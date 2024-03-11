@@ -15,7 +15,7 @@
         "index.js"
     ],
     "peerDependencies": {
-        "eslint-plugin-compat": ">= 4.0.2"
+        "eslint-plugin-compat": ">=4.0.2"
     },
     "publishConfig": {
         "access": "public"
