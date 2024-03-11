@@ -86,7 +86,13 @@ module.exports = {
                 "@typescript-eslint/require-array-sort-compare": "error",
                 "@typescript-eslint/return-await": ["error", "always"],
                 "@typescript-eslint/sort-type-constituents": "error",
-                "@typescript-eslint/switch-exhaustiveness-check": "error",
+                "@typescript-eslint/switch-exhaustiveness-check": [
+                    "error",
+                    {
+                        allowDefaultCaseForExhaustiveSwitch: false,
+                        requireDefaultForNonUnion: true,
+                    },
+                ],
                 "@typescript-eslint/default-param-last": "error",
                 "@typescript-eslint/init-declarations": "error",
                 "@typescript-eslint/no-empty-function": [
