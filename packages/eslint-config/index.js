@@ -152,7 +152,6 @@ module.exports = {
         "no-unreachable-loop": "error",
         "no-unused-private-class-members": "error",
         "require-atomic-updates": "error",
-        "arrow-body-style": ["error", "as-needed"],
         "block-scoped-var": "error",
         "default-case-last": "error",
         eqeqeq: ["error", "smart"],
