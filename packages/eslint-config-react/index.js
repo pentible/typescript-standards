@@ -46,10 +46,7 @@ module.exports = {
         "react/jsx-handler-names": "error",
         "react/jsx-max-depth": ["error", { max: 8 }],
         "react/jsx-no-constructed-context-values": "error",
-        "react/jsx-no-leaked-render": [
-            "error",
-            { validStrategies: ["coerce", "ternary"] },
-        ],
+        "react/jsx-no-leaked-render": "error",
         "react/jsx-no-script-url": "error",
         "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
         "react/jsx-pascal-case": "error",
