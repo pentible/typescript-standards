@@ -276,6 +276,7 @@ module.exports = {
                     "**/*.scss",
                     "@fontsource/**",
                     "expo-router/entry",
+                    "server-only",
                 ],
             },
         ],
