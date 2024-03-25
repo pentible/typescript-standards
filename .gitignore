@@ -4,3 +4,4 @@ node_modules/
 *.tgz
 tsconfig.tsbuildinfo
 /.vscode/settings.json
+/.turbo/
