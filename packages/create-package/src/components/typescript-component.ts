@@ -71,6 +71,7 @@ export class TypescriptComponent extends Component {
             // - only warn if file doesn't exist(WARN: can't find root tsconfig)
             // - similar if file exists but can't be parsed
             // TODO: switch to jsonc for parsing/stringify'ing
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             const monorepoTsconfig: Tsconfig = JSON.parse(
                 await readFile(monorepoTsconfigPath, "utf8"),
             ) as unknown as Tsconfig;

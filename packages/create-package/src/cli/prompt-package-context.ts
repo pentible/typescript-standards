@@ -75,7 +75,8 @@ export async function promptPackageContext(
             type: "input",
             name: "scope",
             message: "Package scope:",
-            suffix: assumptions.scope ? "" : chalk.dim(" (blank for none)"),
+            suffix:
+                assumptions.scope != null ? "" : chalk.dim(" (blank for none)"),
             default: assumptions.scope,
             filter(val: string) {
                 const scope = val.trim();

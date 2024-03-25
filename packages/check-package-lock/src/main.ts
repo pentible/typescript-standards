@@ -39,7 +39,7 @@ class LockOutOfSyncCheckError extends CheckError {
 // verify that the package-lock.json is up to date with the package.json
 async function checkLockInSync() {
     const npmArgs: string[] = [];
-    if (supportsColor) {
+    if (supportsColor !== false) {
         npmArgs.push("--color=always");
     }
 

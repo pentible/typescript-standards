@@ -50,7 +50,7 @@ function getDependents(packages: Package[], current: Package) {
             // find general dependents on this package (ignoring version)
             .map((pkg) => {
                 const dependentVersion = packageDependsOnVersion(pkg, current);
-                if (!dependentVersion) {
+                if (dependentVersion === undefined) {
                     return undefined;
                 }
 

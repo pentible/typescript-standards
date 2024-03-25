@@ -6,12 +6,11 @@ interface PackageJson {
 }
 
 function isPackageJson(val: unknown): val is PackageJson {
-    if (!val || typeof val !== "object") {
+    if (val == null || typeof val !== "object") {
         return false;
     }
 
-    const unsafe = val as PackageJson;
-    return typeof unsafe.name === "string";
+    return "name" in val && typeof val.name === "string";
 }
 
 export async function tryLoadPackageJson(path: string) {

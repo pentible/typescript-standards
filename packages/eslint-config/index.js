@@ -55,6 +55,12 @@ module.exports = {
             },
             rules: {
                 // typescript-eslint
+                "@typescript-eslint/consistent-type-assertions": [
+                    "error",
+                    {
+                        assertionStyle: "never",
+                    },
+                ],
                 "@typescript-eslint/consistent-type-exports": "error",
                 "@typescript-eslint/consistent-type-imports": [
                     "error",
@@ -92,6 +98,7 @@ module.exports = {
                 ],
                 "@typescript-eslint/return-await": ["error", "always"],
                 "@typescript-eslint/sort-type-constituents": "error",
+                "@typescript-eslint/strict-boolean-expressions": "error",
                 "@typescript-eslint/switch-exhaustiveness-check": [
                     "error",
                     {
@@ -173,7 +180,6 @@ module.exports = {
         "no-lone-blocks": "error",
         "no-multi-assign": "error",
         "no-multi-str": "error",
-        "no-negated-condition": "error",
         "no-nested-ternary": "error",
         "no-new": "error",
         "no-new-wrappers": "error",
