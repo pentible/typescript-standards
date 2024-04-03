@@ -13,6 +13,7 @@
         "prepare": "husky && npm run build"
     },
     "devDependencies": {
+        "@pentible/prettier": "file:packages/prettier",
         "esbuild": "0.20.1",
         "husky": "9.0.11",
         "lint-staged": "15.2.2",

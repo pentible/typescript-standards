@@ -8,9 +8,9 @@
     },
     "license": "MIT",
     "author": "pentible",
-    "main": ".prettierrc.json",
+    "main": "prettier.config.mjs",
     "files": [
-        ".prettierrc.json"
+        "prettier.config.mjs"
     ],
     "peerDependencies": {
         "prettier": ">=3.2.5",

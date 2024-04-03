@@ -4,8 +4,19 @@
 
 -   `npm i -D @pentible/prettier`
 
--   `.prettierrc`
+-   `prettier.config.mjs`
 
-```json
-"@pentible/prettier"
+```js
+export { default } from "@pentible/prettier";
+
+// OR if you need to override settings
+import pentible from "@pentible/prettier";
+
+/** @type {import("prettier").Config} */
+const config = {
+    ...pentible,
+    plugins: [...pentible.plugins, "prettier-plugin-tailwindcss"],
+};
+
+export default config;
 ```
