@@ -17,6 +17,7 @@ dev::usage() {
     echo '       dev start            # run build watchers'
     echo '       dev lint             # run linters'
     echo '       dev lint fix         # fix auto-fixable linter errors'
+    echo '       dev test             # run tests'
     exit 1
 }
 
@@ -72,11 +73,25 @@ dev::lint::fix() {
     prettier --log-level warn --write .
 }
 
+dev::test() {
+    dev::test::check-package-lock
+}
+
+# TODO: we really need a snapshot test or something (just to check the output)
+dev::test::check-package-lock() {
+    for example in "${repo_dir}/packages/check-package-lock/examples/"*; do
+        echo "==> $(basename "$example")"
+        cd "$example"
+        check-package-lock || true
+    done
+}
+
 case "$*" in
     'initial setup') dev::initial::setup ;;
     reset) dev::reset ;;
     start) dev::start ;;
     lint) dev::lint ;;
     'lint fix') dev::lint::fix ;;
+    test) dev::test ;;
     *) dev::usage ;;
 esac

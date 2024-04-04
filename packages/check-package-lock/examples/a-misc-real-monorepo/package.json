@@ -1,0 +1,7 @@
+{
+    "name": "a8",
+    "workspaces": [
+        "apps/browser-extension",
+        "apps/webapp"
+    ]
+}
