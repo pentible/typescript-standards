@@ -1,4 +1,4 @@
-exports.naming = [
+export const naming = [
     // default
     {
         selector: "default",

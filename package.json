@@ -13,7 +13,9 @@
         "prepare": "husky && npm run build"
     },
     "devDependencies": {
-        "@pentible/prettier": "file:packages/prettier",
+        "@eslint/eslintrc": "3.0.2",
+        "@pentible/eslint-config": "file:packages/prettier",
+        "@pentible/prettier": "file:packages/eslint-config",
         "esbuild": "0.20.1",
         "husky": "9.0.11",
         "lint-staged": "15.2.2",
