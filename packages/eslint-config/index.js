@@ -87,6 +87,12 @@ module.exports = {
                 "@typescript-eslint/prefer-readonly": "error",
                 "@typescript-eslint/promise-function-async": "error",
                 "@typescript-eslint/require-array-sort-compare": "error",
+                "@typescript-eslint/restrict-template-expressions": [
+                    "error",
+                    {
+                        allowNumber: true,
+                    },
+                ],
                 "@typescript-eslint/return-await": ["error", "always"],
                 "@typescript-eslint/strict-boolean-expressions": "error",
                 "@typescript-eslint/switch-exhaustiveness-check": [
