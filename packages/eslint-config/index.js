@@ -57,15 +57,10 @@ module.exports = {
                 // typescript-eslint
                 "@typescript-eslint/consistent-type-assertions": [
                     "error",
-                    {
-                        assertionStyle: "never",
-                    },
+                    { assertionStyle: "never" },
                 ],
                 "@typescript-eslint/consistent-type-exports": "error",
-                "@typescript-eslint/consistent-type-imports": [
-                    "error",
-                    { prefer: "type-imports" },
-                ],
+                "@typescript-eslint/consistent-type-imports": "error",
                 "@typescript-eslint/explicit-member-accessibility": [
                     "error",
                     { accessibility: "no-public" },
@@ -84,20 +79,15 @@ module.exports = {
                     "error",
                     { allowConstantLoopConditions: true },
                 ],
+                "@typescript-eslint/no-unnecessary-parameter-property-assignment":
+                    "error",
                 "@typescript-eslint/no-unnecessary-qualifier": "error",
                 "@typescript-eslint/no-useless-empty-export": "error",
                 "@typescript-eslint/prefer-enum-initializers": "error",
                 "@typescript-eslint/prefer-readonly": "error",
                 "@typescript-eslint/promise-function-async": "error",
                 "@typescript-eslint/require-array-sort-compare": "error",
-                "@typescript-eslint/restrict-template-expressions": [
-                    "error",
-                    {
-                        allowNullish: false,
-                    },
-                ],
                 "@typescript-eslint/return-await": ["error", "always"],
-                "@typescript-eslint/sort-type-constituents": "error",
                 "@typescript-eslint/strict-boolean-expressions": "error",
                 "@typescript-eslint/switch-exhaustiveness-check": [
                     "error",
@@ -113,7 +103,6 @@ module.exports = {
                     { allow: ["private-constructors"] },
                 ],
                 "@typescript-eslint/no-loop-func": "error",
-                "@typescript-eslint/no-throw-literal": "error",
                 "@typescript-eslint/no-unused-expressions": [
                     "error",
                     { enforceForJSX: true },
@@ -228,12 +217,7 @@ module.exports = {
         "import/no-absolute-path": "error",
         "import/no-empty-named-blocks": "error",
         "import/no-self-import": "error",
-        "import/no-useless-path-segments": [
-            "error",
-            {
-                noUselessIndex: true,
-            },
-        ],
+        "import/no-useless-path-segments": ["error", { noUselessIndex: true }],
         "import/no-relative-packages": "error",
         "import/no-deprecated": "warn",
         "import/no-extraneous-dependencies": ["error", { includeTypes: true }],

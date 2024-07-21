@@ -20,6 +20,7 @@ async function execaResult(
     args?: readonly string[],
     options?: Options,
 ) {
+    // eslint-disable-next-line @typescript-eslint/use-unknown-in-catch-callback-variable
     const returnValue = await execa(file, args, options).catch((e) => e);
     if (returnValue instanceof Error) {
         return Err(returnValue);

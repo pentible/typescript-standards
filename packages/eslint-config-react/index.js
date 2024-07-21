@@ -50,6 +50,7 @@ module.exports = {
         "react/jsx-no-script-url": "error",
         "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
         "react/jsx-pascal-case": "error",
+        "react/jsx-props-no-spread-multi": "error",
         "react/jsx-props-no-spreading": "error",
     },
 };

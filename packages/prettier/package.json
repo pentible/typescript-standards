@@ -13,8 +13,8 @@
         "prettier.config.mjs"
     ],
     "peerDependencies": {
-        "prettier": ">=3.2.5",
-        "prettier-plugin-packagejson": ">=2.4.12",
+        "prettier": ">=3.3.3",
+        "prettier-plugin-packagejson": ">=2.5.1",
         "prettier-plugin-sh": ">=0.14.0"
     },
     "publishConfig": {
