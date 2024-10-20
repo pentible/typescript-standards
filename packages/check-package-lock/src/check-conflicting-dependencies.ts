@@ -19,12 +19,7 @@ export async function checkDependenciesConflict() {
     // NOTE: child packages of a workspace (packages within it's individual
     // node_modules), are considered to be conflicts (since npm would otherwise
     // be able to install them in the root node_modules)
-    const conflicts = [
-        ...workspaces
-            .map((n) => [...n.children.values()])
-            .flat()
-            .values(),
-    ];
+    const conflicts = workspaces.flatMap((n) => [...n.children.values()]);
 
     // collect conflict dependency paths
     const conflictDependencyPaths = conflicts.map((conflict) => ({
@@ -55,9 +50,12 @@ export async function checkDependenciesConflict() {
     // }
 
     // TODO: improve this
+    // - pick the shortest path
+    // - restructure uniqueness checks to allow forwarding through additional info to the error
+
     // collect direct dependency conflicts
     const directDependencyConflicts = conflictDependencyPaths
-        .flatMap(({ paths }) => paths.flatMap((p) => p.directConflict))
+        .flatMap(({ paths }) => paths.map((p) => p.directConflict))
         .filter(onlyUnique) // often multiple conflicts will be caused by a single dependency...
         .sort((a, b) => a.name.localeCompare(b.name));
 
