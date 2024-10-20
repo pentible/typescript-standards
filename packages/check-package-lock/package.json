@@ -18,7 +18,7 @@
         "dist/main.js"
     ],
     "scripts": {
-        "build": "esbuild --bundle --platform=node --target=node18 --minify --outfile=./dist/main.js src/main.ts",
+        "build": "esbuild --bundle --platform=node --target=node18 --minify --external:node-gyp --outfile=./dist/main.js src/main.ts",
         "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
         "start": "./dist/main.js"
