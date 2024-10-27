@@ -19,6 +19,11 @@
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
         "composite": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "outDir": "${configDir}/dist",
+        "baseUrl": "${configDir}",
+        "paths": {
+            "#src/*": ["${configDir}/src/*"]
+        }
     }
 }

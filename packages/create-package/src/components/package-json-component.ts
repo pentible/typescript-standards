@@ -1,12 +1,12 @@
 import { writeFile } from "fs/promises";
 import merge from "deepmerge";
 import { execaCommand } from "execa";
-import { PackageFeature } from "../context/package-feature";
-import type { Formatter } from "../formatting/formatter";
-import { Component } from "./component";
-import { PackageAccessLevel } from "~/context/package-access-level";
-import type { PackageContext } from "~/context/package-context";
-import { PackageType } from "~/context/package-type";
+import { Component } from "#src/components/component";
+import { PackageAccessLevel } from "#src/context/package-access-level";
+import type { PackageContext } from "#src/context/package-context";
+import { PackageFeature } from "#src/context/package-feature";
+import { PackageType } from "#src/context/package-type";
+import type { Formatter } from "#src/formatting/formatter";
 
 // TODO: consider a stricter type
 type PackageJson = Record<

@@ -9,6 +9,12 @@
     "license": "MIT",
     "author": "pentible",
     "type": "commonjs",
+    "imports": {
+        "#src/*": [
+            "./src/*.js",
+            "./src/*.ts"
+        ]
+    },
     "main": "./dist/main.js",
     "source": "./src/main.ts",
     "bin": {

@@ -9,11 +9,11 @@ import { execa } from "execa";
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs/yargs";
 import { z } from "zod";
-import { checkDependenciesConflict } from "~/check-conflicting-dependencies";
-import { CheckError, UnknownCheckError } from "~/checks";
-import type { Result } from "~/result";
-import { ErrFromUnknown, Err, Ok } from "~/result";
-import { isNonNullable } from "~/utils";
+import { checkDependenciesConflict } from "#src/check-conflicting-dependencies";
+import { CheckError, UnknownCheckError } from "#src/checks";
+import type { Result } from "#src/result";
+import { ErrFromUnknown, Err, Ok } from "#src/result";
+import { isNonNullable } from "#src/utils";
 
 async function execaResult(
     file: string,

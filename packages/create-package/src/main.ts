@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import { chdir, exit } from "process";
-import { findMatchingComponents } from "./components/find-matching-components";
-import { Formatter } from "./formatting/formatter";
-import { collectAssumptions } from "~/assumptions/collect-assumptions";
-import { promptPackageContext } from "~/cli/prompt-package-context";
-import { UserCancelledError } from "~/errors/user-cancelled-error";
+import { collectAssumptions } from "#src/assumptions/collect-assumptions";
+import { promptPackageContext } from "#src/cli/prompt-package-context";
+import { findMatchingComponents } from "#src/components/find-matching-components";
+import { UserCancelledError } from "#src/errors/user-cancelled-error";
+import { Formatter } from "#src/formatting/formatter";
 
 async function main() {
     try {

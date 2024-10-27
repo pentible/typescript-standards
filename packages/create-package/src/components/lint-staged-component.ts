@@ -1,8 +1,8 @@
 import { writeFile } from "fs/promises";
 import { execaCommand } from "execa";
-import type { Formatter } from "../formatting/formatter";
-import { Component } from "./component";
-import type { PackageContext } from "~/context/package-context";
+import { Component } from "#src/components/component";
+import type { PackageContext } from "#src/context/package-context";
+import type { Formatter } from "#src/formatting/formatter";
 
 export class LintStagedComponent extends Component {
     matches({ insideMonorepo }: PackageContext) {

@@ -2,9 +2,9 @@
 // export being a class and a namespace
 // eslint-disable-next-line import/no-named-as-default
 import Arborist from "@npmcli/arborist";
-import { CheckError } from "~/checks";
-import { Err, Ok } from "~/result";
-import { onlyUnique } from "~/utils";
+import { CheckError } from "#src/checks";
+import { Err, Ok } from "#src/result";
+import { onlyUnique } from "#src/utils";
 
 export async function checkDependenciesConflict() {
     const arborist = new Arborist();
