@@ -9,6 +9,7 @@
         { "path": "./packages/eslint-config-react" },
         { "path": "./packages/eslint-config-expo" },
         { "path": "./packages/eslint-config-next" },
+        { "path": "./packages/eslint-config-storybook" },
         { "path": "./packages/eslint-config-prettier" },
         { "path": "./packages/check-package-lock" }
     ]
