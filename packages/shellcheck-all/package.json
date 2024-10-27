@@ -1,6 +1,6 @@
 {
     "name": "@pentible/shellcheck-all",
-    "version": "0.103.0",
+    "version": "0.104.0",
     "description": "run shellcheck on all *.sh files",
     "repository": {
         "type": "git",
