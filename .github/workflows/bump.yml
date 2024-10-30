@@ -5,9 +5,10 @@ on:
       bump:
         type: choice
         description: How to bump version
+        default: minor
         options:
-          - minor
           - major
+          - minor
           - patch
 jobs:
   bump:
