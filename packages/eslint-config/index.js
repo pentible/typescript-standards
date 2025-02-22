@@ -138,7 +138,13 @@ module.exports = {
             },
         },
         {
-            files: ["main.ts", "main.tsx", "index.ts", "index.tsx"],
+            files: ["main.{ts,tsx}", "index.{ts,tsx}"],
+            rules: {
+                "import/no-unused-modules": "off",
+            },
+        },
+        {
+            files: ["*.{test,spec}.{ts,tsx}"],
             rules: {
                 "import/no-unused-modules": "off",
             },
