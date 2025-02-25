@@ -24,7 +24,7 @@
         "dist/main.js"
     ],
     "scripts": {
-        "build": "esbuild --bundle --platform=node --target=node18 --minify --external:@npmcli/arborist --outfile=./dist/main.js src/main.ts",
+        "build": "esbuild --bundle --platform=node --target=node20 --minify --external:@npmcli/arborist --outfile=./dist/main.js src/main.ts",
         "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
         "start": "./dist/main.js"
@@ -34,7 +34,7 @@
     },
     "devDependencies": {
         "@types/minimatch": "3.0.5",
-        "@types/node": "18.19.22",
+        "@types/node": "22.13.5",
         "@types/npmcli__arborist": "5.6.11",
         "@types/semver": "7.5.8",
         "@types/yargs": "17.0.32",
@@ -46,7 +46,7 @@
         "zod": "3.22.4"
     },
     "engines": {
-        "node": ">=16"
+        "node": ">=20"
     },
     "publishConfig": {
         "access": "public"

@@ -75,7 +75,7 @@ export class PackageJsonComponent extends Component {
     }
     typePartial({ type, name }: PackageContext): PackageJson {
         const engines = {
-            node: ">=18",
+            node: ">=20",
         };
 
         switch (type) {
@@ -134,7 +134,7 @@ export class PackageJsonComponent extends Component {
 
         // TODO: --format=esm once properly supported
         const build =
-            "esbuild --bundle --platform=node --target=node18 --minify --outfile=./dist/index.js src/index.ts";
+            "esbuild --bundle --platform=node --target=node20 --minify --outfile=./dist/index.js src/index.ts";
 
         return {
             scripts: {
