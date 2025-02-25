@@ -30,10 +30,7 @@ dev::setup() {
     fi
 
     echo '==> install dependencies'
-    brew install \
-        mise \
-        shellcheck \
-        yamllint
+    brew install mise
 
     echo '==> allow mise to load project directory'
     mise trust --all
