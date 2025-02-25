@@ -4,7 +4,7 @@ shared linting configs and utilities for typescript
 
 ## Local dev
 
--   `./bin/dev initial setup`
+-   `./bin/dev setup`
 -   run the following commands AND append to your shell configs (ie. `~/.zshrc`
     or `~/.bashrc`/`~/.bash_profile`)
 

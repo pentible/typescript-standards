@@ -12,16 +12,16 @@ eval "$(cd "$repo_dir" && mise hook-env 2> /dev/null)"
 
 dev::usage() {
     echo 'usage: dev <command>'
-    echo '       dev initial setup    # install app and dev env dependencies'
-    echo '       dev reset            # deletes temp files and sets project back up'
-    echo '       dev start            # run build watchers'
-    echo '       dev lint             # run linters'
-    echo '       dev lint fix         # fix auto-fixable linter errors'
-    echo '       dev test             # run tests'
+    echo '       dev setup    # install app and dev env dependencies'
+    echo '       dev reset    # deletes temp files and sets project back up'
+    echo '       dev start    # run build watchers'
+    echo '       dev lint     # run linters'
+    echo '       dev lint fix # fix auto-fixable linter errors'
+    echo '       dev test     # run tests'
     exit 1
 }
 
-dev::initial::setup() {
+dev::setup() {
     cd "$repo_dir"
 
     echo '==> install brew'
@@ -87,7 +87,7 @@ dev::test::check-package-lock() {
 }
 
 case "$*" in
-    'initial setup') dev::initial::setup ;;
+    setup) dev::setup ;;
     reset) dev::reset ;;
     start) dev::start ;;
     lint) dev::lint ;;
