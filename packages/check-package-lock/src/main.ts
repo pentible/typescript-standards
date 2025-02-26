@@ -32,7 +32,7 @@ async function execaResult(
 class LockOutOfSyncCheckError extends CheckError {
     override name = "LockOutOfSyncCheckError" as const;
 
-    constructor(readonly cause: ExecaError) {
+    constructor(override readonly cause: ExecaError) {
         super("package lock not in sync", cause.all ?? ""); // TODO: could just do: cause.stderr (maybe have a cli flag for extra details)
     }
 }
