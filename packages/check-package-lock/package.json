@@ -30,20 +30,20 @@
         "start": "./dist/main.js"
     },
     "dependencies": {
-        "@npmcli/arborist": "7.2.1"
+        "@npmcli/arborist": "9.0.0"
     },
     "devDependencies": {
         "@types/minimatch": "3.0.5",
         "@types/node": "22.13.5",
-        "@types/npmcli__arborist": "5.6.11",
+        "@types/npmcli__arborist": "6.3.0",
         "@types/semver": "7.5.8",
-        "@types/yargs": "17.0.32",
+        "@types/yargs": "17.0.33",
         "chalk": "4.1.2",
         "execa": "8.0.1",
         "minimatch": "3.1.2",
-        "semver": "7.6.0",
+        "semver": "7.7.1",
         "yargs": "17.7.2",
-        "zod": "3.22.4"
+        "zod": "3.24.2"
     },
     "engines": {
         "node": ">=20"

@@ -30,15 +30,15 @@
         "start": "./dist/main.js"
     },
     "devDependencies": {
-        "@types/ini": "4.1.0",
+        "@types/ini": "4.1.1",
         "@types/inquirer": "9.0.7",
         "@types/node": "22.13.5",
         "chalk": "4.1.2",
         "deepmerge": "4.3.1",
         "execa": "8.0.1",
-        "ini": "4.1.2",
+        "ini": "5.0.0",
         "inquirer": "9.2.15",
-        "yaml": "2.4.1"
+        "yaml": "2.7.0"
     },
     "engines": {
         "node": ">=20"

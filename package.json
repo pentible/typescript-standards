@@ -14,11 +14,11 @@
     },
     "devDependencies": {
         "@pentible/prettier": "file:packages/prettier",
-        "esbuild": "0.23.0",
-        "husky": "9.1.1",
-        "lint-staged": "15.2.7",
+        "esbuild": "0.25.0",
+        "husky": "9.1.7",
+        "lint-staged": "15.4.3",
         "prettier": "3.5.2",
-        "turbo": "2.0.9",
+        "turbo": "2.4.4",
         "typescript": "5.5.3"
     },
     "packageManager": "npm@10.2.3"
