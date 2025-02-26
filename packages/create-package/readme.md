@@ -2,7 +2,7 @@
 
 ## usage
 
--   create a new package
+- create a new package
 
 ```bash
 mkdir new-app

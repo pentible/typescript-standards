@@ -2,10 +2,9 @@
 
 ## usage
 
--   `npm i -D @pentible/shellcheck-all`
+- `npm i -D @pentible/shellcheck-all`
 
--   `npx shellcheck-all`
+- `npx shellcheck-all`
 
--   optional: `npm i -D shellcheck` (optional dependency because many envs
-    already have shellcheck installed and this package cannot be installed on
-    vercel)
+- optional: `npm i -D shellcheck` (optional dependency because many envs already
+  have shellcheck installed and this package cannot be installed on vercel)

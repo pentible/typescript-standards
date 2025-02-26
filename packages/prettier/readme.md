@@ -2,9 +2,9 @@
 
 ## usage
 
--   `npm i -D @pentible/prettier`
+- `npm i -D @pentible/prettier`
 
--   `prettier.config.mjs`
+- `prettier.config.mjs`
 
 ```js
 export { default } from "@pentible/prettier";

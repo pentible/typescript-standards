@@ -2,9 +2,9 @@
 
 ## usage
 
--   `npm i -D @pentible/eslint-config @pentible/eslint-config-prettier`
+- `npm i -D @pentible/eslint-config @pentible/eslint-config-prettier`
 
--   `.eslintrc.yml`
+- `.eslintrc.yml`
 
 ```
 root: true

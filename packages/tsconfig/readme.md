@@ -2,9 +2,9 @@
 
 ## usage
 
--   `npm i -D @pentible/tsconfig`
+- `npm i -D @pentible/tsconfig`
 
--   `tsconfig.json`
+- `tsconfig.json`
 
 ```json
 {
@@ -12,7 +12,7 @@
 }
 ```
 
--   OR for a js project:
+- OR for a js project:
 
 ```json
 {

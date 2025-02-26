@@ -2,6 +2,6 @@
 
 ## usage
 
--   `npm i -D @pentible/check-package-lock`
+- `npm i -D @pentible/check-package-lock`
 
--   `npx check-package-lock`
+- `npx check-package-lock`
