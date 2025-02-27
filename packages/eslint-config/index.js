@@ -76,7 +76,10 @@ module.exports = {
                 "@typescript-eslint/no-redundant-type-constituents": "error",
                 "@typescript-eslint/no-unnecessary-condition": [
                     "error",
-                    { allowConstantLoopConditions: true },
+                    {
+                        allowConstantLoopConditions: "only-allowed-literals",
+                        checkTypePredicates: true,
+                    },
                 ],
                 "@typescript-eslint/no-unnecessary-parameter-property-assignment":
                     "error",
@@ -119,6 +122,7 @@ module.exports = {
                         argsIgnorePattern: "^_",
                         varsIgnorePattern: "^_",
                         destructuredArrayIgnorePattern: "^_",
+                        reportUsedIgnorePattern: true,
                     },
                 ],
             },
