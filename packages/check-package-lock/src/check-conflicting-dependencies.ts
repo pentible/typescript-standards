@@ -95,8 +95,11 @@ function getDependencyPaths(pkg: Package): Path[] {
     let dependents = [...pkg.edgesIn.values()];
     // NOTE: if one of the dependents is already a workspace, we won't explore
     // up the other paths (we already found the most direct connection).
-    if (dependents.some((d) => d.from?.isWorkspace)) {
-        dependents = dependents.filter((d) => d.from?.isWorkspace);
+    const workspaceDependents = dependents.filter(
+        (d) => d.from?.isWorkspace ?? false,
+    );
+    if (workspaceDependents.length > 0) {
+        dependents = workspaceDependents;
     }
 
     return dependents

@@ -39,7 +39,7 @@ module.exports = {
             ],
             parserOptions: {
                 tsconfigRootDir: ".",
-                project: true,
+                projectService: true,
             },
             settings: {
                 "import/resolver": {
@@ -74,7 +74,6 @@ module.exports = {
                 "@typescript-eslint/no-duplicate-type-constituents": "error",
                 "@typescript-eslint/no-import-type-side-effects": "error",
                 "@typescript-eslint/no-redundant-type-constituents": "error",
-                "@typescript-eslint/no-require-imports": "error",
                 "@typescript-eslint/no-unnecessary-condition": [
                     "error",
                     { allowConstantLoopConditions: true },
@@ -139,7 +138,6 @@ module.exports = {
             rules: {
                 "import/no-unused-modules": "off",
                 "import/no-default-export": "off",
-                "@typescript-eslint/no-require-imports": "off",
             },
         },
         {
@@ -215,9 +213,8 @@ module.exports = {
         "operator-assignment": "error",
         "prefer-arrow-callback": ["error", { allowNamedFunctions: true }],
         "prefer-numeric-literals": "error",
-        // "prefer-object-has-own": "error", // TODO: once better browser support: https://caniuse.com/?search=object.hasOwn
+        "prefer-object-has-own": "error",
         "prefer-object-spread": "error",
-        "prefer-promise-reject-errors": "error",
         "prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
         "prefer-template": "error",
         radix: "error",

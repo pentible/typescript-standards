@@ -139,7 +139,7 @@ async function checkMissingWorkspaces() {
         try {
             await fs.access(p, constants.R_OK);
             return false; // exists and is readable
-        } catch (error) {
+        } catch {
             return true; // missing
         }
     });

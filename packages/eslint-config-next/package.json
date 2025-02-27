@@ -8,6 +8,7 @@
     },
     "license": "MIT",
     "author": "pentible",
+    "type": "commonjs",
     "exports": {
         ".": "./index.js"
     },
@@ -16,7 +17,7 @@
     ],
     "peerDependencies": {
         "@pentible/eslint-config": "*",
-        "eslint-config-next": ">=14.2.5"
+        "eslint-config-next": ">=15.2.0"
     },
     "publishConfig": {
         "access": "public"
