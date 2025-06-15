@@ -30,7 +30,8 @@ dev::setup() {
     fi
 
     echo '==> install dependencies'
-    brew install mise
+    # NOTE: pipx required for yamllint
+    brew install mise pipx
 
     echo '==> allow mise to load project directory'
     mise trust --all
