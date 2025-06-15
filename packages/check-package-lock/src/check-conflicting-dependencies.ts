@@ -91,7 +91,18 @@ interface Path {
     full: Package[];
 }
 
-function getDependencyPaths(pkg: Package): Path[] {
+function getDependencyPaths(
+    pkg: Package,
+    visited = new Set<Package>(),
+): Path[] {
+    if (visited.has(pkg)) {
+        // NOTE: if we have a cycle, we don't care about the path. Empty path is
+        // fine here since another branch should have a result, and this one
+        // will be flattened
+        return [];
+    }
+    visited.add(pkg);
+
     let dependents = [...pkg.edgesIn.values()];
     // NOTE: if one of the dependents is already a workspace, we won't explore
     // up the other paths (we already found the most direct connection).
@@ -121,11 +132,13 @@ function getDependencyPaths(pkg: Package): Path[] {
                 ];
             }
 
-            return getDependencyPaths(dependent.from).map((path) => ({
-                workspace: path.workspace,
-                directConflict: path.directConflict,
-                full: [...path.full, pkg],
-            }));
+            return getDependencyPaths(dependent.from, new Set(visited)).map(
+                (path) => ({
+                    workspace: path.workspace,
+                    directConflict: path.directConflict,
+                    full: [...path.full, pkg],
+                }),
+            );
         })
         .flat();
 }
