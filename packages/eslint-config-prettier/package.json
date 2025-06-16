@@ -16,7 +16,7 @@
         "index.js"
     ],
     "dependencies": {
-        "eslint-config-prettier": "10.0.2"
+        "eslint-config-prettier": "10.1.5"
     },
     "publishConfig": {
         "access": "public"
