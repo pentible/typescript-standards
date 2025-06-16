@@ -5,7 +5,6 @@ const { naming } = require("./naming");
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
     extends: ["eslint:recommended", "plugin:import/recommended"],
-    reportUnusedDisableDirectives: true,
     parserOptions: {
         sourceType: "module",
         ecmaVersion: 2022,
@@ -83,9 +82,18 @@ module.exports = {
                 ],
                 "@typescript-eslint/no-unnecessary-parameter-property-assignment":
                     "error",
+                "@typescript-eslint/no-unnecessary-type-conversion": "error",
                 "@typescript-eslint/no-unnecessary-qualifier": "error",
                 "@typescript-eslint/no-useless-empty-export": "error",
+                "@typescript-eslint/only-throw-error": [
+                    "error",
+                    { allowRethrowing: true },
+                ],
                 "@typescript-eslint/prefer-enum-initializers": "error",
+                "@typescript-eslint/prefer-nullish-coalescing": [
+                    "error",
+                    { ignoreIfStatements: true },
+                ],
                 "@typescript-eslint/prefer-readonly": "error",
                 "@typescript-eslint/promise-function-async": "error",
                 "@typescript-eslint/require-array-sort-compare": "error",
@@ -121,6 +129,7 @@ module.exports = {
                         args: "all",
                         argsIgnorePattern: "^_",
                         varsIgnorePattern: "^_",
+                        caughtErrorsIgnorePattern: "^_",
                         destructuredArrayIgnorePattern: "^_",
                         reportUsedIgnorePattern: true,
                     },
@@ -134,7 +143,6 @@ module.exports = {
                 "import/no-unused-modules": "off",
                 "import/no-unassigned-import": "off",
                 "import/no-default-export": "off",
-                "no-var": "off",
             },
         },
         {
@@ -159,13 +167,12 @@ module.exports = {
     ],
     rules: {
         // eslint
-        "no-constant-binary-expression": "error",
         "no-constructor-return": "error",
         "no-promise-executor-return": "error",
         "no-self-compare": "error",
         "no-unmodified-loop-condition": "error",
         "no-unreachable-loop": "error",
-        "no-unused-private-class-members": "error",
+        "no-useless-assignment": "error",
         "require-atomic-updates": "error",
         "block-scoped-var": "error",
         "default-case-last": "error",
@@ -208,7 +215,7 @@ module.exports = {
         "no-sequences": ["error", { allowInParentheses: false }],
         "no-unneeded-ternary": ["error", { defaultAssignment: false }],
         "no-useless-call": "error",
-        "no-useless-computed-key": ["error", { enforceForClassMembers: true }],
+        "no-useless-computed-key": "error",
         "no-useless-concat": "error",
         "no-useless-rename": "error",
         "no-useless-return": "error",
@@ -227,8 +234,6 @@ module.exports = {
         "symbol-description": "error",
         yoda: "error",
         "logical-assignment-operators": "error",
-        "no-empty-static-block": "error",
-        "no-new-native-nonconstructor": "error",
 
         // import
         "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
