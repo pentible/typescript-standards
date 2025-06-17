@@ -76,7 +76,7 @@ class ConflictingDependenciesCheckError extends CheckError {
             .map((p) => {
                 // TODO: decide between showing the spec & the resolved version...
                 // TODO: if we want to keep resolved version, figure out how to fetch properly
-                return `- ${p.name} (${"version" in p ? String(p.version) : "unknown"}) in ${p.parent?.location}`;
+                return `- ${p.name} (${p.version}) in ${p.parent?.location}`;
             })
             .join("\n");
         super("conflicting package versions detected", description);
