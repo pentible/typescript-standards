@@ -17,7 +17,7 @@
         "@pentible/eslint-config": "*",
         "@pentible/eslint-config-node": "*",
         "@pentible/eslint-config-prettier": "*",
-        "@pentible/prettier": "file:packages/prettier",
+        "@pentible/prettier": "*",
         "esbuild": "0.25.5",
         "eslint": "9.29.0",
         "husky": "9.1.7",
