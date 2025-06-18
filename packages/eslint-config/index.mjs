@@ -134,7 +134,6 @@ export const pentibleEslintConfig = defineConfig([
             "prefer-template": "error",
             radix: "error",
             "require-unicode-regexp": "error",
-            strict: "error",
             "symbol-description": "error",
             yoda: "error",
             "logical-assignment-operators": "error",
