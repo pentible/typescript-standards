@@ -1,7 +1,0 @@
-node_modules/
-/packages/*/dist/
-/.husky/_/
-*.tgz
-tsconfig.tsbuildinfo
-/.vscode/settings.json
-/.turbo/

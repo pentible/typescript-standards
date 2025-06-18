@@ -62,12 +62,12 @@ dev::lint() {
     shellcheck-all
     yamllint --strict .
     tsc -b
-    eslint .
+    eslint
     prettier --log-level warn --check .
 }
 
 dev::lint::fix() {
-    eslint --fix .
+    eslint --fix
     prettier --log-level warn --write .
 }
 

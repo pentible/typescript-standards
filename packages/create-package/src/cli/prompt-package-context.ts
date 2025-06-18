@@ -1,3 +1,5 @@
+// NOTE: inquirer requires param reassignment to have dependent/dynamic defaults
+/* eslint-disable no-param-reassign */
 import { basename } from "path";
 import chalk from "chalk";
 import { prompt } from "#src/cli/prompt";

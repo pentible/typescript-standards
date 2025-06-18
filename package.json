@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "license": "MIT",
+    "type": "module",
     "workspaces": [
         "./packages/*"
     ],
@@ -13,8 +14,12 @@
         "prepare": "husky && npm run build"
     },
     "devDependencies": {
+        "@pentible/eslint-config": "*",
+        "@pentible/eslint-config-node": "*",
+        "@pentible/eslint-config-prettier": "*",
         "@pentible/prettier": "file:packages/prettier",
         "esbuild": "0.25.5",
+        "eslint": "9.29.0",
         "husky": "9.1.7",
         "lint-staged": "16.1.2",
         "prettier": "3.5.3",

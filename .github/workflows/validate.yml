@@ -17,5 +17,5 @@ jobs:
       - run: npx shellcheck-all
       - run: yamllint --strict .
       - run: npx tsc -b
-      - run: ESLINT_USE_FLAT_CONFIG=false npx eslint .
+      - run: npx eslint
       - run: npx prettier --log-level warn --check .

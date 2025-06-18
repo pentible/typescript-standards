@@ -8,15 +8,23 @@
     },
     "license": "MIT",
     "author": "pentible",
-    "type": "commonjs",
+    "type": "module",
     "exports": {
-        ".": "./index.js"
+        ".": {
+            "default": "./index.mjs",
+            "types": "./index.d.ts"
+        }
     },
     "files": [
-        "index.js"
+        "index.mjs",
+        "index.d.ts"
     ],
+    "dependencies": {
+        "eslint-plugin-compat": ">=6.0.2",
+        "globals": ">=16.2.0"
+    },
     "peerDependencies": {
-        "eslint-plugin-compat": ">=6.0.2"
+        "eslint": ">=9.29.0"
     },
     "publishConfig": {
         "access": "public"

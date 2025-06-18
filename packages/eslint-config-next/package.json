@@ -8,16 +8,21 @@
     },
     "license": "MIT",
     "author": "pentible",
-    "type": "commonjs",
+    "type": "module",
     "exports": {
-        ".": "./index.js"
+        ".": {
+            "default": "./index.mjs",
+            "types": "./index.d.ts"
+        }
     },
     "files": [
-        "index.js"
+        "index.mjs",
+        "index.d.ts"
     ],
     "peerDependencies": {
+        "@next/eslint-plugin-next": ">=15.3.3",
         "@pentible/eslint-config": "*",
-        "eslint-config-next": ">=15.3.3"
+        "eslint": ">=9.29.0"
     },
     "publishConfig": {
         "access": "public"

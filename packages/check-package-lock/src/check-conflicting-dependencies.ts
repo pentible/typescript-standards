@@ -1,6 +1,6 @@
 // NOTE: this isn't actually exported named, I believe it's confused due to
 // export being a class and a namespace
-// eslint-disable-next-line import/no-named-as-default
+// eslint-disable-next-line import-x/no-named-as-default
 import Arborist from "@npmcli/arborist";
 import { CheckError } from "#src/checks";
 import { Err, Ok } from "#src/result";

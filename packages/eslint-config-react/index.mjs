@@ -1,14 +1,25 @@
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
+import { defineConfig } from "eslint/config";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+
+const name = "@pentible/eslint-config-react";
+
+export const pentibleEslintConfigReact = defineConfig({
+    name,
     extends: [
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/strict",
+        // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
+        react.configs.flat.recommended,
+        // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
+        react.configs.flat["jsx-runtime"],
+        reactHooks.configs["recommended-latest"],
+        jsxA11y.flatConfigs.strict,
     ],
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
+    languageOptions: {
+        parserOptions: {
+            ecmaFeatures: {
+                jsx: true,
+            },
         },
     },
     settings: {
@@ -52,4 +63,4 @@ module.exports = {
         "react/jsx-props-no-spread-multi": "error",
         "react/jsx-props-no-spreading": "error",
     },
-};
+});

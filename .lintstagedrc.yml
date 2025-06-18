@@ -5,6 +5,5 @@
   - yamllint --strict
 "*.{js,ts,mjs,cjs,jsx,tsx}":
   - eslint
-# TODO: fix, isn't finding the config files despite ESLINT_USE_FLAT_CONFIG=false
-# "{packages/eslint-config/*.js,packages/eslint-config-*/*.js}":
-#   - npx eslint-config-prettier
+"{packages/eslint-config/*.js,packages/eslint-config-*/*.js}":
+  - npx eslint-config-prettier
