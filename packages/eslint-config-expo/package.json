@@ -1,6 +1,6 @@
 {
     "name": "@pentible/eslint-config-expo",
-    "version": "0.107.0",
+    "version": "0.108.0",
     "description": "Pentible's standard eslint config (expo)",
     "repository": {
         "type": "git",

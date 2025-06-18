@@ -1,6 +1,6 @@
 {
     "name": "@pentible/eslint-config-storybook",
-    "version": "0.107.0",
+    "version": "0.108.0",
     "description": "Pentible's standard eslint config (storybook)",
     "repository": {
         "type": "git",
