@@ -1,3 +1,6 @@
 {
-    "extends": "@pentible/tsconfig/js"
+    "extends": "@pentible/tsconfig",
+    "compilerOptions": {
+        "declaration": true
+    }
 }

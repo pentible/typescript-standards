@@ -2,19 +2,34 @@ import { fileURLToPath } from "node:url";
 import { includeIgnoreFile } from "@eslint/compat";
 import eslintJs from "@eslint/js";
 import confusingBrowserGlobals from "confusing-browser-globals";
+import type { Linter } from "eslint";
 import { defineConfig } from "eslint/config";
-import { importX } from "eslint-plugin-import-x";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
+import { createNodeResolver, importX } from "eslint-plugin-import-x";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
 /**
- * @param message {string}
- * @returns {(name: string) => {name: string, message: string}}
+ * ```ts
+ * import confusingBrowserGlobals from "confusing-browser-globals";
+ * // ...
+ * "no-restricted-globals": [
+ *     "error",
+ *     ...confusingBrowserGlobals.map(
+ *         noRestrictedGlobalWithMessage(
+ *             "Confusing browser global, should use window property or local param instead",
+ *         ),
+ *     ),
+ * ],
+ * ```
  */
-export function noRestrictedGlobalWithMessage(message) {
-    return (name) => ({ name, message });
+export function noRestrictedGlobalWithMessage(message: string) {
+    return (name: string) => ({ name, message });
 }
 
+/**
+ * default naming conventions
+ */
 export const naming = [
     // default
     {
@@ -48,7 +63,7 @@ export const naming = [
  * relativeIgnoreFile(".gitignore", import.meta.url)
  * ```
  */
-export function relativeIgnoreFile(file, base, name) {
+export function relativeIgnoreFile(file: string, base: string, name?: string) {
     return includeIgnoreFile(fileURLToPath(new URL(file, base)), name);
 }
 
@@ -60,8 +75,8 @@ export const pentibleEslintConfig = defineConfig([
         extends: [
             eslintJs.configs.recommended,
             // TODO: remove once types are fixed
-            /** @type {import("eslint").Linter.Config} */
-            (importX.flatConfigs.recommended),
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            importX.flatConfigs.recommended as Linter.Config,
         ],
         rules: {
             "no-constructor-return": "error",
@@ -229,14 +244,14 @@ export const pentibleEslintConfig = defineConfig([
         files: ["**/*.{ts,tsx}"],
         extends: [
             // TODO: remove once types are fixed: https://github.com/typescript-eslint/typescript-eslint/issues/10935
-            /** @type {import("eslint").Linter.Config} */
-            (tseslint.configs.strictTypeChecked),
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, import-x/no-named-as-default-member
+            tseslint.configs.strictTypeChecked as Linter.Config,
             // TODO: remove once types are fixed: https://github.com/typescript-eslint/typescript-eslint/issues/10935
-            /** @type {import("eslint").Linter.Config} */
-            (tseslint.configs.stylisticTypeChecked),
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, import-x/no-named-as-default-member
+            tseslint.configs.stylisticTypeChecked as Linter.Config,
             // TODO: remove once types are fixed
-            /** @type {import("eslint").Linter.Config} */
-            (importX.flatConfigs.typescript),
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            importX.flatConfigs.typescript as Linter.Config,
         ],
         languageOptions: {
             parserOptions: {
@@ -245,8 +260,8 @@ export const pentibleEslintConfig = defineConfig([
             },
         },
         settings: {
-            "import-x/resolver": {
-                typescript: {
+            "import-x/resolver-next": [
+                createTypeScriptImportResolver({
                     alwaysTryTypes: true, // TODO: drop with eslint-import-resolver-typescript@4
                     project: [
                         // TODO: test without references
@@ -254,8 +269,9 @@ export const pentibleEslintConfig = defineConfig([
                         "packages/*/tsconfig.json",
                         "apps/*/tsconfig.json",
                     ],
-                },
-            },
+                }),
+                createNodeResolver(),
+            ],
         },
         rules: {
             // typescript-eslint

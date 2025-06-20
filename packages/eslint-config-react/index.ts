@@ -1,7 +1,7 @@
 import { defineConfig } from "eslint/config";
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import react from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
+import { flatConfigs as jsxA11y } from "eslint-plugin-jsx-a11y";
+import { configs as react } from "eslint-plugin-react";
+import { configs as reactHook } from "eslint-plugin-react-hooks";
 
 const name = "@pentible/eslint-config-react";
 
@@ -9,11 +9,11 @@ export const pentibleEslintConfigReact = defineConfig({
     name,
     extends: [
         // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
-        react.configs.flat.recommended,
+        react.flat.recommended,
         // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
-        react.configs.flat["jsx-runtime"],
-        reactHooks.configs["recommended-latest"],
-        jsxA11y.flatConfigs.strict,
+        react.flat["jsx-runtime"],
+        reactHook["recommended-latest"],
+        jsxA11y.strict,
     ],
     languageOptions: {
         parserOptions: {
