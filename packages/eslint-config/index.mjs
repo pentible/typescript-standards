@@ -279,6 +279,10 @@ export const pentibleEslintConfig = defineConfig([
                 { ignoreArrowShorthand: true },
             ],
             "@typescript-eslint/no-duplicate-type-constituents": "error",
+            "@typescript-eslint/no-floating-promises": [
+                "error",
+                { checkThenables: true },
+            ],
             "@typescript-eslint/no-import-type-side-effects": "error",
             "@typescript-eslint/no-redundant-type-constituents": "error",
             "@typescript-eslint/no-unnecessary-condition": [
