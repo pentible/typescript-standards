@@ -3,7 +3,7 @@ import { defineConfig } from "eslint/config";
 
 const name = "@pentible/eslint-config-expo";
 
-export const pentibleEslintConfigExpo = defineConfig([
+export const pentibleExpo = defineConfig([
     {
         name,
         files: ["**/src/app/**/*.{js,jsx,ts,tsx}"],

@@ -5,7 +5,7 @@ import { configs as reactHook } from "eslint-plugin-react-hooks";
 
 const name = "@pentible/eslint-config-react";
 
-export const pentibleEslintConfigReact = defineConfig({
+export const pentibleReact = defineConfig({
     name,
     extends: [
         // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878

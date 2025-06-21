@@ -3,7 +3,7 @@ import storybook from "eslint-plugin-storybook";
 
 const name = "@pentible/eslint-config-storybook";
 
-export const pentibleEslintConfigStorybook = defineConfig([
+export const pentibleStorybook = defineConfig([
     {
         name,
         extends: [storybook.configs["flat/recommended"]],

@@ -69,7 +69,7 @@ export function relativeIgnoreFile(file: string, base: string, name?: string) {
 
 const name = "@pentible/eslint-config";
 
-export const pentibleEslintConfig = defineConfig([
+export const pentible = defineConfig([
     {
         name,
         extends: [

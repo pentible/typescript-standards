@@ -4,7 +4,7 @@ import { defineConfig } from "eslint/config";
 
 const name = "@pentible/eslint-config-next";
 
-export const pentibleEslintConfigNext = defineConfig([
+export const pentibleNext = defineConfig([
     {
         name,
         extends: [next.flatConfig.coreWebVitals],

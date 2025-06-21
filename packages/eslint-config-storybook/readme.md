@@ -7,19 +7,16 @@
 - `eslint.config.mjs`
 
 ```js
-import {
-    pentibleEslintConfig,
-    relativeIgnoreFile,
-} from "@pentible/eslint-config";
-import { pentibleEslintConfigStorybook } from "@pentible/eslint-config-storybook";
-import { pentibleEslintConfigPrettier } from "@pentible/eslint-config-prettier";
+import { pentible, relativeIgnoreFile } from "@pentible/eslint-config";
+import { pentibleStorybook } from "@pentible/eslint-config-storybook";
+import { pentiblePrettier } from "@pentible/eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 
 const config = defineConfig([
     relativeIgnoreFile(".gitignore", import.meta.url),
-    pentibleEslintConfig,
-    pentibleEslintConfigStorybook,
-    pentibleEslintConfigPrettier,
+    pentible,
+    pentibleStorybook,
+    pentiblePrettier,
 ]);
 
 export default config;

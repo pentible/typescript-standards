@@ -1,7 +1,7 @@
 import { defineConfig } from "eslint/config";
 import prettier from "eslint-config-prettier/flat";
 
-export const pentibleEslintConfigPrettier = defineConfig({
+export const pentiblePrettier = defineConfig({
     name: "@pentible/eslint-config-prettier",
     extends: [prettier],
     rules: {

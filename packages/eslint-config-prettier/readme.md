@@ -7,17 +7,14 @@
 - `eslint.config.mjs`
 
 ```js
-import {
-    pentibleEslintConfig,
-    relativeIgnoreFile,
-} from "@pentible/eslint-config";
-import { pentibleEslintConfigPrettier } from "@pentible/eslint-config-prettier";
+import { pentible, relativeIgnoreFile } from "@pentible/eslint-config";
+import { pentiblePrettier } from "@pentible/eslint-config-prettier";
 import { defineConfig } from "eslint/config";
 
 const config = defineConfig([
     relativeIgnoreFile(".gitignore", import.meta.url),
-    pentibleEslintConfig,
-    pentibleEslintConfigPrettier,
+    pentible,
+    pentiblePrettier,
 ]);
 
 export default config;
