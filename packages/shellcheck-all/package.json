@@ -14,9 +14,6 @@
     "files": [
         "shellcheck-all.sh"
     ],
-    "scripts": {
-        "start": "./shellcheck-all.sh"
-    },
     "publishConfig": {
         "access": "public"
     }

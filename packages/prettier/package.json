@@ -12,6 +12,10 @@
     "files": [
         "prettier.config.mjs"
     ],
+    "scripts": {
+        "lint": "eslint",
+        "typecheck": "tsc --noEmit"
+    },
     "peerDependencies": {
         "prettier": ">=3.5.3",
         "prettier-plugin-packagejson": ">=2.5.15",

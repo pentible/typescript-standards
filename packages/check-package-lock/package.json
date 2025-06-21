@@ -27,7 +27,9 @@
         "build": "esbuild --bundle --platform=node --target=node20 --minify --external:@npmcli/arborist --outfile=./dist/main.js src/main.ts",
         "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
-        "start": "./dist/main.js"
+        "lint": "eslint",
+        "prepare": "npm run build",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@npmcli/arborist": "9.1.2"

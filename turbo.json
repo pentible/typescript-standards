@@ -4,6 +4,39 @@
         "dev": {
             "cache": false,
             "persistent": true
-        }
+        },
+        "build": {
+            "outputLogs": "errors-only",
+            "dependsOn": ["^build"]
+        },
+        "typecheck": {
+            "outputLogs": "errors-only",
+            "dependsOn": ["^build", "//#typecheck:root"]
+        },
+        "//#typecheck:root": {
+            "outputLogs": "errors-only",
+            "dependsOn": ["^build"]
+        },
+        "lint": {
+            "outputLogs": "errors-only",
+            "with": [
+                "//#lint:package-lock",
+                "//#lint:prettier",
+                "//#lint:shellcheck",
+                "//#lint:yaml"
+            ],
+            "dependsOn": ["//#lint:root"]
+        },
+        "//#lint:root": {
+            "outputLogs": "errors-only",
+            "dependsOn": ["^build"]
+        },
+        "//#lint:package-lock": {
+            "outputLogs": "errors-only",
+            "dependsOn": ["@pentible/check-package-lock#build"]
+        },
+        "//#lint:prettier": { "outputLogs": "errors-only" },
+        "//#lint:shellcheck": { "outputLogs": "errors-only" },
+        "//#lint:yaml": { "outputLogs": "errors-only" }
     }
 }

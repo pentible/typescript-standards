@@ -1,0 +1,4 @@
+{
+    "extends": "@pentible/tsconfig/js",
+    "include": ["*.config.mjs"]
+}

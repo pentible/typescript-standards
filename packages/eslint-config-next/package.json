@@ -20,11 +20,15 @@
         "dist/index.d.ts"
     ],
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "lint": "eslint",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@pentible/eslint-config": "*"
     },
     "peerDependencies": {
         "@next/eslint-plugin-next": ">=15.3.3",
-        "@pentible/eslint-config": "*",
         "eslint": ">=9.29.0"
     },
     "publishConfig": {

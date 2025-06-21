@@ -20,7 +20,9 @@
         "dist/index.d.ts"
     ],
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "lint": "eslint",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "eslint-plugin-storybook": ">=9.0.10"

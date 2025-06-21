@@ -1,16 +1,7 @@
 {
-    "extends": "@pentible/tsconfig",
-    "include": [],
-    "references": [
-        { "path": "./packages/create-package" },
-        { "path": "./packages/eslint-config" },
-        { "path": "./packages/eslint-config-node" },
-        { "path": "./packages/eslint-config-web" },
-        { "path": "./packages/eslint-config-react" },
-        { "path": "./packages/eslint-config-expo" },
-        { "path": "./packages/eslint-config-next" },
-        { "path": "./packages/eslint-config-storybook" },
-        { "path": "./packages/eslint-config-prettier" },
-        { "path": "./packages/check-package-lock" }
-    ]
+    "extends": "@pentible/tsconfig/js",
+    "include": ["*.config.mjs"],
+    "compilerOptions": {
+        "noEmit": true
+    }
 }

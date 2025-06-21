@@ -20,7 +20,10 @@
         "dist/index.d.ts"
     ],
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "lint": "eslint",
+        "prepare": "npm run build",
+        "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
         "eslint": ">=9.29.0",

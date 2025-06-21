@@ -58,25 +58,18 @@ dev::start() {
 }
 
 dev::lint() {
-    check-package-lock
-    shellcheck-all
-    yamllint --strict .
-    tsc -b
-    eslint
-    prettier --log-level warn --check .
+    turbo run lint typecheck --continue=dependencies-successful
 }
 
 dev::lint::fix() {
+    # TODO: lint fix with turbo?...
     eslint --fix
     prettier --log-level warn --write .
 }
 
 dev::test() {
-    dev::test::check-package-lock
-}
-
-# TODO: we really need a snapshot test or something (just to check the output)
-dev::test::check-package-lock() {
+    # TODO: we really need a snapshot test or something (just to check the output)
+    # check-package-lock
     for example in "${repo_dir}/packages/check-package-lock/examples/"*; do
         echo "==> $(basename "$example")"
         cd "$example"

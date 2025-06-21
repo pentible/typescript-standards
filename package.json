@@ -8,10 +8,18 @@
         "./packages/*"
     ],
     "scripts": {
-        "build": "npm run build --ws --if-present",
-        "lint": "./bin/dev lint",
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint",
         "lint:fix": "./bin/dev lint fix",
-        "prepare": "husky && npm run build"
+        "lint:package-lock": "check-package-lock",
+        "lint:prettier": "prettier --check .",
+        "lint:root": "eslint --ignore-pattern '{packages,apps}/'",
+        "lint:shellcheck": "shellcheck-all",
+        "lint:yaml": "yamllint --strict .",
+        "prepare": "husky",
+        "typecheck": "turbo run typecheck",
+        "typecheck:root": "tsc --noEmit"
     },
     "devDependencies": {
         "@pentible/eslint-config": "*",
