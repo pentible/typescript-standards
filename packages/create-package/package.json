@@ -8,7 +8,7 @@
     },
     "license": "MIT",
     "author": "pentible",
-    "type": "commonjs",
+    "type": "module",
     "imports": {
         "#src/*": [
             "./src/*.js",
@@ -24,7 +24,7 @@
         "dist/main.js"
     ],
     "scripts": {
-        "build": "esbuild --bundle --platform=node --target=node20 --minify --outfile=./dist/main.js src/main.ts",
+        "build": "node esbuild.config.mjs",
         "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
         "lint": "eslint",
@@ -37,6 +37,7 @@
         "@types/node": "22.15.31",
         "chalk": "5.4.1",
         "deepmerge": "4.3.1",
+        "esbuild": "0.25.5",
         "execa": "8.0.1",
         "ini": "5.0.0",
         "inquirer": "9.2.15",

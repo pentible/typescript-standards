@@ -1,7 +1,3 @@
 {
-    "extends": "@pentible/tsconfig",
-    "compilerOptions": {
-        "module": "commonjs",
-        "moduleResolution": "Node10"
-    }
+    "extends": "@pentible/tsconfig"
 }

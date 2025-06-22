@@ -6,11 +6,11 @@ import { defineConfig } from "eslint/config";
 const config = defineConfig([
     relativeIgnoreFile(".gitignore", import.meta.url),
     pentible,
-    pentiblePrettier,
     {
         files: ["packages/create-package/**"],
         extends: [pentibleNode],
     },
+    pentiblePrettier,
 ]);
 
 export default config;
