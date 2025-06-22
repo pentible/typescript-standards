@@ -1,6 +1,6 @@
 {
     "name": "@pentible/create-package",
-    "version": "0.110.0",
+    "version": "0.111.0",
     "description": "npm initializer to create a standard pentible package",
     "repository": {
         "type": "git",
