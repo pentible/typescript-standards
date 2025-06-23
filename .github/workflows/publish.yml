@@ -15,7 +15,9 @@ jobs:
           echo "workspaces=$(
             npm query '.workspace' --package-lock-only --expect-results \
             | jq --compact-output '[
-              .[] | . += { name_unscoped: (.name | sub("^@.*/"; "")) }
+              .[]
+              | select(.publishConfig.access == "public")
+              | . += { name_unscoped: (.name | sub("^@.*/"; "")) }
             ]'
           )" >> $GITHUB_OUTPUT
   publish:
