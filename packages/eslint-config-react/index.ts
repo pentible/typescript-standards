@@ -3,6 +3,7 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import { configs as reactCompiler } from "eslint-plugin-react-compiler";
 import { configs as reactHook } from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
 
 const name = "@pentible/eslint-config-react";
 
@@ -15,6 +16,7 @@ export const pentibleReact = defineConfig({
         react.configs.flat["jsx-runtime"],
         reactHook["recommended-latest"],
         reactCompiler.recommended,
+        reactRefresh.configs.recommended,
         jsxA11y.flatConfigs.strict,
     ],
     languageOptions: {

@@ -24,6 +24,19 @@ export const pentibleNext = defineConfig([
             "import-x/no-default-export": "off",
             "import-x/no-unused-modules": "off",
             "import-x/no-anonymous-default-export": "off",
+            "react-refresh/only-export-components": [
+                "error",
+                {
+                    // NOTE: next doesn't actually handle any exports
+                    // differently, but those below are only applicable to
+                    // static routes, so they're not an issue for fast refresh
+                    allowExportNames: [
+                        "metadata",
+                        "revalidate",
+                        "generateStaticParams",
+                    ],
+                },
+            ],
         },
     },
     {
