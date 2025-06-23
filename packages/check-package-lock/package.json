@@ -1,6 +1,6 @@
 {
     "name": "@pentible/check-package-lock",
-    "version": "0.111.0",
+    "version": "0.112.0",
     "description": "command to verify a package-lock.json is in sync with its package.json",
     "repository": {
         "type": "git",
