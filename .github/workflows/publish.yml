@@ -7,26 +7,28 @@ jobs:
   matrix:
     runs-on: ubuntu-latest
     outputs:
-      packages: ${{ steps.set_packages.outputs.packages }}
+      workspaces: ${{ steps.set_workspaces.outputs.workspaces }}
     steps:
       - uses: actions/checkout@v4
-      - id: set_packages
+      - id: set_workspaces
         run: |
-          echo "packages=$(
-            find packages -mindepth 1 -maxdepth 1 -exec basename '{}' ';' \
-            | jq --compact-output --raw-input -n '[inputs]'
+          echo "workspaces=$(
+            npm query '.workspace' --package-lock-only --expect-results \
+            | jq --compact-output '[
+              .[] | . += { name_unscoped: (.name | sub("^@.*/"; "")) }
+            ]'
           )" >> $GITHUB_OUTPUT
   publish:
-    name: Publish ${{ matrix.package }}
+    name: Publish ${{ matrix.workspace.name_unscoped }}
     runs-on: ubuntu-latest
     needs: matrix
     strategy:
       fail-fast: false
       matrix:
-        package: ${{ fromJson(needs.matrix.outputs.packages) }}
+        workspace: ${{ fromJson(needs.matrix.outputs.workspaces) }}
     defaults:
       run:
-        working-directory: ./packages/${{ matrix.package }}
+        working-directory: ${{ matrix.workspace.location }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node
