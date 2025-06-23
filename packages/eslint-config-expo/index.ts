@@ -1,9 +1,20 @@
 import { naming } from "@pentible/eslint-config";
 import { defineConfig } from "eslint/config";
+import expo from "eslint-plugin-expo";
 
 const name = "@pentible/eslint-config-expo";
 
 export const pentibleExpo = defineConfig([
+    {
+        name,
+        plugins: {
+            expo,
+        },
+        rules: {
+            "expo/no-env-var-destructuring": ["error"],
+            "expo/no-dynamic-env-var": ["error"],
+        },
+    },
     {
         name,
         files: ["**/src/app/**/*.{js,jsx,ts,tsx}"],

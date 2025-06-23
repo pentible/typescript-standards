@@ -25,7 +25,8 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@pentible/eslint-config": "*"
+        "@pentible/eslint-config": "*",
+        "eslint-plugin-expo": ">=0.1.4"
     },
     "peerDependencies": {
         "eslint": ">=9.29.0"
