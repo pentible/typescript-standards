@@ -20,8 +20,10 @@ export function ErrFromUnknown(error: unknown) {
 
 class UnknownResultError extends Error {
     override name = "UnknownResultError" as const;
+    override readonly cause: unknown;
 
-    constructor(override readonly cause: unknown) {
+    constructor(cause: unknown) {
         super(`caught unrecognized error: ${String(cause)}`);
+        this.cause = cause;
     }
 }

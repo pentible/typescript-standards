@@ -12,7 +12,7 @@ import { PackageType } from "#src/context/package-type";
 import { formatGitUrlHttps } from "#src/utility/format-git-url-https";
 import type { AsObject } from "#src/utility/types";
 
-const reactPackageTypes = [
+const reactPackageTypes: PackageType[] = [
     PackageType.Web,
     PackageType.WebExtension,
     PackageType.Electron,

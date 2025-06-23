@@ -31,9 +31,11 @@ async function execaResult(
 
 class LockOutOfSyncCheckError extends CheckError {
     override name = "LockOutOfSyncCheckError" as const;
+    override readonly cause: ExecaError;
 
-    constructor(override readonly cause: ExecaError) {
+    constructor(cause: ExecaError) {
         super("package lock not in sync", cause.all ?? ""); // TODO: could just do: cause.stderr (maybe have a cli flag for extra details)
+        this.cause = cause;
     }
 }
 
@@ -115,9 +117,11 @@ async function asyncFilter<T>(
 
 class MissingWorkspacesCheckError extends CheckError {
     override name = "MissingWorkspacesCheckError" as const;
+    readonly workspaces: string[];
 
-    constructor(readonly workspaces: string[]) {
+    constructor(workspaces: string[]) {
         super("missing workspaces detected", `- ${workspaces.join("\n- ")}`);
+        this.workspaces = workspaces;
     }
 }
 

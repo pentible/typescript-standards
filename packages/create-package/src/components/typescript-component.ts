@@ -44,7 +44,7 @@ export class TypescriptComponent extends Component {
             });
         }
 
-        if (![PackageType.Monorepo, PackageType.Config].includes(type)) {
+        if (!(type === PackageType.Monorepo || type === PackageType.Config)) {
             partials.push({
                 compilerOptions: {
                     baseUrl: ".",
@@ -52,7 +52,7 @@ export class TypescriptComponent extends Component {
             });
         }
 
-        if (![PackageType.Monorepo].includes(type)) {
+        if (type !== PackageType.Monorepo) {
             partials.push({
                 compilerOptions: {
                     outDir: "dist",

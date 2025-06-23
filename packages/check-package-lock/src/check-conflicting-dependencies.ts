@@ -70,8 +70,9 @@ export async function checkDependenciesConflict() {
 
 class ConflictingDependenciesCheckError extends CheckError {
     override name = "ConflictingDependenciesCheckError" as const;
+    readonly conflicts: Package[];
 
-    constructor(readonly conflicts: Package[]) {
+    constructor(conflicts: Package[]) {
         const description = conflicts
             .map((p) => {
                 // TODO: decide between showing the spec & the resolved version...
@@ -80,6 +81,7 @@ class ConflictingDependenciesCheckError extends CheckError {
             })
             .join("\n");
         super("conflicting package versions detected", description);
+        this.conflicts = conflicts;
     }
 }
 
