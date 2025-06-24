@@ -1,3 +1,3 @@
 {
-    "extends": "@pentible/tsconfig/js"
+    "extends": "@pentible/tsconfig"
 }

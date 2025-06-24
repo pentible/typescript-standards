@@ -36,7 +36,10 @@
             "outputLogs": "errors-only",
             "dependsOn": ["@pentible/check-package-lock#build"]
         },
-        "//#lint:prettier": { "outputLogs": "errors-only" },
+        "//#lint:prettier": {
+            "outputLogs": "errors-only",
+            "dependsOn": ["@pentible/prettier#build"]
+        },
         "//#lint:shellcheck": { "outputLogs": "errors-only" },
         "//#lint:yaml": { "outputLogs": "errors-only" }
     }

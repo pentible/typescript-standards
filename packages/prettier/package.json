@@ -8,12 +8,21 @@
     },
     "license": "MIT",
     "author": "pentible",
-    "main": "prettier.config.mjs",
+    "type": "module",
+    "exports": {
+        ".": {
+            "default": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
     "files": [
-        "prettier.config.mjs"
+        "dist/index.js",
+        "dist/index.d.ts"
     ],
     "scripts": {
+        "build": "tsc",
         "lint": "eslint",
+        "prepare": "npm run build",
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {

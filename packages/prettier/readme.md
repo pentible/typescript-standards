@@ -12,7 +12,7 @@ export { default } from "@pentible/prettier";
 // OR if you need to override settings
 import pentible from "@pentible/prettier";
 
-/** @type {import("prettier").Config} */
+/** @satisfies {import("prettier").Config} */
 const config = {
     ...pentible,
     plugins: [...pentible.plugins, "prettier-plugin-tailwindcss"],
