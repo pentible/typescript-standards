@@ -9,12 +9,6 @@
     "license": "MIT",
     "author": "pentible",
     "type": "module",
-    "imports": {
-        "#src/*": [
-            "./src/*.js",
-            "./src/*.ts"
-        ]
-    },
     "main": "./dist/main.js",
     "source": "./src/main.ts",
     "bin": {

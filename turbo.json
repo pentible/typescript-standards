@@ -1,5 +1,6 @@
 {
     "$schema": "./node_modules/turbo/schema.json",
+    "envMode": "loose",
     "tasks": {
         "dev": {
             "cache": false,
