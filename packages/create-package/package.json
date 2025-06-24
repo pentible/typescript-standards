@@ -9,8 +9,11 @@
     "license": "MIT",
     "author": "pentible",
     "type": "module",
-    "main": "./dist/main.js",
-    "source": "./src/main.ts",
+    "exports": {
+        ".": {
+            "default": "./dist/main.js"
+        }
+    },
     "bin": {
         "create-package": "./dist/main.js"
     },
