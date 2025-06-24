@@ -7,8 +7,16 @@ script_dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 declare repo_dir
 repo_dir="$(dirname "$script_dir")"
 
+# go to root of repo
+# NOTE: all current scripts expect to run from the root (or are indifferent). If
+# you add scripts that depend on being in (or knowing the users current
+# directory), especially scripts with take parameters which are file paths,
+# you'll need to either keep track of the current directory (ie. store $PWD), or
+# move this cd to the relevant scripts.
+cd "$repo_dir"
+
 # load mise environment (in case we're run from outside the project directory)
-eval "$(cd "$repo_dir" && mise hook-env 2> /dev/null)"
+eval "$(mise --cd "$repo_dir" hook-env --shell 'bash' 2> /dev/null)"
 
 dev::usage() {
     echo 'usage: dev <command>'
@@ -22,11 +30,9 @@ dev::usage() {
 }
 
 dev::setup() {
-    cd "$repo_dir"
-
     echo '==> install brew'
     if ! type 'brew' > /dev/null 2>&1; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        /bin/bash -c "$(curl -fsSL --tlsv1.2 https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     echo '==> install dependencies'
@@ -41,10 +47,8 @@ dev::setup() {
 }
 
 dev::reset() {
-    cd "$repo_dir"
-
     echo '==> delete git ignored files'
-    git clean -ffdX
+    git clean -ffdX -e '!/.vscode/settings.json'
 
     echo '==> reload mise'
     mise install
@@ -58,13 +62,13 @@ dev::start() {
 }
 
 dev::lint() {
-    turbo run lint typecheck --continue=dependencies-successful
+    turbo run lint lint:root typecheck typecheck:root --continue=dependencies-successful
 }
 
 dev::lint::fix() {
-    # TODO: lint fix with turbo?...
-    eslint --fix
-    prettier --log-level warn --write .
+    # TODO: really we want to run just eslint, and then prettier, and probably always both so we can fix formatting even with eslint errors
+    turbo run lint:prettier lint:prettier:root --continue=dependencies-successful -- --write
+    turbo run lint lint:root --continue=dependencies-successful -- --fix
 }
 
 dev::test() {

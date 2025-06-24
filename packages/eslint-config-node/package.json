@@ -21,7 +21,9 @@
     ],
     "scripts": {
         "build": "tsc",
+        "dev": "tsc --watch",
         "lint": "eslint",
+        "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
         "prepare": "npm run build",
         "typecheck": "tsc --noEmit"
     },

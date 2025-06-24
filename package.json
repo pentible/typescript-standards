@@ -10,15 +10,16 @@
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev",
-        "lint": "turbo run lint",
-        "lint:fix": "./bin/dev lint fix",
+        "lint": "turbo run lint lint:root --continue=dependencies-successful",
+        "lint:fix": "npm run lint -- -- --fix && npm run lint:prettier -- -- --write",
         "lint:package-lock": "check-package-lock",
-        "lint:prettier": "prettier --check .",
-        "lint:root": "eslint --ignore-pattern '{packages,apps}/'",
+        "lint:prettier": "turbo run lint:prettier lint:prettier:root --continue=dependencies-successful",
+        "lint:prettier:root": "prettier --check . --ignore-path .gitignore --ignore-path .root.prettierignore",
+        "lint:root": "eslint --ignore-pattern 'packages/'",
         "lint:shellcheck": "shellcheck-all",
         "lint:yaml": "yamllint --strict .",
         "prepare": "husky",
-        "typecheck": "turbo run typecheck",
+        "typecheck": "turbo run typecheck typecheck:root",
         "typecheck:root": "tsc --noEmit"
     },
     "devDependencies": {
@@ -34,5 +35,8 @@
         "turbo": "2.5.4",
         "typescript": "5.8.3"
     },
-    "packageManager": "npm@11.4.2"
+    "packageManager": "npm@11.4.2",
+    "engines": {
+        "node": "^22"
+    }
 }
