@@ -13,12 +13,16 @@
         },
         "typecheck": {
             "outputLogs": "errors-only",
-            "dependsOn": ["^build"]
+            "dependsOn": ["^build"],
+            "inputs": [
+                "$TURBO_DEFAULT$",
+                "$TURBO_ROOT$/packages/tsconfig/tsconfig.json"
+            ]
         },
         "//#typecheck:root": {
             "outputLogs": "errors-only",
             "dependsOn": ["^build"],
-            "inputs": ["*.config.mjs"]
+            "inputs": ["tsconfig.json", "*.config.mjs"]
         },
         "lint": {
             "outputLogs": "errors-only",
@@ -51,6 +55,9 @@
             "outputLogs": "errors-only",
             "inputs": ["bin/*", ".husky/*"]
         },
-        "//#lint:yaml": { "outputLogs": "errors-only" }
+        "//#lint:yaml": {
+            "outputLogs": "errors-only",
+            "inputs": ["**/*.yml"]
+        }
     }
 }
