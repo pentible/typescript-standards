@@ -1,11 +1,10 @@
 import { defineConfig } from "eslint/config";
+import node from "eslint-plugin-n";
 import globals from "globals";
 
 export const pentibleNode = defineConfig({
     name: "@pentible/eslint-config-node",
-    extends: [
-        // TODO: consider eslint-plugin-n/eslint-plugin-node once properly updated
-    ],
+    extends: [node.configs["flat/mixed-esm-and-cjs"]],
     languageOptions: {
         globals: {
             ...globals.node,

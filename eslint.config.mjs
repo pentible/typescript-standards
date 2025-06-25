@@ -6,10 +6,7 @@ import { defineConfig } from "eslint/config";
 const config = defineConfig([
     relativeIgnoreFile(".gitignore", import.meta.url),
     pentible,
-    {
-        files: ["packages/create-package/**", "packages/check-package-lock/**"],
-        extends: [pentibleNode],
-    },
+    pentibleNode,
     pentiblePrettier,
 ]);
 
