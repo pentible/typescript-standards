@@ -262,9 +262,8 @@ export const pentible = defineConfig([
         settings: {
             "import-x/resolver-next": [
                 createTypeScriptImportResolver({
-                    alwaysTryTypes: true, // TODO: drop with eslint-import-resolver-typescript@4
+                    noWarnOnMultipleProjects: true,
                     project: [
-                        // TODO: test without references
                         "tsconfig.json",
                         "packages/*/tsconfig.json",
                         "apps/*/tsconfig.json",

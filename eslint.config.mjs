@@ -7,7 +7,7 @@ const config = defineConfig([
     relativeIgnoreFile(".gitignore", import.meta.url),
     pentible,
     {
-        files: ["packages/create-package/**"],
+        files: ["packages/create-package/**", "packages/check-package-lock/**"],
         extends: [pentibleNode],
     },
     pentiblePrettier,
