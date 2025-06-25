@@ -1,6 +1,6 @@
 {
     "name": "@pentible/eslint-config",
-    "version": "0.113.0",
+    "version": "0.114.0",
     "description": "Pentible's standard eslint config",
     "repository": {
         "type": "git",
