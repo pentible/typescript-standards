@@ -2,16 +2,44 @@ import { defineConfig } from "eslint/config";
 import node from "eslint-plugin-n";
 import globals from "globals";
 
-export const pentibleNode = defineConfig({
-    name: "@pentible/eslint-config-node",
-    extends: [node.configs["flat/mixed-esm-and-cjs"]],
-    languageOptions: {
-        globals: {
-            ...globals.node,
+const name = "@pentible/eslint-config-node";
+export const pentibleNode = defineConfig([
+    {
+        name,
+        extends: [node.configs["flat/recommended"]],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+        rules: {
+            // eslint
+            "no-console": "off",
+            // node
+            "n/prefer-promises/dns": "error",
+            "n/prefer-promises/fs": "error",
         },
     },
-    rules: {
-        // eslint
-        "no-console": "off",
+    {
+        name,
+        files: ["**/*.mjs"],
+        extends: [node.configs["flat/recommended-module"]],
     },
-});
+    {
+        name,
+        files: ["**/*.cjs"],
+        extends: [node.configs["flat/recommended-script"]],
+    },
+    {
+        name,
+        rules: {
+            // NOTE: doesn't support subpath imports properly
+            "n/no-missing-import": "off",
+            // NOTE: doesn't work properly when the file is built
+            "n/hashbang": "off",
+            // NOTE: this rule is just dumb, throwing is not an appropriate
+            // alternative, I want to control the output of cli's
+            "n/no-process-exit": "off",
+        },
+    },
+]);
