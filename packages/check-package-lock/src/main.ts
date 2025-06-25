@@ -13,7 +13,6 @@ import { checkDependenciesConflict } from "#src/check-conflicting-dependencies";
 import { CheckError, UnknownCheckError } from "#src/checks";
 import type { Result } from "#src/result";
 import { ErrFromUnknown, Err, Ok } from "#src/result";
-import { isNonNullable } from "#src/utils";
 
 async function execaResult(
     file: string,
@@ -195,7 +194,7 @@ async function main() {
     // filter out successful checks
     const failedChecks = results
         .map((r) => (r.ok ? undefined : r.error))
-        .filter(isNonNullable);
+        .filter((r) => r !== undefined);
 
     // print failed checks
     for (const failedCheck of failedChecks) {
