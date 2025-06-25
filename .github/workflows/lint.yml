@@ -2,7 +2,7 @@ name: lint
 on: push
 jobs:
   lint:
-    name: Validate
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

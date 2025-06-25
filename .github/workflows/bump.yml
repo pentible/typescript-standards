@@ -15,10 +15,10 @@ jobs:
     name: Bump
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for validate job to finish
+      - name: Wait for lint job to finish
         uses: pentible/wait-for-check-action@v1.0.1
         with:
-          check-name: Validate
+          check-name: Lint
       - uses: actions/checkout@v4
       - name: Determine New Version
         id: version
