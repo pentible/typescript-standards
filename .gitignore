@@ -1,7 +1,8 @@
 node_modules/
-/packages/*/dist/
-/.husky/_/
-*.tgz
-tsconfig.tsbuildinfo
-/.vscode/settings.json
+dist/
 .turbo/
+.eslintcache
+.DS_Store
+*.tgz
+/.vscode/settings.json
+/.husky/_/
