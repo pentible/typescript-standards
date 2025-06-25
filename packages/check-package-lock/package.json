@@ -24,7 +24,7 @@
         "build": "node esbuild.config.mjs",
         "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.js",
-        "lint": "eslint",
+        "lint:eslint": "eslint",
         "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
         "prepare": "npm run build",
         "typecheck": "tsc --noEmit"

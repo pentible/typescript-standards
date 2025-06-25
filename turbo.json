@@ -26,13 +26,14 @@
         },
         "lint": {
             "outputLogs": "errors-only",
-            "with": ["lint:prettier"],
+            "with": ["lint:eslint", "lint:prettier"],
             "dependsOn": ["//#lint:root"],
             "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/eslint.config.mjs"]
         },
         "//#lint:root": {
             "outputLogs": "errors-only",
             "with": [
+                "lint:eslint:root",
                 "lint:prettier:root",
                 "lint:package-lock",
                 "lint:shellcheck",
@@ -41,6 +42,8 @@
             "dependsOn": ["^build"],
             "inputs": ["*.config.mjs"]
         },
+        "lint:eslint": { "outputLogs": "errors-only" },
+        "//#lint:eslint:root": { "outputLogs": "errors-only" },
         "lint:prettier": { "outputLogs": "errors-only" },
         "//#lint:prettier:root": {
             "outputLogs": "errors-only",
