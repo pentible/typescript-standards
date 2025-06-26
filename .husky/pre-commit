@@ -1,3 +1,2 @@
-npx check-package-lock
-npx tsc -b
+turbo run lint:package-lock lint:yaml typecheck typecheck:root
 npx lint-staged
