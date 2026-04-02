@@ -41,6 +41,15 @@ export const pentibleNext = defineConfig([
     },
     {
         name,
+        files: [
+            "**/src/instrumentation.{js,ts}",
+        ],
+        rules: {
+            "import-x/no-unused-modules": "off",
+        },
+    },
+    {
+        name,
         files: ["**/src/pages/_app.{js,jsx,ts,tsx}"],
         rules: {
             "react/jsx-props-no-spreading": "off",
