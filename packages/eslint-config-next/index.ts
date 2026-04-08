@@ -5,6 +5,7 @@ import { defineConfig } from "eslint/config";
 const name = "@pentible/eslint-config-next";
 
 export const pentibleNext = defineConfig([
+    { ignores: ["**/next-env.d.ts"] },
     {
         name,
         extends: [next.flatConfig.coreWebVitals],
