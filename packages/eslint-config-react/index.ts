@@ -50,7 +50,11 @@ export const pentibleReact = defineConfig({
         "react/jsx-boolean-value": "error",
         "react/jsx-curly-brace-presence": [
             "error",
-            { propElementValues: "always" },
+            {
+                props: "never",
+                children: "ignore",
+                propElementValues: "always",
+            },
         ],
         "react/jsx-filename-extension": [
             "error",
@@ -58,7 +62,6 @@ export const pentibleReact = defineConfig({
         ],
         "react/jsx-fragments": "error",
         "react/jsx-handler-names": "error",
-        "react/jsx-max-depth": ["error", { max: 8 }],
         "react/jsx-no-constructed-context-values": "error",
         "react/jsx-no-leaked-render": "error",
         "react/jsx-no-script-url": "error",

@@ -20,6 +20,7 @@ export const pentibleNext = defineConfig([
         files: [
             "**/src/{pages,app}/**/*.{js,jsx,ts,tsx}",
             "**/src/middleware.ts",
+            "**/src/proxy.ts",
         ],
         rules: {
             "import-x/no-default-export": "off",
@@ -42,9 +43,7 @@ export const pentibleNext = defineConfig([
     },
     {
         name,
-        files: [
-            "**/src/instrumentation.{js,ts}",
-        ],
+        files: ["**/src/instrumentation.{js,ts}"],
         rules: {
             "import-x/no-unused-modules": "off",
         },
