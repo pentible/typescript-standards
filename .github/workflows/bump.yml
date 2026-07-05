@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for lint job to finish
-        uses: pentible/wait-for-check-action@v1.0.1
+        uses: pentible/wait-for-check-action@v1.0.2
         with:
           check-name: Lint
       - uses: actions/checkout@v7
