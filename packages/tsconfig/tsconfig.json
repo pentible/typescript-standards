@@ -20,7 +20,6 @@
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
         "verbatimModuleSyntax": true,
-        "composite": true,
         "libReplacement": false,
         "skipLibCheck": true,
         "outDir": "${configDir}/dist",
