@@ -9,7 +9,7 @@ jobs:
     outputs:
       workspaces: ${{ steps.set_workspaces.outputs.workspaces }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: set_workspaces
         run: |
           echo "workspaces=$(
@@ -32,9 +32,9 @@ jobs:
       run:
         working-directory: ${{ matrix.workspace.location }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: package.json
       - name: Install dependencies

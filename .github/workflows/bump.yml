@@ -19,10 +19,10 @@ jobs:
         uses: pentible/wait-for-check-action@v1.0.1
         with:
           check-name: Lint
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Determine New Version
         id: version
-        uses: zwaldowski/semver-release-action@v4
+        uses: zwaldowski/semver-release-action@v6
         with:
           dry_run: true
           bump: ${{ github.event.inputs.bump }}
