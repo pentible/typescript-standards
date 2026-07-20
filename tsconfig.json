@@ -1,7 +1,8 @@
 {
-    "extends": "@pentible/tsconfig/js",
+    "extends": "@pentible/tsconfig",
     "include": ["*.config.mjs"],
     "compilerOptions": {
+        "checkJs": true,
         "noEmit": true
     }
 }

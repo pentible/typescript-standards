@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { Console } from "console";
-import fs, { constants } from "fs/promises";
-import { stderr, stdout } from "process";
+import { Console } from "node:console";
+import fs, { constants } from "node:fs/promises";
+import { stderr, stdout } from "node:process";
 import chalk, { supportsColor } from "chalk";
 import type { ExecaError, Options } from "execa";
 import { execa } from "execa";
