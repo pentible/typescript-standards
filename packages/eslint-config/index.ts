@@ -7,7 +7,7 @@ import { defineConfig } from "eslint/config";
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 import { createNodeResolver, importX } from "eslint-plugin-import-x";
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import { configs as tseslint } from "typescript-eslint";
 
 /**
  * ```ts
@@ -80,6 +80,7 @@ export const pentible = defineConfig([
         ],
         rules: {
             "no-constructor-return": "error",
+            "no-loop-func": "error",
             "no-promise-executor-return": "error",
             "no-self-compare": "error",
             "no-unmodified-loop-condition": "error",
@@ -243,19 +244,14 @@ export const pentible = defineConfig([
         name,
         files: ["**/*.{ts,tsx}"],
         extends: [
-            // TODO: remove once types are fixed: https://github.com/typescript-eslint/typescript-eslint/issues/10935
-            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, import-x/no-named-as-default-member
-            tseslint.configs.strictTypeChecked as Linter.Config,
-            // TODO: remove once types are fixed: https://github.com/typescript-eslint/typescript-eslint/issues/10935
-            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, import-x/no-named-as-default-member
-            tseslint.configs.stylisticTypeChecked as Linter.Config,
+            tseslint.strictTypeChecked,
+            tseslint.stylisticTypeChecked,
             // TODO: remove once types are fixed
             // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             importX.flatConfigs.typescript as Linter.Config,
         ],
         languageOptions: {
             parserOptions: {
-                tsconfigRootDir: ".",
                 projectService: true,
             },
         },
@@ -309,7 +305,6 @@ export const pentible = defineConfig([
             ],
             "@typescript-eslint/no-unnecessary-parameter-property-assignment":
                 "error",
-            "@typescript-eslint/no-unnecessary-type-conversion": "error",
             "@typescript-eslint/no-unnecessary-qualifier": "error",
             "@typescript-eslint/no-useless-empty-export": "error",
             "@typescript-eslint/only-throw-error": [
@@ -343,7 +338,6 @@ export const pentible = defineConfig([
                 "error",
                 { allow: ["private-constructors"] },
             ],
-            "@typescript-eslint/no-loop-func": "error",
             "@typescript-eslint/no-unused-expressions": [
                 "error",
                 { enforceForJSX: true },
