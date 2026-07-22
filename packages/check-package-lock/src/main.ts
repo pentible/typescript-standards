@@ -9,10 +9,10 @@ import { execa } from "execa";
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs/yargs";
 import { z } from "zod";
-import { checkDependenciesConflict } from "#src/check-conflicting-dependencies";
-import { CheckError, UnknownCheckError } from "#src/checks";
-import type { Result } from "#src/result";
-import { ErrFromUnknown, Err, Ok } from "#src/result";
+import { checkDependenciesConflict } from "#/check-conflicting-dependencies";
+import { CheckError, UnknownCheckError } from "#/checks";
+import type { Result } from "#/result";
+import { ErrFromUnknown, Err, Ok } from "#/result";
 
 async function execaResult(
     file: string,

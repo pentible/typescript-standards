@@ -11,8 +11,8 @@
     "type": "module",
     "exports": {
         ".": {
-            "default": "./dist/index.js",
-            "types": "./dist/index.d.ts"
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
         }
     },
     "files": [
@@ -31,13 +31,13 @@
         "eslint-plugin-react": ">=7.37.5",
         "eslint-plugin-react-compiler": ">=19.1.0-rc.2",
         "eslint-plugin-react-hooks": ">=5.2.0",
-        "eslint-plugin-react-refresh": ">=0.4.20"
+        "eslint-plugin-react-refresh": ">=0.5.3"
     },
     "devDependencies": {
-        "@types/eslint-plugin-jsx-a11y": ">=6.10.0"
+        "@types/eslint-plugin-jsx-a11y": ">=6.10.1"
     },
     "peerDependencies": {
-        "eslint": ">=9.29.0"
+        "eslint": ">=9.39.5"
     },
     "publishConfig": {
         "access": "public"

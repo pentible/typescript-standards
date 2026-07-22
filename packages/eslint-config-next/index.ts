@@ -1,6 +1,7 @@
 import next from "@next/eslint-plugin-next";
 import { naming } from "@pentible/eslint-config";
 import { defineConfig } from "eslint/config";
+import { reactRefresh } from "eslint-plugin-react-refresh";
 
 const name = "@pentible/eslint-config-next";
 
@@ -8,7 +9,7 @@ export const pentibleNext = defineConfig([
     { ignores: ["**/next-env.d.ts"] },
     {
         name,
-        extends: [next.flatConfig.coreWebVitals],
+        extends: [next.flatConfig.coreWebVitals, reactRefresh.configs.next()],
         settings: {
             next: {
                 rootDir: ["packages/*", "apps/*", "."],
@@ -26,19 +27,6 @@ export const pentibleNext = defineConfig([
             "import-x/no-default-export": "off",
             "import-x/no-unused-modules": "off",
             "import-x/no-anonymous-default-export": "off",
-            "react-refresh/only-export-components": [
-                "error",
-                {
-                    // NOTE: next doesn't actually handle any exports
-                    // differently, but those below are only applicable to
-                    // static routes, so they're not an issue for fast refresh
-                    allowExportNames: [
-                        "metadata",
-                        "revalidate",
-                        "generateStaticParams",
-                    ],
-                },
-            ],
         },
     },
     {
