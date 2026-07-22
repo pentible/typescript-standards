@@ -11,8 +11,8 @@
     "type": "module",
     "exports": {
         ".": {
-            "default": "./dist/index.js",
-            "types": "./dist/index.d.ts"
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
         }
     },
     "files": [
@@ -27,10 +27,10 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "eslint-plugin-storybook": ">=9.0.10"
+        "eslint-plugin-storybook": ">=10.5.3"
     },
     "peerDependencies": {
-        "eslint": ">=9.29.0"
+        "eslint": ">=9.39.5"
     },
     "publishConfig": {
         "access": "public"

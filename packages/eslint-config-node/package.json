@@ -11,8 +11,8 @@
     "type": "module",
     "exports": {
         ".": {
-            "default": "./dist/index.js",
-            "types": "./dist/index.d.ts"
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
         }
     },
     "files": [
@@ -28,9 +28,9 @@
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
-        "eslint": ">=9.29.0",
-        "eslint-plugin-n": ">=17.20.0",
-        "globals": ">=16.2.0"
+        "eslint": ">=9.39.5",
+        "eslint-plugin-n": ">=18.2.2",
+        "globals": ">=17.7.0"
     },
     "publishConfig": {
         "access": "public"

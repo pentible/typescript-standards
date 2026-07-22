@@ -1,8 +1,7 @@
 import { fileURLToPath } from "node:url";
-import { includeIgnoreFile } from "@eslint/compat";
+import { includeIgnoreFile } from "@eslint/config-helpers";
 import eslintJs from "@eslint/js";
 import confusingBrowserGlobals from "confusing-browser-globals";
-import type { Linter } from "eslint";
 import { defineConfig } from "eslint/config";
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 import { createNodeResolver, importX } from "eslint-plugin-import-x";
@@ -74,9 +73,7 @@ export const pentible = defineConfig([
         name,
         extends: [
             eslintJs.configs.recommended,
-            // TODO: remove once types are fixed
-            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-            importX.flatConfigs.recommended as Linter.Config,
+            importX.flatConfigs.recommended,
         ],
         rules: {
             "no-constructor-return": "error",
@@ -247,8 +244,8 @@ export const pentible = defineConfig([
             tseslint.strictTypeChecked,
             tseslint.stylisticTypeChecked,
             // TODO: remove once types are fixed
-            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-            importX.flatConfigs.typescript as Linter.Config,
+
+            importX.flatConfigs.typescript,
         ],
         languageOptions: {
             parserOptions: {

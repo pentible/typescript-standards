@@ -1,0 +1,11 @@
+/** @satisfies {import("lint-staged").Configuration} */
+const config = {
+    "*": ["prettier --check --ignore-unknown", "shellcheck-all --color=always"],
+    "*.{yml,yaml}": ["yamllint --strict"],
+    "*.{js,ts,mjs,cjs,jsx,tsx}": ["eslint"],
+    "{packages/eslint-config/*.js,packages/eslint-config-*/*.js}": [
+        "npx eslint-config-prettier",
+    ],
+};
+
+export default config;

@@ -1,22 +1,22 @@
 import { defineConfig } from "eslint/config";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
-import { configs as reactCompiler } from "eslint-plugin-react-compiler";
 import { configs as reactHook } from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
+import { reactRefresh } from "eslint-plugin-react-refresh";
 
 const name = "@pentible/eslint-config-react";
 
 export const pentibleReact = defineConfig({
     name,
     extends: [
-        // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
-        react.configs.flat.recommended,
-        // @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
-        react.configs.flat["jsx-runtime"],
-        reactHook["recommended-latest"],
-        reactCompiler.recommended,
-        reactRefresh.configs.recommended,
+        // TODO: until fixed: https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        react.configs.flat.recommended!,
+        // TODO: until fixed: https://github.com/jsx-eslint/eslint-plugin-react/issues/3878
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        react.configs.flat["jsx-runtime"]!,
+        reactHook.flat["recommended-latest"],
+        reactRefresh.configs.recommended(),
         jsxA11y.flatConfigs.strict,
     ],
     languageOptions: {

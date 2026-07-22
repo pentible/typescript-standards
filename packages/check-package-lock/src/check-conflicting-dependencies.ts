@@ -2,9 +2,9 @@
 // export being a class and a namespace
 // eslint-disable-next-line import-x/no-named-as-default
 import Arborist from "@npmcli/arborist";
-import { CheckError } from "#src/checks";
-import { Err, Ok } from "#src/result";
-import { onlyUnique } from "#src/utils";
+import { CheckError } from "#/checks";
+import { Err, Ok } from "#/result";
+import { onlyUnique } from "#/utils";
 
 export async function checkDependenciesConflict() {
     const arborist = new Arborist();
@@ -22,32 +22,17 @@ export async function checkDependenciesConflict() {
     const conflicts = workspaces.flatMap((n) => [...n.children.values()]);
 
     // collect conflict dependency paths
-    const conflictDependencyPaths = conflicts.map((conflict) => ({
-        conflict,
-        paths: getDependencyPaths(conflict),
-    }));
+    const conflictDependencyPaths = conflicts.map((conflict) => {
+        const reciprocal = packageLock.children.get(conflict.name);
 
-    // TODO: consider option to show the full paths
-    // for (const conflictDependencyPath of conflictDependencyPaths) {
-    //     console.log(`! ${conflictDependencyPath.conflict.name}`);
-    //     for (const path of conflictDependencyPath.paths) {
-    //         console.log(`    - ${path.full.map((p) => p.name).join(" -> ")}`);
-    //     }
-    // }
-    // // OR as
-    // // show dep paths
-    // for (const { conflict, paths } of conflictDependencyPaths) {
-    //     console.log(
-    //         `% conflict ${conflict.path} (${conflict.version}) due to:`,
-    //     );
-    //     for (const path of paths) {
-    //         console.log(
-    //             `    - ${path.full
-    //                 .map((p) => `${p.name} (${p.version})`)
-    //                 .join(" -> ")}`,
-    //         );
-    //     }
-    // }
+        return {
+            conflict,
+            paths: getDependencyPaths(conflict),
+            // TODO: this doesn't handle transitive dependencies...
+            reciprocal,
+            reciprocalPaths: reciprocal ? getDependencyPaths(reciprocal) : [],
+        };
+    });
 
     // TODO: improve this
     // - pick the shortest path

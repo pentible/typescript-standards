@@ -16,7 +16,7 @@
         "skipLibCheck": true,
         "outDir": "${configDir}/dist",
         "paths": {
-            "#src/*": ["${configDir}/src/*"]
+            "#/*": ["${configDir}/src/*"]
         }
     }
 }
