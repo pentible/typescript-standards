@@ -6,6 +6,15 @@ import { CheckError } from "#/checks";
 import { Err, Ok } from "#/result";
 import { onlyUnique } from "#/utils";
 
+interface Conflict {
+    // TODO: in practice is it either?
+    pkg: Arborist.Node | Arborist.Link;
+    paths: Path[];
+    // TODO: in practice is it either?
+    reciprocal: Arborist.Node | Arborist.Link | undefined;
+    reciprocalPaths: Path[];
+}
+
 export async function checkDependenciesConflict() {
     const arborist = new Arborist();
 
@@ -19,19 +28,21 @@ export async function checkDependenciesConflict() {
     // NOTE: child packages of a workspace (packages within it's individual
     // node_modules), are considered to be conflicts (since npm would otherwise
     // be able to install them in the root node_modules)
-    const conflicts = workspaces.flatMap((n) => [...n.children.values()]);
+    const conflictingPackages = workspaces.flatMap((n) => [
+        ...n.children.values(),
+    ]);
 
-    // collect conflict dependency paths
-    const conflictDependencyPaths = conflicts.map((conflict) => {
-        const reciprocal = packageLock.children.get(conflict.name);
+    // collect conflict info
+    const conflicts = conflictingPackages.map((pkg) => {
+        const reciprocal = packageLock.children.get(pkg.name);
 
         return {
-            conflict,
-            paths: getDependencyPaths(conflict),
-            // TODO: this doesn't handle transitive dependencies...
+            pkg,
+            paths: getDependencyPaths(pkg),
+            // TODO: does this handle transitive dependencies?...
             reciprocal,
             reciprocalPaths: reciprocal ? getDependencyPaths(reciprocal) : [],
-        };
+        } satisfies Conflict;
     });
 
     // TODO: improve this
@@ -39,8 +50,8 @@ export async function checkDependenciesConflict() {
     // - restructure uniqueness checks to allow forwarding through additional info to the error
 
     // collect direct dependency conflicts
-    const directDependencyConflicts = conflictDependencyPaths
-        .flatMap(({ paths }) => paths.map((p) => p.directConflict))
+    const directDependencyConflicts = conflicts
+        .flatMap(({ paths }) => paths.map((p) => p.directDependency))
         .filter(onlyUnique) // often multiple conflicts will be caused by a single dependency...
         .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -74,7 +85,7 @@ type Package = Arborist.Node | Arborist.Link;
 
 interface Path {
     workspace: Package;
-    directConflict: Package;
+    directDependency: Package;
     full: Package[];
 }
 
@@ -113,7 +124,7 @@ function getDependencyPaths(
                 return [
                     {
                         workspace: dependent.from,
-                        directConflict: pkg,
+                        directDependency: pkg,
                         full: [dependent.from, pkg],
                     },
                 ];
@@ -122,7 +133,7 @@ function getDependencyPaths(
             return getDependencyPaths(dependent.from, new Set(visited)).map(
                 (path) => ({
                     workspace: path.workspace,
-                    directConflict: path.directConflict,
+                    directDependency: path.directDependency,
                     full: [...path.full, pkg],
                 }),
             );
