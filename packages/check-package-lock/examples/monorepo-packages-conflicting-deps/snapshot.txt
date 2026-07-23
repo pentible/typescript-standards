@@ -1,0 +1,2 @@
+! conflicting package versions detected
+    - chalk (5.3.0) in packages/one

@@ -1,0 +1,2 @@
+! conflicting package versions detected
+    - expo (50.0.11) in apps/mobile
