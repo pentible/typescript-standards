@@ -71,12 +71,19 @@ dev::lint::fix() {
 }
 
 dev::test() {
-    # TODO: we really need a snapshot test or something (just to check the output)
     # check-package-lock
     for example in "${repo_dir}/packages/check-package-lock/examples/"*; do
         echo "==> $(basename "$example")"
         cd "$example"
-        check-package-lock || true
+
+        declare snapshot_file='snapshot.txt'
+        if [[ ! -f "$snapshot_file" ]]; then
+            NPM_CONFIG_LOGS_MAX=0 check-package-lock > "$snapshot_file" 2>&1 || true
+        fi
+
+        declare output=""
+        output="$(NPM_CONFIG_LOGS_MAX=0 check-package-lock 2>&1)" || true
+        diff "$snapshot_file" <(echo "$output")
     done
 }
 

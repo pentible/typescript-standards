@@ -1,0 +1,208 @@
+! package lock not in sync
+    acme@0.0.1 /home/william/pentible/typescript-standards/packages/check-package-lock/examples/a-misc-real-monorepo
+    ├─┬ @acmeinc/account-service@0.0.1 -> ./services/accounts
+    │ ├── @acmeinc/common-service-types@0.0.1 deduped -> ./services/application
+    │ ├── @prisma/client@4.3.1
+    │ ├── @types/lodash@4.14.191
+    │ ├── @types/uuid@8.3.4
+    │ ├── jest@29.4.2
+    │ ├── lodash@4.17.21
+    │ ├── prisma@4.3.1
+    │ ├── ts-node@10.9.1 deduped
+    │ ├── typescript@4.9.5
+    │ └── uuid@9.0.0
+    ├─┬ @acmeinc/browser-extension@0.5.0 -> ./apps/browser-extension
+    │ ├── @emotion/cache@11.10.3
+    │ ├── @emotion/react@11.10.4
+    │ ├── @jest/globals@29.4.2
+    │ ├── @jest/types@29.2.1
+    │ ├── @mui/icons-material@5.10.3
+    │ ├── @mui/material@5.10.4
+    │ ├── @plasmohq/prettier-plugin-sort-imports@1.1.1
+    │ ├── @plasmohq/storage@0.12.2
+    │ ├── @testing-library/react@13.4.0
+    │ ├── @types/chrome@0.0.195
+    │ ├── @types/jest@29.4.0
+    │ ├── @types/mixpanel-browser@2.38.0
+    │ ├── @types/node@18.11.9
+    │ ├── @types/react-dom@18.0.6
+    │ ├── @types/react@18.0.21
+    │ ├── dotenv-cli@6.0.0 deduped
+    │ ├── jest-chrome@0.7.2
+    │ ├── jest-environment-jsdom@29.2.2
+    │ ├── jest-webextension-mock@3.7.22
+    │ ├── jest@29.4.2 deduped
+    │ ├── jose@4.9.2
+    │ ├── lodash@4.17.21 deduped
+    │ ├── mixpanel-browser@2.45.0
+    │ ├── plasmo@0.58.0
+    │ ├── prettier@2.7.1 deduped
+    │ ├── querystring-es3@0.2.1
+    │ ├── react-dom@18.2.0
+    │ ├── react-query@3.39.2
+    │ ├── react-router-dom@6.3.0
+    │ ├── react@18.2.0
+    │ ├── stream-http@3.2.0
+    │ ├── ts-jest@29.0.3
+    │ ├── typescript@4.9.5 deduped
+    │ ├── url@0.11.0
+    │ └── web-vitals@2.1.4
+    ├─┬ @acmeinc/capture-service@0.0.1 -> ./services/capture
+    │ ├── @acmeinc/common-service-types@0.0.1 deduped -> ./services/application
+    │ ├── @prisma/client@4.3.1 deduped
+    │ ├── @types/uuid@8.3.4 deduped
+    │ ├── aws-sdk@2.1223.0
+    │ ├── jest@29.4.2 deduped
+    │ ├── luxon@3.1.1
+    │ ├── prisma@4.3.1 deduped
+    │ ├── typescript@4.9.5 deduped
+    │ └── uuid@9.0.0 deduped
+    ├─┬ @acmeinc/common-service-types@0.0.1 -> ./services/application
+    │ └── typescript@4.9.5 deduped
+    ├─┬ @acmeinc/components@0.0.1 -> ./packages/components
+    │ ├── @babel/core@7.20.12
+    │ ├── @emotion/react@11.10.4 deduped
+    │ ├── @emotion/styled@11.10.4
+    │ ├── @mui/icons-material@5.10.3 deduped
+    │ ├── @mui/material@5.10.4 deduped
+    │ ├── @storybook/addon-actions@6.5.16
+    │ ├── @storybook/addon-essentials@6.5.16
+    │ ├── @storybook/addon-interactions@6.5.16
+    │ ├── @storybook/addon-links@6.5.16
+    │ ├── @storybook/builder-webpack4@6.5.16
+    │ ├── @storybook/manager-webpack4@6.5.16
+    │ ├── @storybook/react@6.5.16
+    │ ├── @storybook/testing-library@0.0.13
+    │ ├── @types/chrome@0.0.195 deduped
+    │ ├── @types/react@18.0.21 deduped
+    │ ├── babel-loader@8.3.0
+    │ ├── jest@29.4.2 deduped
+    │ ├── prettier@2.7.1 deduped
+    │ ├── react@18.2.0 deduped
+    │ └── typescript@4.9.5 deduped
+    ├─┬ @acmeinc/meeting-service@0.0.1 -> ./services/meetings
+    │ ├── @acmeinc/common-service-types@0.0.1 deduped -> ./services/application
+    │ ├── @prisma/client@4.3.1 deduped
+    │ ├── @types/uuid@8.3.4 deduped
+    │ ├── jest@29.4.2 deduped
+    │ ├── lodash@4.17.21 deduped
+    │ ├── prisma@4.3.1 deduped
+    │ ├── ts-node@10.9.1 deduped
+    │ ├── typescript@4.9.5 deduped
+    │ └── uuid@9.0.0 deduped
+    ├─┬ @acmeinc/pulse-service@0.0.1 -> ./services/pulse
+    │ ├── @acmeinc/common-service-types@0.0.1 deduped -> ./services/application
+    │ ├── @prisma/client@4.3.1 deduped
+    │ ├── @types/luxon@3.1.0
+    │ ├── @types/uuid@8.3.4 deduped
+    │ ├── jest@29.4.2 deduped
+    │ ├── lodash@4.17.21 deduped
+    │ ├── luxon@3.1.1 deduped
+    │ ├── pg-boss@8.2.0
+    │ ├── prisma@4.3.1 deduped
+    │ ├── ts-node@10.9.1 deduped
+    │ ├── typescript@4.9.5 deduped
+    │ └── uuid@9.0.0 deduped
+    ├─┬ @acmeinc/slack@1.0.0 extraneous -> ./apps/slack
+    │ ├── @jest/globals@29.4.2 deduped
+    │ ├── @jest/types@26.6.2 invalid: "^29.2.1" from apps/slack
+    │ ├── @slack/bolt@3.12.2
+    │ ├── dotenv-cli@6.0.0 deduped
+    │ ├── dotenv@16.0.3 deduped
+    │ ├── jest@29.4.2 deduped
+    │ ├── tiny-invariant@1.2.0
+    │ ├── ts-jest@29.0.3 deduped
+    │ └── UNMET DEPENDENCY tsc-watch@^5.0.3
+    ├─┬ @acmeinc/webapp@ -> ./apps/webapp
+    │ ├── @acmeinc/account-service@0.0.1 deduped -> ./services/accounts
+    │ ├── @acmeinc/capture-service@0.0.1 deduped -> ./services/capture
+    │ ├── @acmeinc/common-service-types@0.0.1 deduped -> ./services/application
+    │ ├── @acmeinc/meeting-service@0.0.1 deduped -> ./services/meetings
+    │ ├── @acmeinc/pulse-service@0.0.1 deduped -> ./services/pulse
+    │ ├── @emotion/css@11.10.0
+    │ ├── @emotion/react@11.10.4 deduped
+    │ ├── @emotion/server@11.10.0
+    │ ├── @emotion/styled@11.10.4 deduped
+    │ ├── @fortawesome/fontawesome-svg-core@6.2.1
+    │ ├── @fortawesome/free-solid-svg-icons@6.2.1
+    │ ├── @fortawesome/react-fontawesome@0.2.0
+    │ ├── @jest/globals@29.4.2 deduped
+    │ ├── @jest/types@29.2.1
+    │ ├── @mui/icons-material@5.10.3 deduped
+    │ ├── @mui/material@5.10.4 deduped
+    │ ├── @prisma/client@4.3.1 deduped
+    │ ├── @remix-run/dev@1.11.1
+    │ ├── @remix-run/eslint-config@1.11.1
+    │ ├── @remix-run/express@1.11.1
+    │ ├── @remix-run/node@1.11.1
+    │ ├── @remix-run/react@1.11.1
+    │ ├── @remix-run/server-runtime@1.11.1
+    │ ├── @slack/bolt@3.12.2 deduped
+    │ ├── @slack/web-api@6.8.0
+    │ ├── @types/bcryptjs@2.4.2
+    │ ├── @types/chrome@0.0.195 deduped
+    │ ├── @types/compression@1.7.2
+    │ ├── @types/eslint@8.4.6
+    │ ├── @types/express@4.17.14
+    │ ├── @types/jest@29.4.0 deduped
+    │ ├── @types/luxon@3.1.0 deduped
+    │ ├── @types/morgan@1.9.3
+    │ ├── @types/ramda@0.28.15
+    │ ├── @types/react-dom@18.0.6 deduped
+    │ ├── @types/react@18.0.21 deduped
+    │ ├── @types/uuid@8.3.4 deduped
+    │ ├── @vvo/tzdb@6.77.0
+    │ ├── bcryptjs@2.4.3
+    │ ├── compression@1.7.4
+    │ ├── cross-env@7.0.3
+    │ ├── cuid@2.1.8
+    │ ├── dotenv-cli@6.0.0 deduped
+    │ ├── esbuild@0.14.54
+    │ ├── eslint-config-prettier@8.5.0
+    │ ├── eslint@8.24.0 deduped
+    │ ├── express@4.18.1
+    │ ├── google-auth-library@8.5.1
+    │ ├── jest@29.4.2 deduped
+    │ ├── jose@4.9.2 deduped
+    │ ├── jsx-slack@5.3.0
+    │ ├── lodash@4.17.21 deduped
+    │ ├── luxon@3.1.1 deduped
+    │ ├── mixpanel-browser@2.45.0 deduped
+    │ ├── mixpanel@0.17.0
+    │ ├── morgan@1.10.0
+    │ ├── nodemon@2.0.19
+    │ ├── npm-run-all@4.1.5
+    │ ├── pg-boss@8.2.0 deduped
+    │ ├── prettier-plugin-tailwindcss@0.1.13
+    │ ├── prettier@2.7.1 deduped
+    │ ├── prisma@4.3.1 deduped
+    │ ├── ramda@0.28.0
+    │ ├── react-dom@18.2.0 deduped
+    │ ├── react@18.2.0 deduped
+    │ ├── tiny-invariant@1.2.0 deduped
+    │ ├── ts-jest@29.0.3 deduped
+    │ ├── ts-node@10.9.1 deduped
+    │ ├── typescript@4.9.5 deduped
+    │ ├── uuid@9.0.0 deduped
+    │ └── zod@3.19.1
+    ├── dotenv-cli@6.0.0
+    ├── dotenv@16.0.3
+    ├── eslint-plugin-prettier@4.2.1
+    ├── eslint-plugin-react@7.31.8
+    ├── eslint-plugin-unused-imports@2.0.0
+    ├── eslint@8.24.0
+    ├── husky@8.0.3
+    ├── lint-staged@13.1.1
+    ├── prettier@2.7.1
+    ├── ts-node@10.9.1
+    ├── tsc-files@1.1.3
+    └── turbo@1.4.5
+    
+    npm error code ELSPROBLEMS
+    npm error extraneous: @acmeinc/slack@1.0.0 /home/william/pentible/typescript-standards/packages/check-package-lock/examples/a-misc-real-monorepo/node_modules/@acmeinc/slack
+    npm error invalid: @jest/types@26.6.2 /home/william/pentible/typescript-standards/packages/check-package-lock/examples/a-misc-real-monorepo/node_modules/@jest/types
+    npm error missing: tsc-watch@^5.0.3, required by slack@npm:@acmeinc/slack@1.0.0
+    npm error Log files were not written due to the config logs-max=0
+! conflicting package versions detected
+    - @jest/types (29.2.1) in apps/browser-extension
+    - @jest/types (29.2.1) in apps/webapp

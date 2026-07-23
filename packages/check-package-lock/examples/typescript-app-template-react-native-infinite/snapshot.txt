@@ -1,0 +1,9 @@
+! conflicting package versions detected
+    - @types/react (19.0.14) in apps/mobile
+    - react (19.0.0) in apps/desktop
+    - react (19.0.0) in apps/mobile
+    - react (19.0.0) in apps/web
+    - react-dom (19.0.0) in apps/desktop
+    - react-dom (19.0.0) in apps/mobile
+    - react-dom (19.0.0) in apps/web
+    - react-native (0.79.3) in apps/mobile
