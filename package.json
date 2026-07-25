@@ -27,7 +27,6 @@
         "@pentible/eslint-config-node": "*",
         "@pentible/eslint-config-prettier": "*",
         "@pentible/prettier": "*",
-        "esbuild": "0.28.1",
         "eslint": "9.39.5",
         "husky": "9.1.7",
         "lint-staged": "17.1.0",
@@ -38,8 +37,5 @@
     "packageManager": "npm@11.4.2",
     "engines": {
         "node": "^24"
-    },
-    "allowScripts": {
-        "esbuild@0.28.1": true
     }
 }
