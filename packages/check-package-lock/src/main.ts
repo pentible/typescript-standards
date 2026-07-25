@@ -78,7 +78,7 @@ async function loadJsonFile<T extends z.ZodType>(
     }
 }
 
-async function checkIfPackageIsMonorepo() {
+async function isPackageIsMonorepo() {
     const packageJsonSchema = z.object({
         workspaces: z.array(z.string()).optional(),
     });
@@ -154,6 +154,40 @@ async function checkMissingWorkspaces() {
     return Ok(true);
 }
 
+// TODO: need to investigate the test cases, can we simply update them to v3? or do we need to override the expected version?
+// class LockfileVersionCheckError extends CheckError {
+//     override name = "LockfileVersionCheckError" as const;
+//     version: number;
+//     expected: number;
+
+//     constructor(version: number, expected: number) {
+//         super(
+//             "outdated lockfile version",
+//             `expected ${expected} found ${version}, update with:\n` +
+//                 `$ npm i --lockfile-version ${expected} --package-lock-only`,
+//         );
+//         this.version = version;
+//         this.expected = expected;
+//     }
+// }
+
+// async function checkLockfileVersion() {
+//     const res = await loadJsonFile("package-lock.json", packageLockSchema);
+//     if (!res.ok) {
+//         return Err(new UnknownCheckError(res.error));
+//     }
+//     const packageLock = res.value;
+
+//     const lockfileVersion = packageLock.lockfileVersion;
+
+//     const expected = 3;
+//     if (lockfileVersion < expected) {
+//         return Err(new LockfileVersionCheckError(lockfileVersion, expected));
+//     }
+
+//     return Ok(true);
+// }
+
 type Check = () => Promise<Result<boolean, CheckError>>;
 
 async function main() {
@@ -174,7 +208,7 @@ async function main() {
         .strict().argv;
 
     // check if package is a monorepo
-    const isMonorepoResult = await checkIfPackageIsMonorepo();
+    const isMonorepoResult = await isPackageIsMonorepo();
     if (!isMonorepoResult.ok) {
         console.error("could not determine if the package was a monorepo");
         console.error(isMonorepoResult.error);
