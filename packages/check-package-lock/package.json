@@ -21,7 +21,7 @@
         "dist/main.mjs"
     ],
     "scripts": {
-        "build": "tsdown",
+        "build": "tsdown --logLevel 'warn'",
         "dev": "npm run build -- --watch",
         "preinstall": "mkdir -p dist && touch dist/main.mjs",
         "lint:eslint": "eslint",
