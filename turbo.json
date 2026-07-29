@@ -7,13 +7,8 @@
             "cache": false,
             "persistent": true
         },
-        "build": {
-            "outputLogs": "errors-only",
-            "dependsOn": ["^build"]
-        },
         "typecheck": {
             "outputLogs": "errors-only",
-            "dependsOn": ["^build"],
             "inputs": [
                 "$TURBO_DEFAULT$",
                 "$TURBO_ROOT$/packages/tsconfig/tsconfig.json"
@@ -21,7 +16,6 @@
         },
         "//#typecheck:root": {
             "outputLogs": "errors-only",
-            "dependsOn": ["^build"],
             "inputs": ["tsconfig.json", "*.config.mjs"]
         },
         "lint": {
@@ -39,19 +33,16 @@
                 "lint:shellcheck",
                 "lint:yaml"
             ],
-            "dependsOn": ["^build"],
             "inputs": ["*.config.mjs"]
         },
         "lint:eslint": { "outputLogs": "errors-only" },
         "//#lint:eslint:root": { "outputLogs": "errors-only" },
         "lint:prettier": { "outputLogs": "errors-only" },
         "//#lint:prettier:root": {
-            "outputLogs": "errors-only",
-            "dependsOn": ["@pentible/prettier#build"]
+            "outputLogs": "errors-only"
         },
         "//#lint:package-lock": {
             "outputLogs": "errors-only",
-            "dependsOn": ["@pentible/check-package-lock#build"],
             "inputs": ["package.json", "**/package.json", "package-lock.json"]
         },
         "//#lint:shellcheck": {

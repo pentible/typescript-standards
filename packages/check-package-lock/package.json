@@ -9,13 +9,14 @@
     "license": "MIT",
     "author": "pentible",
     "type": "module",
+    "imports": {
+        "#/*": "./src/*.ts"
+    },
     "exports": {
-        ".": {
-            "default": "./dist/main.mjs"
-        }
+        ".": "./src/main.ts"
     },
     "bin": {
-        "check-package-lock": "./dist/main.mjs"
+        "check-package-lock": "./src/main.ts"
     },
     "files": [
         "dist/main.mjs"
@@ -23,10 +24,9 @@
     "scripts": {
         "build": "tsdown --logLevel 'warn'",
         "dev": "npm run build -- --watch",
-        "preinstall": "mkdir -p dist && touch dist/main.mjs",
         "lint:eslint": "eslint",
         "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
-        "prepare": "npm run build",
+        "prepack": "npm run build",
         "typecheck": "tsc --noEmit"
     },
     "devDependencies": {
@@ -44,6 +44,9 @@
         "node": ">=24"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "bin": {
+            "check-package-lock": "./dist/main.mjs"
+        }
     }
 }

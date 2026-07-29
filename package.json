@@ -8,7 +8,7 @@
         "./packages/*"
     ],
     "scripts": {
-        "build": "turbo run build",
+        "build": "npm run build --ws --if-present",
         "dev": "turbo run dev",
         "lint": "turbo run lint lint:root --continue=dependencies-successful",
         "lint:eslint:root": "eslint --ignore-pattern 'packages/'",
@@ -34,7 +34,6 @@
         "turbo": "2.10.6",
         "typescript": "6.0.3"
     },
-    "packageManager": "npm@11.4.2",
     "engines": {
         "node": "^24"
     }

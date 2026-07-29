@@ -10,10 +10,7 @@
     "author": "pentible",
     "type": "module",
     "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "default": "./dist/index.js"
-        }
+        ".": "./index.ts"
     },
     "files": [
         "dist/index.js",
@@ -24,6 +21,7 @@
         "dev": "tsc --watch",
         "lint:eslint": "eslint",
         "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
+        "prepack": "npm run build",
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
@@ -35,6 +33,12 @@
         "eslint": ">=9.39.5"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "exports": {
+            ".": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
+        }
     }
 }
