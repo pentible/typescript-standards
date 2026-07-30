@@ -23,6 +23,9 @@ jobs:
   publish:
     name: Publish ${{ matrix.workspace.name_unscoped }}
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for OIDC token generation
+      contents: read # Standard read permission for repo contents
     needs: matrix
     strategy:
       fail-fast: false
