@@ -12,9 +12,6 @@
         "tsconfig.json",
         "js/tsconfig.json"
     ],
-    "scripts": {
-        "lint:prettier": "prettier --check --ignore-path ../../.gitignore ."
-    },
     "publishConfig": {
         "access": "public"
     }

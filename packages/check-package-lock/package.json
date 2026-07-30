@@ -23,11 +23,7 @@
     ],
     "scripts": {
         "build": "tsdown --logLevel 'warn'",
-        "dev": "npm run build -- --watch",
-        "lint:eslint": "eslint",
-        "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
-        "prepack": "npm run build",
-        "typecheck": "tsc --noEmit"
+        "prepack": "npm run build"
     },
     "devDependencies": {
         "@npmcli/arborist": "10.0.1",

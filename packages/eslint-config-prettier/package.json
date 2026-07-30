@@ -18,11 +18,7 @@
     ],
     "scripts": {
         "build": "tsc",
-        "dev": "tsc --watch",
-        "lint:eslint": "eslint",
-        "lint:prettier": "prettier --check --ignore-path ../../.gitignore .",
-        "prepack": "npm run build",
-        "typecheck": "tsc --noEmit"
+        "prepack": "npm run build"
     },
     "dependencies": {
         "eslint-config-prettier": ">=10.1.8"

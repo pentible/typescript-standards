@@ -1,6 +1,7 @@
 {
     "extends": "@pentible/tsconfig/node",
     "compilerOptions": {
+        "composite": true,
         "declaration": true
     }
 }

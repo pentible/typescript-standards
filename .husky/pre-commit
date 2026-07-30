@@ -1,2 +1,1 @@
-turbo run lint:package-lock lint:yaml typecheck typecheck:root
 lint-staged

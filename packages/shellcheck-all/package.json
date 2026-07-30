@@ -14,9 +14,6 @@
     "files": [
         "shellcheck-all.sh"
     ],
-    "scripts": {
-        "lint:prettier": "prettier --check --ignore-path ../../.gitignore ."
-    },
     "publishConfig": {
         "access": "public"
     }

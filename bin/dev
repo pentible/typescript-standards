@@ -22,7 +22,6 @@ dev::usage() {
     echo 'usage: dev <command>'
     echo '       dev setup    # install app and dev env dependencies'
     echo '       dev reset    # deletes temp files and sets project back up'
-    echo '       dev start    # run build watchers'
     echo '       dev lint     # run linters'
     echo '       dev lint fix # fix auto-fixable linter errors'
     echo '       dev test     # run tests'
@@ -57,17 +56,30 @@ dev::reset() {
     npm install
 }
 
-dev::start() {
-    turbo dev
-}
-
 dev::lint() {
-    turbo run lint lint:root typecheck typecheck:root --continue=dependencies-successful
+    # NOTE: using MISE_TASK_TIMINGS=0 because --no-timings doesn't seem to work...
+    # NOTE: eslint only respects FORCE_COLOR, prettier only respects COLOR
+    COLOR=1 \
+        FORCE_COLOR=1 \
+        MISE_TASK_TIMINGS=0 \
+        mise run \
+        --continue-on-error \
+        --output keep-order \
+        --quiet \
+        lint
 }
 
 dev::lint::fix() {
-    turbo run lint:eslint lint:eslint:root --continue=dependencies-successful -- --fix
-    turbo run lint:prettier lint:prettier:root --continue=dependencies-successful -- --write
+    # NOTE: using MISE_TASK_TIMINGS=0 because --no-timings doesn't seem to work...
+    # NOTE: eslint only respects FORCE_COLOR, prettier only respects COLOR
+    COLOR=1 \
+        FORCE_COLOR=1 \
+        MISE_TASK_TIMINGS=0 \
+        mise run \
+        --continue-on-error \
+        --output keep-order \
+        --quiet \
+        lint:fix
 }
 
 dev::test() {
@@ -90,7 +102,6 @@ dev::test() {
 case "$*" in
     setup) dev::setup ;;
     reset) dev::reset ;;
-    start) dev::start ;;
     lint) dev::lint ;;
     'lint fix') dev::lint::fix ;;
     test) dev::test ;;

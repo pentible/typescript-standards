@@ -1,6 +1,5 @@
 node_modules/
 dist/
-.turbo/
 .eslintcache
 .DS_Store
 *.tgz

@@ -8,19 +8,7 @@
         "./packages/*"
     ],
     "scripts": {
-        "build": "npm run build --ws --if-present",
-        "dev": "turbo run dev",
-        "lint": "turbo run lint lint:root --continue=dependencies-successful",
-        "lint:eslint:root": "eslint --ignore-pattern 'packages/'",
-        "lint:fix": "npm run lint:eslint -- -- --fix && npm run lint:prettier -- -- --write",
-        "lint:package-lock": "check-package-lock",
-        "lint:prettier": "turbo run lint:prettier lint:prettier:root --continue=dependencies-successful",
-        "lint:prettier:root": "prettier --check . --ignore-path .gitignore --ignore-path .root.prettierignore",
-        "lint:shellcheck": "shellcheck-all",
-        "lint:yaml": "yamllint --strict .",
-        "prepare": "husky",
-        "typecheck": "turbo run typecheck typecheck:root",
-        "typecheck:root": "tsc --noEmit"
+        "prepare": "husky"
     },
     "devDependencies": {
         "@pentible/eslint-config": "*",
@@ -31,7 +19,6 @@
         "husky": "9.1.7",
         "lint-staged": "17.1.0",
         "prettier": "3.9.6",
-        "turbo": "2.10.6",
         "typescript": "6.0.3"
     },
     "engines": {

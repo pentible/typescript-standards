@@ -6,6 +6,9 @@ const config = {
     "{packages/eslint-config/*.js,packages/eslint-config-*/*.js}": [
         "npx eslint-config-prettier",
     ],
+    // NOTE: using the function syntax so files aren't passed to the command
+    "**/*.{mjs,ts}": () => "tsc --noEmit",
+    "package-lock.json": () => "check-package-lock",
 };
 
 export default config;
