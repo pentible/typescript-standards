@@ -1,4 +1,4 @@
-import { configs as next } from "@next/eslint-plugin-next";
+import next from "@next/eslint-plugin-next";
 import { naming } from "@pentible/eslint-config";
 import { defineConfig } from "eslint/config";
 import { reactRefresh } from "eslint-plugin-react-refresh";
@@ -9,7 +9,9 @@ export const pentibleNext = defineConfig([
     { ignores: ["**/next-env.d.ts"] },
     {
         name,
-        extends: [next["core-web-vitals"], reactRefresh.configs.next()],
+        // NOTE: their types are setup improperly
+        // eslint-disable-next-line import-x/no-named-as-default-member
+        extends: [next.configs["core-web-vitals"], reactRefresh.configs.next()],
         settings: {
             next: {
                 rootDir: ["packages/*", "apps/*", "."],
