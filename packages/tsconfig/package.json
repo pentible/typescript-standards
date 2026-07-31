@@ -10,7 +10,7 @@
     "author": "pentible",
     "files": [
         "tsconfig.json",
-        "js/tsconfig.json"
+        "node/tsconfig.json"
     ],
     "publishConfig": {
         "access": "public"
