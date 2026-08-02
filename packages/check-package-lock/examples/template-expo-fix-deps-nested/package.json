@@ -1,0 +1,38 @@
+{
+    "name": "@repo/ptat",
+    "version": "0.0.0",
+    "private": true,
+    "license": "UNLICENSED",
+    "type": "module",
+    "workspaces": [
+        "./apps/*",
+        "./packages/*"
+    ],
+    "scripts": {
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@pentible/check-package-lock": "0.123.0",
+        "@pentible/eslint-config": "0.123.0",
+        "@pentible/eslint-config-expo": "0.123.0",
+        "@pentible/eslint-config-next": "0.123.0",
+        "@pentible/eslint-config-node": "0.123.0",
+        "@pentible/eslint-config-prettier": "0.123.0",
+        "@pentible/eslint-config-react": "0.123.0",
+        "@pentible/eslint-config-web": "0.123.0",
+        "@pentible/prettier": "0.123.0",
+        "@pentible/shellcheck-all": "0.123.0",
+        "@pentible/tsconfig": "0.123.0",
+        "@tanstack/eslint-plugin-query": "5.81.2",
+        "eslint": "9.39.5",
+        "husky": "9.1.7",
+        "lint-staged": "17.3.0",
+        "prettier": "3.9.6",
+        "prettier-plugin-tailwindcss": "0.8.1",
+        "typescript": "6.0.3",
+        "typescript-eslint": "8.65.0"
+    },
+    "engines": {
+        "node": "^24"
+    }
+}

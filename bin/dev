@@ -95,7 +95,7 @@ dev::test() {
 
         declare output=""
         output="$(NPM_CONFIG_LOGS_MAX=0 check-package-lock 2>&1)" || true
-        diff "$snapshot_file" <(echo "$output")
+        diff "$snapshot_file" <(echo -n "$output")
     done
 }
 
