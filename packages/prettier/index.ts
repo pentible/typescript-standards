@@ -2,7 +2,7 @@ import type { Config } from "prettier";
 
 const config = {
     proseWrap: "always",
-    plugins: ["prettier-plugin-packagejson", "prettier-plugin-sh"],
+    plugins: ["prettier-plugin-packagejson"],
 } satisfies Config;
 
 // NOTE: prettier expects a default export

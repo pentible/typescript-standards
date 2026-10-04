@@ -7,6 +7,7 @@ _.path = ["./node_modules/.bin", "./bin"]
 
 [tools]
 node = "24.18.0"
+shfmt = "3.14.0"
 shellcheck = "0.10.0"
 yamllint = "1.35.1"
 pnpm = "11.17.0"
@@ -16,6 +17,7 @@ depends = [
     "eslint",
     "prettier",
     "check-package-lock",
+    "shfmt",
     "shellcheck",
     "yamllint",
     "tsc",
@@ -26,6 +28,8 @@ run = "prettier --check --log-level warn ."
 run = "eslint --concurrency auto"
 [tasks.check-package-lock]
 run = "check-package-lock"
+[tasks.shfmt]
+run = "shfmt --diff ./bin/dev ./packages/*/*.sh"
 [tasks.shellcheck]
 run = "shellcheck-all"
 [tasks.yamllint]
@@ -34,9 +38,11 @@ run = "yamllint --strict ."
 run = "tsc -b"
 
 [tasks.'lint:fix']
-depends = ["prettier:fix", "eslint:fix"]
+depends = ["prettier:fix", "eslint:fix", "shfmt:fix"]
 [tasks.'prettier:fix']
 run = "prettier --write --log-level warn ."
 wait_for = ["eslint:fix"]
 [tasks.'eslint:fix']
 run = "eslint --concurrency auto --fix"
+[tasks.'shfmt:fix']
+run = "shfmt --write ./bin/dev ./packages/*/*.sh"
